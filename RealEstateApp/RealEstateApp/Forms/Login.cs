@@ -27,7 +27,7 @@ namespace RealEstateApp.Forms
 
         private void Login_Load(object sender, EventArgs e)
         {
-            linkLblToRegister.Text = "If you don't have an account click here to register.";
+            linkLblToRegister.Text = "If you don't have an account please click here to register.";
             linkLblToRegister.LinkArea = new LinkArea(35, 4);
 
             //lblEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -84,7 +84,7 @@ namespace RealEstateApp.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error occured: " + ex.Message);
+                MessageBox.Show("An Error occured: " + ex.Message);
             }
         }
 
