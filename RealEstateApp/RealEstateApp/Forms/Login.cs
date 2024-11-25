@@ -95,5 +95,23 @@ namespace RealEstateApp.Forms
             Register register = new Register();
             register.Show();
         }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        internal object btnLogin_Click()
+        {
+            throw new NotImplementedException();
+        }
+        public bool AuthenticateUser(string email, string password)
+        {
+            if (email == "valid_user@example.com" && password == "123456")
+                return true;
+
+            return false;
+        }
+
     }
 }
