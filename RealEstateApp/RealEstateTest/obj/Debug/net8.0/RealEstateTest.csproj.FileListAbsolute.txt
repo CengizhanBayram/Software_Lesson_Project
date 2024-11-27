@@ -121,3 +121,12 @@ C:\Users\cengh\Desktop\software\Software_Lesson_Project\Software_Lesson_Project\
 C:\Users\cengh\Desktop\software\Software_Lesson_Project\Software_Lesson_Project\RealEstateApp\RealEstateTest\obj\Debug\net8.0\RealEstateTest.pdb
 C:\Users\cengh\Desktop\software\Software_Lesson_Project\Software_Lesson_Project\RealEstateApp\RealEstateTest\obj\Debug\net8.0\RealEstateTest.genruntimeconfig.cache
 C:\Users\cengh\Desktop\software\Software_Lesson_Project\Software_Lesson_Project\RealEstateApp\RealEstateTest\obj\Debug\net8.0\ref\RealEstateTest.dll
+C:\Users\furka\source\repos\Software_Lesson_Project\RealEstateApp\RealEstateTest\obj\Debug\net8.0\RealEstateTest.csproj.AssemblyReference.cache
+C:\Users\furka\source\repos\Software_Lesson_Project\RealEstateApp\RealEstateTest\obj\Debug\net8.0\RealEstateTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\furka\source\repos\Software_Lesson_Project\RealEstateApp\RealEstateTest\obj\Debug\net8.0\RealEstateTest.AssemblyInfoInputs.cache
+C:\Users\furka\source\repos\Software_Lesson_Project\RealEstateApp\RealEstateTest\obj\Debug\net8.0\RealEstateTest.AssemblyInfo.cs
+C:\Users\furka\source\repos\Software_Lesson_Project\RealEstateApp\RealEstateTest\obj\Debug\net8.0\RealEstateTest.csproj.CoreCompileInputs.cache
+C:\Users\furka\source\repos\Software_Lesson_Project\RealEstateApp\RealEstateTest\obj\Debug\net8.0\RealEstateTest.sourcelink.json
+C:\Users\furka\source\repos\Software_Lesson_Project\RealEstateApp\RealEstateTest\obj\Debug\net8.0\RealEstateTest.dll
+C:\Users\furka\source\repos\Software_Lesson_Project\RealEstateApp\RealEstateTest\obj\Debug\net8.0\refint\RealEstateTest.dll
+C:\Users\furka\source\repos\Software_Lesson_Project\RealEstateApp\RealEstateTest\obj\Debug\net8.0\RealEstateTest.pdb

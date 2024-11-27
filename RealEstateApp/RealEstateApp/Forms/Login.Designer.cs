@@ -34,11 +34,14 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.linkLblToRegister = new System.Windows.Forms.LinkLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTemp = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(539, 268);
+            this.btnLogin.Location = new System.Drawing.Point(138, 220);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(5);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(122, 49);
@@ -49,16 +52,15 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(475, 125);
+            this.txtEmail.Location = new System.Drawing.Point(74, 77);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(5);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(245, 32);
             this.txtEmail.TabIndex = 1;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(475, 202);
+            this.txtPassword.Location = new System.Drawing.Point(74, 154);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -69,7 +71,7 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblEmail.Location = new System.Drawing.Point(471, 100);
+            this.lblEmail.Location = new System.Drawing.Point(70, 52);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(51, 20);
             this.lblEmail.TabIndex = 3;
@@ -79,7 +81,7 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblPassword.Location = new System.Drawing.Point(471, 177);
+            this.lblPassword.Location = new System.Drawing.Point(70, 129);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(83, 20);
             this.lblPassword.TabIndex = 4;
@@ -89,7 +91,7 @@
             // 
             this.linkLblToRegister.AutoSize = true;
             this.linkLblToRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.linkLblToRegister.Location = new System.Drawing.Point(443, 360);
+            this.linkLblToRegister.Location = new System.Drawing.Point(42, 312);
             this.linkLblToRegister.Name = "linkLblToRegister";
             this.linkLblToRegister.Size = new System.Drawing.Size(379, 20);
             this.linkLblToRegister.TabIndex = 5;
@@ -97,24 +99,44 @@
             this.linkLblToRegister.Text = "If you don\'t have an account click here to register.";
             this.linkLblToRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblToRegister_LinkClicked);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnLogin);
+            this.panel1.Controls.Add(this.linkLblToRegister);
+            this.panel1.Controls.Add(this.txtEmail);
+            this.panel1.Controls.Add(this.lblPassword);
+            this.panel1.Controls.Add(this.txtPassword);
+            this.panel1.Controls.Add(this.lblEmail);
+            this.panel1.Location = new System.Drawing.Point(339, 100);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(448, 378);
+            this.panel1.TabIndex = 6;
+            // 
+            // btnTemp
+            // 
+            this.btnTemp.Location = new System.Drawing.Point(68, 229);
+            this.btnTemp.Name = "btnTemp";
+            this.btnTemp.Size = new System.Drawing.Size(196, 41);
+            this.btnTemp.TabIndex = 7;
+            this.btnTemp.Text = "Go HomePage";
+            this.btnTemp.UseVisualStyleBackColor = true;
+            this.btnTemp.Click += new System.EventHandler(this.btnTemp_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1169, 545);
-            this.Controls.Add(this.linkLblToRegister);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.btnLogin);
+            this.ClientSize = new System.Drawing.Size(1902, 773);
+            this.Controls.Add(this.btnTemp);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -126,5 +148,7 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.LinkLabel linkLblToRegister;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnTemp;
     }
 }

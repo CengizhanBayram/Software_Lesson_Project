@@ -24,12 +24,33 @@ namespace RealEstateApp.Forms
         public Register()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void Register_Load(object sender, EventArgs e)
         {
             linkLblToLogin.Text = "If you already have an account, click here to log in.";
             linkLblToLogin.LinkArea = new LinkArea(38, 4);
+            CenterPanel();
+        }
+
+        private void CenterPanel()
+        {
+            // Formun genişliği ve yüksekliği
+            int formWidth = this.ClientSize.Width;
+            int formHeight = this.ClientSize.Height;
+
+            // Panelin genişliği ve yüksekliği
+            int panelWidth = panel1.Width;
+            int panelHeight = panel1.Height;
+
+            // Panelin sol üst köşesini hesapla
+            int panelX = (formWidth - panelWidth) / 2;
+            int panelY = (formHeight - panelHeight) / 2;
+
+            // Panelin yeni konumunu ayarla
+            panel1.Location = new Point(panelX, panelY);
         }
 
         private void linkLblToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

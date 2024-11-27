@@ -18,24 +18,38 @@ namespace RealEstateApp.Forms
     {
 
         // Veritabanı bağlantı bilgileri
-        string connectionString = "Server=localhost;Database=test_db;Uid=root;Pwd=123456;";
+        string connectionString = "Server=localhost;Database=real_estate;Uid=root;Pwd=123456;";
         
         public Login()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
             linkLblToRegister.Text = "If you don't have an account please click here to register.";
-            linkLblToRegister.LinkArea = new LinkArea(35, 4);
+            linkLblToRegister.LinkArea = new LinkArea(42, 4);
+            CenterPanel();
+        }
 
-            //lblEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            //lblPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            //txtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            //txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            //btnLogin.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            //linkLblToRegister.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        private void CenterPanel()
+        {
+            // Formun genişliği ve yüksekliği
+            int formWidth = this.ClientSize.Width;
+            int formHeight = this.ClientSize.Height;
+
+            // Panelin genişliği ve yüksekliği
+            int panelWidth = panel1.Width;
+            int panelHeight = panel1.Height;
+
+            // Panelin sol üst köşesini hesapla
+            int panelX = (formWidth - panelWidth) / 2;
+            int panelY = (formHeight - panelHeight) / 2;
+
+            // Panelin yeni konumunu ayarla
+            panel1.Location = new Point(panelX, panelY);
         }
 
 
@@ -46,7 +60,7 @@ namespace RealEstateApp.Forms
 
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Please fill the email and password fields.");
+                MessageBox.Show("Please fill the email and password fields.", "Blank Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -56,8 +70,8 @@ namespace RealEstateApp.Forms
                 {
                     connection.Open();
 
-                    string query = "SELECT COUNT(*) FROM users WHERE Email = @email AND Password = @password;";
-                    
+                    string query = "SELECT COUNT(*) FROM users WHERE email = @email AND password = @password;";
+
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         // Parametreleri ekle
@@ -68,23 +82,22 @@ namespace RealEstateApp.Forms
 
                         if (userCount > 0)
                         {
-                            MessageBox.Show("Login successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            // After successfuly login new form will be open 
                             this.Hide();
-                            Homepage hp = new Homepage();
+                            Homepage hp= new Homepage();
                             hp.Show();
                         }
                         else
                         {
-                            MessageBox.Show("Invalid username or password.");
+                            MessageBox.Show("Invalid username or password.", "Invalid User Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An Error occured: " + ex.Message);
+                MessageBox.Show("Error occured: " + ex.Message);
             }
         }
 
@@ -96,10 +109,6 @@ namespace RealEstateApp.Forms
             register.Show();
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         internal object btnLogin_Click()
         {
@@ -113,5 +122,11 @@ namespace RealEstateApp.Forms
             return false;
         }
 
+        private void btnTemp_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Homepage hp = new Homepage();
+            hp.Show();
+        }
     }
 }
