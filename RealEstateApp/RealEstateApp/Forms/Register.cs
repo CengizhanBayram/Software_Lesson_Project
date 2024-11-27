@@ -19,7 +19,7 @@ namespace RealEstateApp.Forms
     public partial class Register : Form
     {
         // Veritabanı bağlantı bilgileri
-        string connectionString = "Server=localhost;Database=test_db;Uid=root;Pwd=123456;";
+        string connectionString = "Server=localhost;Database=real_estate;Uid=root;Pwd=123456;";
 
         public Register()
         {
@@ -62,12 +62,12 @@ namespace RealEstateApp.Forms
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            string fullName = txtFullName.Text.Trim();
+            string username = txtFullName.Text.Trim();
             string email = txtEmail.Text.Trim();
             string password = txtPassword.Text.Trim();
             string confirmPassword = txtConfirmPassword.Text.Trim();
 
-            if (string.IsNullOrEmpty(fullName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
             {
                 MessageBox.Show("Please fill the required fields.");
                 return;
@@ -94,11 +94,11 @@ namespace RealEstateApp.Forms
                     connection.Open();
 
                     // checking Email is used before
-                    string checkQuery = "SELECT COUNT(*) FROM Users WHERE Email = @Email";
+                    string checkQuery = "SELECT COUNT(*) FROM Users WHERE email = @email";
 
                     using (MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection))
                     {
-                        checkCommand.Parameters.AddWithValue("@Email", email);
+                        checkCommand.Parameters.AddWithValue("@email", email);
                         long emailExists = (long)checkCommand.ExecuteScalar();
 
                         if (emailExists > 0)
@@ -109,22 +109,21 @@ namespace RealEstateApp.Forms
                     }
 
 
-                    string query = "INSERT INTO Users (FullName, Email, Password) VALUES (@FullName, @Email, @Password)";
+                    string query = "INSERT INTO Users (username, email, password) VALUES (@username, @email, @password)";
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         // Parametreleri ekle
-                        command.Parameters.AddWithValue("@FullName", fullName);
-                        command.Parameters.AddWithValue("@Email", email);
-                        command.Parameters.AddWithValue("@Password", password);
+                        command.Parameters.AddWithValue("@username", username);
+                        command.Parameters.AddWithValue("@email", email);
+                        command.Parameters.AddWithValue("@password", password);
 
                         int result = command.ExecuteNonQuery();
-                        Console.WriteLine("@@@@@@@@@@@@@@@@@@"+result);
 
                         if (result > 0)
                         {
                             MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close(); // Register formunu kapat
+                            this.Close(); 
                             Login login = new Login();
                             login.Show();
                         }
