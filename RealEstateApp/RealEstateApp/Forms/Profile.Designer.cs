@@ -1,6 +1,6 @@
 ﻿namespace RealEstateApp.Forms
 {
-    partial class Homepage
+    partial class Profile
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,7 @@
             this.navbar1.Size = new System.Drawing.Size(1920, 60);
             this.navbar1.TabIndex = 0;
             // 
-            // Homepage
+            // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -49,9 +49,8 @@
             this.Controls.Add(this.navbar1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.Name = "Homepage";
-            this.Text = "Homepage";
-            this.Load += new System.EventHandler(this.Homepage_Load);
+            this.Name = "Profile";
+            this.Text = "Profile";
             this.ResumeLayout(false);
 
         }

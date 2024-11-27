@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace RealEstateApp.Forms
 {
-    public partial class Homepage : Form
+    public partial class CreateAd : Form
     {
-        public Homepage()
+        public CreateAd()
         {
             InitializeComponent();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.WindowState = FormWindowState.Maximized;
         }
 
-        private void Homepage_Load(object sender, EventArgs e)
+        private void CreateAd_Load(object sender, EventArgs e)
         {
 
         }
