@@ -55,9 +55,8 @@ namespace RealEstateApp.Forms
 
         private void linkLblToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
-            Login login = new Login();
-            login.Show();
+            Main mainForm = (Main)this.ParentForm;
+            mainForm.ShowFormInPanel(new Login());
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -123,9 +122,8 @@ namespace RealEstateApp.Forms
                         if (result > 0)
                         {
                             MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close(); 
-                            Login login = new Login();
-                            login.Show();
+                            Main mainForm = (Main)this.ParentForm;
+                            mainForm.ShowFormInPanel(new Login());
                         }
                         else
                         {

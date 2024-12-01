@@ -28,31 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.navbar1 = new RealEstateApp.navbar();
-            this.SuspendLayout();
+            navbar1 = new navbar();
+            SuspendLayout();
             // 
             // navbar1
             // 
-            this.navbar1.BackColor = System.Drawing.Color.Silver;
-            this.navbar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.navbar1.Location = new System.Drawing.Point(-11, -2);
-            this.navbar1.Margin = new System.Windows.Forms.Padding(5);
-            this.navbar1.Name = "navbar1";
-            this.navbar1.Size = new System.Drawing.Size(1920, 60);
-            this.navbar1.TabIndex = 0;
+            navbar1.BackColor = System.Drawing.Color.Silver;
+            navbar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
+            navbar1.Location = new System.Drawing.Point(-11, -2);
+            navbar1.Margin = new System.Windows.Forms.Padding(5);
+            navbar1.Name = "navbar1";
+            navbar1.Size = new System.Drawing.Size(1920, 60);
+            navbar1.TabIndex = 0;
             // 
             // OwnAds
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1902, 773);
-            this.Controls.Add(this.navbar1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.Name = "OwnAds";
-            this.Text = "OwnAds";
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1764, 706);
+            Controls.Add(navbar1);
+            Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
+            Margin = new System.Windows.Forms.Padding(5);
+            Name = "OwnAds";
+            Text = "OwnAds";
+            ResumeLayout(false);
         }
 
         #endregion

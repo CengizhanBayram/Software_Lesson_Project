@@ -28,107 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.MenuItemProfile = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemAdverts = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemFavorites = new System.Windows.Forms.ToolStripMenuItem();
-            this.linkLblCreateAd = new System.Windows.Forms.LinkLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            label1 = new System.Windows.Forms.Label();
+            contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
+            MenuItemProfile = new System.Windows.Forms.ToolStripMenuItem();
+            MenuItemAdverts = new System.Windows.Forms.ToolStripMenuItem();
+            MenuItemFavorites = new System.Windows.Forms.ToolStripMenuItem();
+            linkLblCreateAd = new System.Windows.Forms.LinkLabel();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(24, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 39);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Swe Real Estate";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            label1.AutoSize = true;
+            label1.BackColor = System.Drawing.Color.Silver;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
+            label1.Location = new System.Drawing.Point(24, 18);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(269, 39);
+            label1.TabIndex = 0;
+            label1.Text = "Swe Real Estate";
+            label1.Click += label1_Click;
             // 
             // contextMenuStrip1
             // 
-            this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuItemProfile,
-            this.MenuItemAdverts,
-            this.MenuItemFavorites});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 106);
+            contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI", 13F);
+            contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { MenuItemProfile, MenuItemAdverts, MenuItemFavorites });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new System.Drawing.Size(212, 106);
             // 
             // MenuItemProfile
             // 
-            this.MenuItemProfile.Name = "MenuItemProfile";
-            this.MenuItemProfile.Size = new System.Drawing.Size(211, 34);
-            this.MenuItemProfile.Text = "Profile";
-            this.MenuItemProfile.Click += new System.EventHandler(this.MenuItemProfile_Click);
+            MenuItemProfile.Name = "MenuItemProfile";
+            MenuItemProfile.Size = new System.Drawing.Size(211, 34);
+            MenuItemProfile.Text = "Profile";
+            MenuItemProfile.Click += MenuItemProfile_Click;
             // 
             // MenuItemAdverts
             // 
-            this.MenuItemAdverts.Name = "MenuItemAdverts";
-            this.MenuItemAdverts.Size = new System.Drawing.Size(211, 34);
-            this.MenuItemAdverts.Text = "Own Adverts";
-            this.MenuItemAdverts.Click += new System.EventHandler(this.MenuItemAdverts_Click);
+            MenuItemAdverts.Name = "MenuItemAdverts";
+            MenuItemAdverts.Size = new System.Drawing.Size(211, 34);
+            MenuItemAdverts.Text = "Own Adverts";
+            MenuItemAdverts.Click += MenuItemAdverts_Click;
             // 
             // MenuItemFavorites
             // 
-            this.MenuItemFavorites.Name = "MenuItemFavorites";
-            this.MenuItemFavorites.Size = new System.Drawing.Size(211, 34);
-            this.MenuItemFavorites.Text = "Favorites";
-            this.MenuItemFavorites.Click += new System.EventHandler(this.MenuItemFavorites_Click);
+            MenuItemFavorites.Name = "MenuItemFavorites";
+            MenuItemFavorites.Size = new System.Drawing.Size(211, 34);
+            MenuItemFavorites.Text = "Favorites";
+            MenuItemFavorites.Click += MenuItemFavorites_Click;
             // 
             // linkLblCreateAd
             // 
-            this.linkLblCreateAd.ActiveLinkColor = System.Drawing.Color.Black;
-            this.linkLblCreateAd.AutoSize = true;
-            this.linkLblCreateAd.BackColor = System.Drawing.Color.Silver;
-            this.linkLblCreateAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.linkLblCreateAd.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
-            this.linkLblCreateAd.LinkColor = System.Drawing.Color.Black;
-            this.linkLblCreateAd.Location = new System.Drawing.Point(1312, 18);
-            this.linkLblCreateAd.Name = "linkLblCreateAd";
-            this.linkLblCreateAd.Size = new System.Drawing.Size(126, 29);
-            this.linkLblCreateAd.TabIndex = 4;
-            this.linkLblCreateAd.TabStop = true;
-            this.linkLblCreateAd.Text = "Create Ad";
-            this.linkLblCreateAd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblCreateAd_LinkClicked);
+            linkLblCreateAd.ActiveLinkColor = System.Drawing.Color.Black;
+            linkLblCreateAd.AutoSize = true;
+            linkLblCreateAd.BackColor = System.Drawing.Color.Silver;
+            linkLblCreateAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
+            linkLblCreateAd.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
+            linkLblCreateAd.LinkColor = System.Drawing.Color.Black;
+            linkLblCreateAd.Location = new System.Drawing.Point(1257, 23);
+            linkLblCreateAd.Name = "linkLblCreateAd";
+            linkLblCreateAd.Size = new System.Drawing.Size(126, 29);
+            linkLblCreateAd.TabIndex = 4;
+            linkLblCreateAd.TabStop = true;
+            linkLblCreateAd.Text = "Create Ad";
+            linkLblCreateAd.LinkClicked += linkLblCreateAd_LinkClicked;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Silver;
-            this.pictureBox1.Image = global::RealEstateApp.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(1453, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            pictureBox1.BackColor = System.Drawing.Color.Silver;
+            pictureBox1.Image = Properties.Resources.user;
+            pictureBox1.Location = new System.Drawing.Point(1424, 14);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(45, 45);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // navbar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
-            this.Controls.Add(this.linkLblCreateAd);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "navbar";
-            this.Size = new System.Drawing.Size(1920, 60);
-            this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.Silver;
+            Controls.Add(linkLblCreateAd);
+            Controls.Add(pictureBox1);
+            Controls.Add(label1);
+            Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
+            Margin = new System.Windows.Forms.Padding(5);
+            Name = "navbar";
+            Size = new System.Drawing.Size(1782, 60);
+            contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

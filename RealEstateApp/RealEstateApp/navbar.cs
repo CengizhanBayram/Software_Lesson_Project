@@ -25,47 +25,32 @@ namespace RealEstateApp
 
         private void MenuItemProfile_Click(object sender, EventArgs e)
         {
-            Form parentForm = this.FindForm();
-            if (parentForm != null)
-                parentForm.Hide();
-            Profile profile = new Profile();
-            profile.Show();
+            Main mainForm = (Main)Application.OpenForms["Main"];
+            mainForm.ShowFormInPanel(new Profile());
         }
 
         private void MenuItemAdverts_Click(object sender, EventArgs e)
         {
-            Form parentForm = this.FindForm();
-            if (parentForm != null)
-                parentForm.Hide();
-            OwnAds ownAds = new OwnAds();
-            ownAds.Show();
+            Main mainForm = (Main)Application.OpenForms["Main"];
+            mainForm.ShowFormInPanel(new OwnAds());
         }
 
         private void MenuItemFavorites_Click(object sender, EventArgs e)
         {
-            Form parentForm = this.FindForm();
-            if (parentForm != null)
-                parentForm.Hide();
-            Favorites favorites = new Favorites();
-            favorites.Show();
+            Main mainForm = (Main)Application.OpenForms["Main"];
+            mainForm.ShowFormInPanel(new Favorites());
         }
 
         private void linkLblCreateAd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form parentForm = this.FindForm();
-            if (parentForm != null)
-                parentForm.Hide(); 
-            CreateAd createAd = new CreateAd();
-            createAd.Show();
+            Main mainForm = (Main)Application.OpenForms["Main"];
+            mainForm.ShowFormInPanel(new CreateAd());
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Form parentForm = this.FindForm();
-            if (parentForm != null)
-                parentForm.Hide();
-            Homepage hp = new Homepage();
-            hp.Show();
+            Main mainForm = (Main)Application.OpenForms["Main"];
+            mainForm.ShowFormInPanel(new Homepage());
         }
     }
 }
