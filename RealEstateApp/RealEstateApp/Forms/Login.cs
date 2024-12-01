@@ -84,9 +84,8 @@ namespace RealEstateApp.Forms
                         {
                             MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            this.Hide();
-                            Homepage hp= new Homepage();
-                            hp.Show();
+                            Main mainForm = (Main)this.ParentForm;
+                            mainForm.ShowFormInPanel(new Homepage());
                         }
                         else
                         {
@@ -104,9 +103,8 @@ namespace RealEstateApp.Forms
 
         private void linkLblToRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
-            Register register = new Register();
-            register.Show();
+            Main mainForm = (Main)this.ParentForm;
+            mainForm.ShowFormInPanel(new Register());
         }
 
 
@@ -124,9 +122,8 @@ namespace RealEstateApp.Forms
 
         private void btnTemp_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Homepage hp = new Homepage();
-            hp.Show();
+            Main mainForm = (Main)this.ParentForm;
+            mainForm.ShowFormInPanel(new Homepage());
         }
     }
 }
