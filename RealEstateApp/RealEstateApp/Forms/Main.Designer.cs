@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             label1 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
             panel1 = new System.Windows.Forms.Panel();
             SuspendLayout();
             // 
@@ -42,35 +41,25 @@
             label1.TabIndex = 1;
             label1.Text = "label1";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(1429, 105);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(71, 30);
-            label2.TabIndex = 2;
-            label2.Text = "label2";
-            // 
             // panel1
             // 
             panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             panel1.Location = new System.Drawing.Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1764, 706);
-            panel1.TabIndex = 3;
+            panel1.Size = new System.Drawing.Size(1482, 753);
+            panel1.TabIndex = 2;
             // 
             // Main
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1764, 706);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            ClientSize = new System.Drawing.Size(1482, 753);
             Controls.Add(panel1);
-            Controls.Add(label2);
             Controls.Add(label1);
             Font = new System.Drawing.Font("Segoe UI", 13F);
             Margin = new System.Windows.Forms.Padding(4);
             Name = "Main";
-            Text = "Main";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Real Estate";
             Load += Main_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -78,7 +67,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
     }
 }
