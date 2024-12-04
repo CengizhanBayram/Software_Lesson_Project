@@ -23,8 +23,6 @@ namespace RealEstateApp.Forms
         public CreateAd()
         {
             InitializeComponent();
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.WindowState = FormWindowState.Maximized;
         }
 
         private void CreateAd_Load(object sender, EventArgs e)

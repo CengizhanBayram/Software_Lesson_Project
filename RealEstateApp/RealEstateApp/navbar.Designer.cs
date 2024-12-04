@@ -36,8 +36,12 @@
             MenuItemFavorites = new System.Windows.Forms.ToolStripMenuItem();
             linkLblCreateAd = new System.Windows.Forms.LinkLabel();
             pictureBox1 = new System.Windows.Forms.PictureBox();
+            panel1 = new System.Windows.Forms.Panel();
+            panel2 = new System.Windows.Forms.Panel();
             contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -45,7 +49,7 @@
             label1.AutoSize = true;
             label1.BackColor = System.Drawing.Color.Silver;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            label1.Location = new System.Drawing.Point(24, 18);
+            label1.Location = new System.Drawing.Point(17, 18);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(269, 39);
             label1.TabIndex = 0;
@@ -84,12 +88,13 @@
             // linkLblCreateAd
             // 
             linkLblCreateAd.ActiveLinkColor = System.Drawing.Color.Black;
+            linkLblCreateAd.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             linkLblCreateAd.AutoSize = true;
             linkLblCreateAd.BackColor = System.Drawing.Color.Silver;
             linkLblCreateAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
             linkLblCreateAd.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
             linkLblCreateAd.LinkColor = System.Drawing.Color.Black;
-            linkLblCreateAd.Location = new System.Drawing.Point(1257, 23);
+            linkLblCreateAd.Location = new System.Drawing.Point(21, 25);
             linkLblCreateAd.Name = "linkLblCreateAd";
             linkLblCreateAd.Size = new System.Drawing.Size(126, 29);
             linkLblCreateAd.TabIndex = 4;
@@ -99,9 +104,10 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             pictureBox1.BackColor = System.Drawing.Color.Silver;
             pictureBox1.Image = Properties.Resources.user;
-            pictureBox1.Location = new System.Drawing.Point(1424, 14);
+            pictureBox1.Location = new System.Drawing.Point(188, 16);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(45, 45);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -109,22 +115,42 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(label1);
+            panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(289, 80);
+            panel1.TabIndex = 5;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(pictureBox1);
+            panel2.Controls.Add(linkLblCreateAd);
+            panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            panel2.Location = new System.Drawing.Point(1244, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(256, 80);
+            panel2.TabIndex = 6;
+            // 
             // navbar
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             BackColor = System.Drawing.Color.Silver;
-            Controls.Add(linkLblCreateAd);
-            Controls.Add(pictureBox1);
-            Controls.Add(label1);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
             Margin = new System.Windows.Forms.Padding(5);
             Name = "navbar";
-            Size = new System.Drawing.Size(1782, 60);
+            Size = new System.Drawing.Size(1500, 80);
             contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -136,5 +162,7 @@
         private System.Windows.Forms.ToolStripMenuItem MenuItemAdverts;
         private System.Windows.Forms.ToolStripMenuItem MenuItemFavorites;
         private System.Windows.Forms.LinkLabel linkLblCreateAd;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

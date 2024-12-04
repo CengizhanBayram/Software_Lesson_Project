@@ -10,20 +10,11 @@ using System.Windows.Forms;
 
 namespace RealEstateApp.Forms
 {
-    public partial class Homepage : Form
+    public partial class Form1 : Form
     {
-        public Homepage()
+        public Form1()
         {
             InitializeComponent();
-            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            //this.WindowState = FormWindowState.Maximized;
         }
-
-        private void Homepage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-    
     }
 }

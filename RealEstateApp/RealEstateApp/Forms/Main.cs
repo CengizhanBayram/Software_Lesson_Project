@@ -15,10 +15,7 @@ namespace RealEstateApp.Forms
         public Main()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.StartPosition = FormStartPosition.CenterScreen;
-
+            //this.WindowState = FormWindowState.Maximized;
         }
         private void Main_Load(object sender, EventArgs e)
         {

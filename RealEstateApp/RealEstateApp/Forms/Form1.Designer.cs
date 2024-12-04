@@ -1,6 +1,6 @@
 ﻿namespace RealEstateApp.Forms
 {
-    partial class Homepage
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -62,17 +62,16 @@
             navbar1.Size = new System.Drawing.Size(1482, 80);
             navbar1.TabIndex = 0;
             // 
-            // Homepage
+            // Form1
             // 
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             ClientSize = new System.Drawing.Size(1482, 753);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            Margin = new System.Windows.Forms.Padding(5);
-            Name = "Homepage";
-            Text = "Homepage";
-            Load += Homepage_Load;
+            Font = new System.Drawing.Font("Segoe UI", 13F);
+            Name = "Form1";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Form1";
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }

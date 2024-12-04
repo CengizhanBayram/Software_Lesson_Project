@@ -19,11 +19,10 @@ namespace RealEstateApp.Forms
 
         // Veritabanı bağlantı bilgileri
         string connectionString = "Server=localhost;Database=real_estate;Uid=root;Pwd=123456;";
-        
+
         public Login()
         {
             InitializeComponent();
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.WindowState = FormWindowState.Maximized;
         }
 
@@ -31,72 +30,69 @@ namespace RealEstateApp.Forms
         {
             linkLblToRegister.Text = "If you don't have an account please click here to register.";
             linkLblToRegister.LinkArea = new LinkArea(42, 4);
-            CenterPanel();
+            textBoxEmail.Text = "deneme@gmail.com";
+            textBoxPassword.Text = "123456";
+            
         }
-
-        private void CenterPanel()
-        {
-            // Formun genişliği ve yüksekliği
-            int formWidth = this.ClientSize.Width;
-            int formHeight = this.ClientSize.Height;
-
-            // Panelin genişliği ve yüksekliği
-            int panelWidth = panel1.Width;
-            int panelHeight = panel1.Height;
-
-            // Panelin sol üst köşesini hesapla
-            int panelX = (formWidth - panelWidth) / 2;
-            int panelY = (formHeight - panelHeight) / 2;
-
-            // Panelin yeni konumunu ayarla
-            panel1.Location = new Point(panelX, panelY);
-        }
-
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string email = txtEmail.Text.Trim();
-            string password = txtPassword.Text.Trim();
+            string email = textBoxEmail.Text.Trim();
+            string password = textBoxPassword.Text.Trim();
+            bool isValid = true;
 
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(email))
             {
-                MessageBox.Show("Please fill the email and password fields.", "Blank Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                errorProviderEmail.SetError(textBoxEmail, "Email field cannot be empty.");
+                isValid = false;
             }
+            else
+                errorProviderEmail.Clear();
 
-            try
+            if (string.IsNullOrEmpty(password))
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                errorProviderPassword.SetError(textBoxPassword, "Password field cannot be empty.");
+                isValid = false;
+            }
+            else
+                errorProviderPassword.Clear();
+
+            if (isValid)
+            {
+                try
                 {
-                    connection.Open();
-
-                    string query = "SELECT COUNT(*) FROM users WHERE email = @email AND password = @password;";
-
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
-                        // Parametreleri ekle
-                        command.Parameters.AddWithValue("@email", email);
-                        command.Parameters.AddWithValue("@password", password);
+                        connection.Open();
 
-                        int userCount = Convert.ToInt32(command.ExecuteScalar());
+                        string query = "SELECT COUNT(*) FROM users WHERE email = @email AND password = @password;";
 
-                        if (userCount > 0)
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
                         {
-                            MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // Parametreleri ekle
+                            command.Parameters.AddWithValue("@email", email);
+                            command.Parameters.AddWithValue("@password", password);
 
-                            Main mainForm = (Main)this.ParentForm;
-                            mainForm.ShowFormInPanel(new Homepage());
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid username or password.", "Invalid User Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            int userCount = Convert.ToInt32(command.ExecuteScalar());
+
+                            if (userCount > 0)
+                            {
+                                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                Main mainForm = (Main)this.ParentForm;
+                                mainForm.ShowFormInPanel(new Homepage());
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid username or password.", "Invalid User Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error occured: " + ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error occured: " + ex.Message);
+                }
             }
         }
 
@@ -125,5 +121,6 @@ namespace RealEstateApp.Forms
             Main mainForm = (Main)this.ParentForm;
             mainForm.ShowFormInPanel(new Homepage());
         }
+
     }
 }
