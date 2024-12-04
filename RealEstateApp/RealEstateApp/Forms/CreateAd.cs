@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace RealEstateApp.Forms
 {
@@ -27,9 +28,6 @@ namespace RealEstateApp.Forms
 
         private void CreateAd_Load(object sender, EventArgs e)
         {
-            textBoxPrice.Text = "1";
-            textBoxSquareMeters.Text = "1";
-
             string[] iller = new string[]
             {
                 "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Amasya", "Ankara", "Antalya",
@@ -87,7 +85,7 @@ namespace RealEstateApp.Forms
 
                     foreach (string filePath in ofd.FileNames)
                     {
-                        string destinationPath = @"C:\Users\furka\source\repos\swe\Software_Lesson_Project\RealEstateApp\RealEstateApp\Photos\" + Path.GetFileName(filePath);
+                        string destinationPath = @"C:\Users\furka\source\repos\Software_Lesson_Project\RealEstateApp\RealEstateApp\Photos\" + Path.GetFileName(filePath);
                         File.Copy(filePath, destinationPath, true);
 
                         // FlowLayoutPanel'e fotoğraf ekleme
@@ -108,67 +106,97 @@ namespace RealEstateApp.Forms
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            textBoxPrice.Text = new string(textBoxPrice.Text.Where(char.IsDigit).ToArray()); // only digit allowed
-            if (textBoxPrice.Text.Length > 10) // Max length 10
-                textBoxPrice.Text = textBoxPrice.Text.Substring(0, 10);
-            textBoxPrice.SelectionStart = textBoxPrice.Text.Length;
-        }
 
-        private void textBoxSquareMeters_TextChanged(object sender, EventArgs e)
-        {
-            
-            textBoxSquareMeters.Text = new string(textBoxSquareMeters.Text.Where(char.IsDigit).ToArray());// only digit allowed
-            if (textBoxSquareMeters.Text.Length > 5) // Max length 5
-                textBoxSquareMeters.Text = textBoxSquareMeters.Text.Substring(0, 5);
-            textBoxSquareMeters.SelectionStart = textBoxSquareMeters.Text.Length;
-        }
 
         private void btnSaveAdvert_Click(object sender, EventArgs e)
         {
-            string title = textBoxTitle.Text;
-            string description = textBoxTitle.Text;
-            int price = Convert.ToInt32(textBoxPrice.Text);
-            int squareMeters = Convert.ToInt32(textBoxSquareMeters.Text);
-            string location = comboBoxLocation.Text;
-            string roomNumber = comboBoxRoomNumber.Text;
-            string floorNo = comboBoxFloorNo.Text;
-            bool elevator = comboBoxElevator.SelectedItem.ToString() == "Yes" ? true : false;
+            bool isValid = true;
 
-
-            try
+            if (string.IsNullOrEmpty(textBoxTitle.Text))
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    string query = @"INSERT INTO Ads (Title, Description, Price, Location, SquareMeters, RoomCount, FloorNo, Elevator, UserID)
-                             VALUES (@Title, @Description, @Price, @Location, @SquareMeters, @RoomCount, @FloorNo, @Elevator, @UserID)";
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@Title", title);
-                    cmd.Parameters.AddWithValue("@Description", description);
-                    cmd.Parameters.AddWithValue("@Price", price);
-                    cmd.Parameters.AddWithValue("@Location", location);
-                    cmd.Parameters.AddWithValue("@SquareMeters", squareMeters);
-                    cmd.Parameters.AddWithValue("@RoomCount", roomNumber);
-                    cmd.Parameters.AddWithValue("@FloorNo", floorNo);
-                    cmd.Parameters.AddWithValue("@Elevator", elevator);
-                    cmd.Parameters.AddWithValue("@UserID", Properties.Settings.Default.UserId);  
-
-                    connection.Open();
-                    cmd.ExecuteNonQuery();
-
-                    int adID = (int)cmd.LastInsertedId; // last advert 
-                    SavePhotoPathsToDatabase(adID, photoPaths); // save to db
-                }
-
-                MessageBox.Show("Advert saved successfully.");
-                Main mainForm = (Main)this.ParentForm;
-                mainForm.ShowFormInPanel(new Homepage());
+                errorProviderTitle.SetError(textBoxTitle, "Title field cannot be empty.");
+                isValid = false;
             }
-            catch(Exception ex)
+            else
+                errorProviderTitle.Clear();
+
+            if (string.IsNullOrEmpty(richTextBoxDescription.Text))
             {
-                Console.WriteLine(ex.ToString());
-                MessageBox.Show("Error occured: " + ex.Message);
+                errorProviderDescription.SetError(richTextBoxDescription, "Description field cannot be empty.");
+                isValid = false;
+            }
+            else
+                errorProviderDescription.Clear();
+
+            if (string.IsNullOrEmpty(maskedTextBoxPrice.Text))
+            {
+                errorProviderPrice.SetError(maskedTextBoxPrice, "Price field cannot be empty.");
+                isValid = false;
+            }
+            else
+                errorProviderPrice.Clear();
+
+            if (isValid)
+            {
+                
+                string title = textBoxTitle.Text;
+                string description = textBoxTitle.Text;
+                int price = Convert.ToInt32(maskedTextBoxPrice.Text);
+                int? squareMeters = null;
+                string? location = null;
+                string? roomNumber = null;
+                string? floorNo = null;
+                bool? elevator = null;
+
+                if (!string.IsNullOrEmpty(maskedTextBoxSquareMeters.Text))
+                    squareMeters = Convert.ToInt32(maskedTextBoxSquareMeters.Text);
+
+                if (!string.IsNullOrEmpty(comboBoxLocation.Text))
+                    location = comboBoxLocation.Text;
+
+                if (!string.IsNullOrEmpty(comboBoxRoomNumber.Text))
+                    roomNumber = comboBoxRoomNumber.Text;
+
+                if (!string.IsNullOrEmpty (comboBoxFloorNo.Text))
+                    floorNo = comboBoxFloorNo.Text;
+
+                if (!string.IsNullOrEmpty(comboBoxElevator.Text))
+                    elevator = comboBoxElevator.SelectedItem.ToString() == "Yes" ? true : false;
+
+
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        string query = @"INSERT INTO Ads (Title, Description, Price, Location, SquareMeters, RoomCount, FloorNo, Elevator, UserID)
+                                 VALUES (@Title, @Description, @Price, @Location, @SquareMeters, @RoomCount, @FloorNo, @Elevator, @UserID)";
+                        MySqlCommand cmd = new MySqlCommand(query, connection);
+                        cmd.Parameters.AddWithValue("@Title", title);
+                        cmd.Parameters.AddWithValue("@Description", description);
+                        cmd.Parameters.AddWithValue("@Price", price);
+                        cmd.Parameters.AddWithValue("@Location", location);
+                        cmd.Parameters.AddWithValue("@SquareMeters", squareMeters);
+                        cmd.Parameters.AddWithValue("@RoomCount", roomNumber);
+                        cmd.Parameters.AddWithValue("@FloorNo", floorNo);
+                        cmd.Parameters.AddWithValue("@Elevator", elevator);
+                        cmd.Parameters.AddWithValue("@UserID", Properties.Settings.Default.UserId);  
+
+                        connection.Open();
+                        cmd.ExecuteNonQuery();
+
+                        int adID = (int)cmd.LastInsertedId; // last advert 
+                        SavePhotoPathsToDatabase(adID, photoPaths); // save to db
+                    }
+
+                    MessageBox.Show("Advert saved successfully.");
+                    Main mainForm = (Main)this.ParentForm;
+                    mainForm.ShowFormInPanel(new Homepage());
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                    MessageBox.Show("Error occured: " + ex.Message);
+                }
             }
         }
 
