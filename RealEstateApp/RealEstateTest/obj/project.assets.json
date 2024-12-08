@@ -2897,23 +2897,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\furka\\.nuget\\packages\\": {},
+    "C:\\Users\\cengh\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\furka\\source\\repos\\swe\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
+      "projectUniqueName": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
       "projectName": "RealEstateTest",
-      "projectPath": "C:\\Users\\furka\\source\\repos\\swe\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
-      "packagesPath": "C:\\Users\\furka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\furka\\source\\repos\\swe\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\obj\\",
+      "projectPath": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
+      "packagesPath": "C:\\Users\\cengh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\furka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cengh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2929,8 +2929,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\furka\\source\\repos\\swe\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj": {
-              "projectPath": "C:\\Users\\furka\\source\\repos\\swe\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj"
+            "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj": {
+              "projectPath": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj"
             }
           }
         }
@@ -2999,7 +2999,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
