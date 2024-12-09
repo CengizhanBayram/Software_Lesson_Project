@@ -4,7 +4,7 @@ using NUnit.Framework.Legacy;
 using RealEstateApp.Forms;
 using System;
 
-namespace RealEstateAppTests
+namespace RealEstateTest
 {
     /// <summary>
     /// Test class to verify the functionality of the Login class.
