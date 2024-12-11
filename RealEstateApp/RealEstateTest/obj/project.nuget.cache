@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "crtjx8NwFOg=",
+  "dgSpecHash": "skmHvPOSoMc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ferha\\Source\\Repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
+  "projectFilePath": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ferha\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\ferha\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
