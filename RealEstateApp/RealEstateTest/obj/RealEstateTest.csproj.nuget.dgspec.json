@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj": {}
+    "C:\\Users\\ferha\\Source\\Repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj": {
+    "C:\\Users\\ferha\\Source\\Repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj",
+        "projectUniqueName": "C:\\Users\\ferha\\Source\\Repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj",
         "projectName": "RealEstateApp",
-        "projectPath": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj",
+        "projectPath": "C:\\Users\\ferha\\Source\\Repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj",
         "packagesPath": "C:\\Users\\ferha\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\obj\\",
         "projectStyle": "PackageReference",
@@ -130,12 +130,12 @@
         }
       }
     },
-    "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj": {
+    "C:\\Users\\ferha\\Source\\Repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
+        "projectUniqueName": "C:\\Users\\ferha\\Source\\Repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
         "projectName": "RealEstateTest",
-        "projectPath": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
+        "projectPath": "C:\\Users\\ferha\\Source\\Repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
         "packagesPath": "C:\\Users\\ferha\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\obj\\",
         "projectStyle": "PackageReference",
@@ -155,8 +155,8 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj": {
-                "projectPath": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj"
+              "C:\\Users\\ferha\\Source\\Repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj": {
+                "projectPath": "C:\\Users\\ferha\\Source\\Repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj"
               }
             }
           }
