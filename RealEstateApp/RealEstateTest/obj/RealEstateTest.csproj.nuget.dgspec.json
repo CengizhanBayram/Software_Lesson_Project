@@ -5,18 +5,129 @@
   },
   "projects": {
     "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj": {
+      "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj",
         "projectName": "RealEstateApp",
         "projectPath": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj",
+        "packagesPath": "C:\\Users\\ferha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ferha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
-          "net472": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
             "projectReferences": {}
           }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
-        "net472": {}
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "BouncyCastle.Cryptography": {
+              "target": "Package",
+              "version": "[2.3.1, )"
+            },
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.26.1, )"
+            },
+            "K4os.Compression.LZ4": {
+              "target": "Package",
+              "version": "[1.3.8, )"
+            },
+            "K4os.Compression.LZ4.Streams": {
+              "target": "Package",
+              "version": "[1.3.8, )"
+            },
+            "K4os.Hash.xxHash": {
+              "target": "Package",
+              "version": "[1.0.8, )"
+            },
+            "Microsoft.Bcl.AsyncInterfaces": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.CSharp": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[9.1.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Data.DataSetExtensions": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "System.Diagnostics.DiagnosticSource": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "System.IO.Pipelines": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "System.Management": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "ZstdSharp.Port": {
+              "target": "Package",
+              "version": "[0.8.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        }
       }
     },
     "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj": {
@@ -33,7 +144,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net8.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -41,8 +152,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
             "projectReferences": {
               "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj": {
                 "projectPath": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj"
@@ -62,8 +173,8 @@
         }
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -79,15 +190,19 @@
             },
             "NUnit": {
               "target": "Package",
-              "version": "[3.14.0, )"
+              "version": "[4.2.2, )"
             },
             "NUnit.Analyzers": {
               "target": "Package",
-              "version": "[3.9.0, )"
+              "version": "[4.4.0, )"
+            },
+            "NUnit.ConsoleRunner": {
+              "target": "Package",
+              "version": "[3.18.3, )"
             },
             "NUnit3TestAdapter": {
               "target": "Package",
-              "version": "[4.5.0, )"
+              "version": "[4.6.0, )"
             },
             "coverlet.collector": {
               "target": "Package",
@@ -108,9 +223,6 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
-            },
-            "Microsoft.WindowsDesktop.App.WindowsForms": {
-              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"

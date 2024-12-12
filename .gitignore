@@ -1,0 +1,11 @@
+# Ignore Visual Studio files
+RealEstateApp/.vs
+
+# Ignore bin and obj folders
+bin/
+obj/
+
+
+
+# Ignore local ignore files
+*.ignore

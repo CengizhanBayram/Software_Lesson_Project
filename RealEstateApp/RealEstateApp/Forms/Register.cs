@@ -19,7 +19,7 @@ namespace RealEstateApp.Forms
     public partial class Register : Form
     {
         // Veritabanı bağlantı bilgileri
-        string connectionString = "Server=localhost;Database=test_db;Uid=root;Pwd=123456;";
+        string connectionString = "Server=localhost;Database=emlak;Uid=root;Pwd=16072001;";
 
         public Register()
         {
@@ -32,91 +32,126 @@ namespace RealEstateApp.Forms
             linkLblToLogin.LinkArea = new LinkArea(38, 4);
         }
 
+
         private void linkLblToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
-            Login login = new Login();
-            login.Show();
+            Main mainForm = (Main)this.ParentForm;
+            mainForm.ShowFormInPanel(new Login());
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            string fullName = txtFullName.Text.Trim();
-            string email = txtEmail.Text.Trim();
-            string password = txtPassword.Text.Trim();
-            string confirmPassword = txtConfirmPassword.Text.Trim();
+            string username = textBoxFullName.Text.Trim();
+            string email = textBoxEmail.Text.Trim();
+            string password = textBoxPassword.Text.Trim();
+            string confirmPassword = textBoxConfirmPassword.Text.Trim();
+            bool isValid = true;
 
-            if (string.IsNullOrEmpty(fullName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
+
+            if(string.IsNullOrEmpty(username))
             {
-                MessageBox.Show("Please fill the required fields.");
-                return;
+                errorProvider1.SetError(textBoxFullName, "This field cannot be empty.");
+                isValid = false;
             }
+            else
+                errorProvider1.Clear();
 
-            if (!IsValidEmail(email))
+
+            if (string.IsNullOrEmpty(email))
             {
-                MessageBox.Show("Please enter a valid email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                errorProvider2.SetError(textBoxEmail, "This field cannot be empty.");
+                isValid = false;
             }
+            else
+                errorProvider2.Clear();
 
-            if (password != confirmPassword)
+
+            if (string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Passwords does not match.");
-                return;
+                errorProvider3.SetError(textBoxPassword, "This field cannot be empty.");
+                isValid = false;
             }
+            else
+                errorProvider3.Clear();
 
-            
 
-            try
+            if (string.IsNullOrEmpty(confirmPassword))
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                errorProvider4.SetError(textBoxConfirmPassword, "This field cannot be empty.");
+                isValid = false;
+            }
+            else
+                errorProvider4.Clear();
+
+
+
+            if (isValid)
+            {
+
+                if (!IsValidEmail(email))
                 {
-                    connection.Open();
+                    MessageBox.Show("Please enter a valid email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-                    // checking Email is used before
-                    string checkQuery = "SELECT COUNT(*) FROM Users WHERE Email = @Email";
+                if (password != confirmPassword)
+                {
+                    MessageBox.Show("Passwords does not match.");
+                    return;
+                }
 
-                    using (MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection))
+
+
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
-                        checkCommand.Parameters.AddWithValue("@Email", email);
-                        long emailExists = (long)checkCommand.ExecuteScalar();
+                        connection.Open();
 
-                        if (emailExists > 0)
+                        // checking Email is used before
+                        string checkQuery = "SELECT COUNT(*) FROM Users WHERE email = @email";
+
+                        using (MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection))
                         {
-                            MessageBox.Show("An account with this email address already exists.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
+                            checkCommand.Parameters.AddWithValue("@email", email);
+                            long emailExists = (long)checkCommand.ExecuteScalar();
+
+                            if (emailExists > 0)
+                            {
+                                MessageBox.Show("An account with this email address already exists.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
                         }
-                    }
 
 
-                    string query = "INSERT INTO Users (FullName, Email, Password) VALUES (@FullName, @Email, @Password)";
+                        string query = "INSERT INTO Users (username, email, password) VALUES (@username, @email, @password)";
 
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        // Parametreleri ekle
-                        command.Parameters.AddWithValue("@FullName", fullName);
-                        command.Parameters.AddWithValue("@Email", email);
-                        command.Parameters.AddWithValue("@Password", password);
-
-                        int result = command.ExecuteNonQuery();
-                        Console.WriteLine("@@@@@@@@@@@@@@@@@@"+result);
-
-                        if (result > 0)
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
                         {
-                            MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close(); // Register formunu kapat
-                            Login login = new Login();
-                            login.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Registration failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            // Parametreleri ekle
+                            command.Parameters.AddWithValue("@username", username);
+                            command.Parameters.AddWithValue("@email", email);
+                            command.Parameters.AddWithValue("@password", password);
+
+                            int result = command.ExecuteNonQuery();
+
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                Main mainForm = (Main)this.ParentForm;
+                                mainForm.ShowFormInPanel(new Login());
+                            }
+                            else
+                            {
+                                MessageBox.Show("Registration failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error occured: " + ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error occured: " + ex.Message);
+                }
             }
         }
 

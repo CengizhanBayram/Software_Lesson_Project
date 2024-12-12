@@ -11,95 +11,106 @@ using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
-
 namespace RealEstateApp.Forms
 {
     public partial class Login : Form
     {
+        public static int userId = 0;
 
         // Veritabanı bağlantı bilgileri
-        string connectionString = "Server=localhost;Database=test_db;Uid=root;Pwd=123456;";
-        
+        string connectionString = "Server=localhost;Database=emlak;Uid=root;Pwd=16072001;";
+
         public Login()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
             linkLblToRegister.Text = "If you don't have an account please click here to register.";
-            linkLblToRegister.LinkArea = new LinkArea(35, 4);
-
-            //lblEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            //lblPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            //txtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            //txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            //btnLogin.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            //linkLblToRegister.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            linkLblToRegister.LinkArea = new LinkArea(42, 4);
+            textBoxEmail.Text = "cengiz@gmail.com";
+            textBoxPassword.Text = "123456";
+            
         }
-
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string email = txtEmail.Text.Trim();
-            string password = txtPassword.Text.Trim();
+            string email = textBoxEmail.Text.Trim();
+            string password = textBoxPassword.Text.Trim();
+            bool isValid = true;
 
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(email))
             {
-                MessageBox.Show("Please fill the email and password fields.");
-                return;
+                errorProviderEmail.SetError(textBoxEmail, "Email field cannot be empty.");
+                isValid = false;
             }
+            else
+                errorProviderEmail.Clear();
 
-            try
+            if (string.IsNullOrEmpty(password))
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                errorProviderPassword.SetError(textBoxPassword, "Password field cannot be empty.");
+                isValid = false;
+            }
+            else
+                errorProviderPassword.Clear();
+
+            if (isValid)
+            {
+                try
                 {
-                    connection.Open();
-
-                    string query = "SELECT COUNT(*) FROM users WHERE Email = @email AND Password = @password;";
-                    
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
-                        // Parametreleri ekle
-                        command.Parameters.AddWithValue("@email", email);
-                        command.Parameters.AddWithValue("@password", password);
+                        connection.Open();
 
-                        int userCount = Convert.ToInt32(command.ExecuteScalar());
+                        string query = "SELECT COUNT(*) FROM users WHERE email = @email AND password = @password;";
 
-                        if (userCount > 0)
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
                         {
-                            MessageBox.Show("Login successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // Parametreleri ekle
+                            command.Parameters.AddWithValue("@email", email);
+                            command.Parameters.AddWithValue("@password", password);
 
-                            // After successfuly login new form will be open 
-                            this.Hide();
-                            Homepage hp = new Homepage();
-                            hp.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid username or password.");
+                            int userCount = Convert.ToInt32(command.ExecuteScalar());
+
+                            if (userCount > 0)
+                            {
+                                string idQuery = "SELECT UserID FROM users WHERE email = @email AND password = @password;";
+                                MySqlCommand idCommand = new MySqlCommand(idQuery, connection);
+                                idCommand.Parameters.AddWithValue("@email", email);
+                                idCommand.Parameters.AddWithValue("@password", password);
+
+                                object result = idCommand.ExecuteScalar();
+                                userId = result != null ? Convert.ToInt32(result) : 0; // Kullanıcı ID'sini global değişkene atama
+
+                                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                Main mainForm = (Main)this.ParentForm;
+                                mainForm.ShowFormInPanel(new Homepage());
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid username or password.", "Invalid User Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An Error occured: " + ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error occured: " + ex.Message);
+                }
             }
         }
 
 
         private void linkLblToRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
-            Register register = new Register();
-            register.Show();
+            Main mainForm = (Main)this.ParentForm;
+            mainForm.ShowFormInPanel(new Register());
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         internal object btnLogin_Click()
         {
@@ -111,6 +122,12 @@ namespace RealEstateApp.Forms
                 return true;
 
             return false;
+        }
+
+        private void btnTemp_Click(object sender, EventArgs e)
+        {
+            Main mainForm = (Main)this.ParentForm;
+            mainForm.ShowFormInPanel(new Homepage());
         }
 
     }

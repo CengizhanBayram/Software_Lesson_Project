@@ -15,6 +15,15 @@ namespace RealEstateApp.Forms
         public Homepage()
         {
             InitializeComponent();
+            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            //this.WindowState = FormWindowState.Maximized;
         }
+
+        private void Homepage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+    
     }
 }

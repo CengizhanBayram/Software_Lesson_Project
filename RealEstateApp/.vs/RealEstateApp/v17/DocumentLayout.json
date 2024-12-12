@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\realestateapp\\forms\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\ferha\\source\\repos\\software_lesson_project\\realestateapp\\realestateapp\\forms\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\ferha\\source\\repos\\software_lesson_project\\realestateapp\\realestateapp\\forms\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\ferha\\source\\repos\\software_lesson_project\\realestateapp\\realestateapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\ferha\\source\\repos\\software_lesson_project\\realestateapp\\realestateapp\\forms\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\realestateapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -33,15 +49,74 @@
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Profile.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Profile.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Profile.cs",
+              "ToolTip": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Profile.cs [Design]*",
+              "RelativeToolTip": "RealEstateApp\\Forms\\Profile.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T09:20:44.275Z",
+              "EditorCaption": " [Design]"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Register.cs [Design]",
+              "Title": "Profile.cs",
+              "DocumentMoniker": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Profile.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Profile.cs",
+              "ToolTip": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Profile.cs*",
+              "RelativeToolTip": "RealEstateApp\\Forms\\Profile.cs*",
+              "ViewState": "AgIAADsAAAAAAAAAAAAqwE4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:47:55.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Register.cs",
               "DocumentMoniker": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Register.cs",
               "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Register.cs",
-              "ToolTip": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Register.cs [Design]",
-              "RelativeToolTip": "RealEstateApp\\Forms\\Register.cs [Design]",
+              "ToolTip": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Register.cs",
+              "RelativeToolTip": "RealEstateApp\\Forms\\Register.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T17:21:14.216Z",
+              "WhenOpened": "2024-12-11T18:37:03.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Login.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Login.cs",
+              "ToolTip": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Login.cs",
+              "RelativeToolTip": "RealEstateApp\\Forms\\Login.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAADwvyAAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:31:02.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Login.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Login.cs",
+              "ToolTip": "C:\\Users\\ferha\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Login.cs [Design]",
+              "RelativeToolTip": "RealEstateApp\\Forms\\Login.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T18:31:00.255Z",
               "EditorCaption": " [Design]"
             }
           ]
