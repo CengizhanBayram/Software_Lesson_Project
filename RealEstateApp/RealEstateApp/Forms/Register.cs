@@ -19,7 +19,7 @@ namespace RealEstateApp.Forms
     public partial class Register : Form
     {
         // Veritabanı bağlantı bilgileri
-        string connectionString = "Server=localhost;Database=real_estate;Uid=root;Pwd=123456;";
+        string connectionString = "Server=localhost;Database=emlak;Uid=root;Pwd=16072001;";
 
         public Register()
         {
