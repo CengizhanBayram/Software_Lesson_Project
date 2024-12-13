@@ -15,7 +15,7 @@ namespace RealEstateApp.Forms
         public Main()
         {
             InitializeComponent();
-            //this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
         }
         private void Main_Load(object sender, EventArgs e)
         {

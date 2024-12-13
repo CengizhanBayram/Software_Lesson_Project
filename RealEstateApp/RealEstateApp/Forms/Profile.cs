@@ -16,12 +16,10 @@ namespace RealEstateApp.Forms
         public Profile()
         {
             InitializeComponent();
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.WindowState = FormWindowState.Maximized;
 
         }
         int userId = Login.userId;
-        private string connectionString = "Server=localhost;Database=emlak;Uid=root;Pwd=16072001;";
+        private string connectionString = "Server=localhost;Database=real_estate;Uid=root;Pwd=123456;";
         private void Profile_Load(object sender, EventArgs e)
         {
             try
