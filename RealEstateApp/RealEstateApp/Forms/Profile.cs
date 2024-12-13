@@ -19,7 +19,7 @@ namespace RealEstateApp.Forms
 
         }
         int userId = Login.userId;
-        private string connectionString = "Server=localhost;Database=real_estate;Uid=root;Pwd=123456;";
+        private string connectionString = "Server=localhost;Database=emlak;Uid=root;Pwd=16072001;";
         private void Profile_Load(object sender, EventArgs e)
         {
             try
