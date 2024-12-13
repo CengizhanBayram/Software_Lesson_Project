@@ -45,7 +45,7 @@
             // 
             navbar1.BackColor = System.Drawing.Color.Silver;
             navbar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            navbar1.Location = new System.Drawing.Point(-11, -2);
+            navbar1.Location = new System.Drawing.Point(-96, 1);
             navbar1.Margin = new System.Windows.Forms.Padding(5);
             navbar1.Name = "navbar1";
             navbar1.Size = new System.Drawing.Size(1920, 60);
@@ -85,7 +85,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            txtPassword.Size = new System.Drawing.Size(258, 23);
+            txtPassword.Size = new System.Drawing.Size(258, 22);
             txtPassword.TabIndex = 6;
             // 
             // txtUsername
@@ -93,7 +93,7 @@
             txtUsername.Location = new System.Drawing.Point(757, 163);
             txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new System.Drawing.Size(258, 23);
+            txtUsername.Size = new System.Drawing.Size(258, 29);
             txtUsername.TabIndex = 7;
             // 
             // txtEmail
@@ -101,7 +101,7 @@
             txtEmail.Location = new System.Drawing.Point(757, 236);
             txtEmail.Multiline = true;
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new System.Drawing.Size(258, 23);
+            txtEmail.Size = new System.Drawing.Size(258, 29);
             txtEmail.TabIndex = 8;
             // 
             // btnUpdate
@@ -147,7 +147,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1764, 707);
+            ClientSize = new System.Drawing.Size(1820, 707);
             Controls.Add(btnDelete);
             Controls.Add(txtCreate);
             Controls.Add(label4);
