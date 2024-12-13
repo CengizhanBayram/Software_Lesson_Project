@@ -8,6 +8,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RealEstateTest
+<<<<<<< HEAD
+build_property.ProjectDir = C:\Users\ferha\source\repos\Software_Lesson_Project\RealEstateApp\RealEstateTest\
+=======
 build_property.ProjectDir = C:\Users\cengh\Desktop\software\Software_Lesson_Project\RealEstateApp\RealEstateTest\
+>>>>>>> d00daad1ee3fc234b7cec57dcecebf96ab18a513
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

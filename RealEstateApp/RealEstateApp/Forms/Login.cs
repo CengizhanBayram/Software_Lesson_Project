@@ -11,14 +11,14 @@ using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
-
 namespace RealEstateApp.Forms
 {
     public partial class Login : Form
     {
+        public static int userId = 0;
 
         // Veritabanı bağlantı bilgileri
-        string connectionString = "Server=localhost;Database=real_estate;Uid=root;Pwd=123456;";
+        string connectionString = "Server=localhost;Database=emlak;Uid=root;Pwd=16072001;";
 
         public Login()
         {
@@ -30,7 +30,7 @@ namespace RealEstateApp.Forms
         {
             linkLblToRegister.Text = "If you don't have an account please click here to register.";
             linkLblToRegister.LinkArea = new LinkArea(42, 4);
-            textBoxEmail.Text = "deneme@gmail.com";
+            textBoxEmail.Text = "ferhat3169@hotmail.com";
             textBoxPassword.Text = "123456";
             
         }
@@ -77,6 +77,14 @@ namespace RealEstateApp.Forms
 
                             if (userCount > 0)
                             {
+                                string idQuery = "SELECT UserID FROM users WHERE email = @email AND password = @password;";
+                                MySqlCommand idCommand = new MySqlCommand(idQuery, connection);
+                                idCommand.Parameters.AddWithValue("@email", email);
+                                idCommand.Parameters.AddWithValue("@password", password);
+
+                                object result = idCommand.ExecuteScalar();
+                                userId = result != null ? Convert.ToInt32(result) : 0; // Kullanıcı ID'sini global değişkene atama
+
                                 MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 Main mainForm = (Main)this.ParentForm;
