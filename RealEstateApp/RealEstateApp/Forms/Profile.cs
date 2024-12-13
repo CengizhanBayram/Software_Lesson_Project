@@ -16,8 +16,6 @@ namespace RealEstateApp.Forms
         public Profile()
         {
             InitializeComponent();
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.WindowState = FormWindowState.Maximized;
 
         }
         int userId = Login.userId;

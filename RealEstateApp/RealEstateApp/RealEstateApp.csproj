@@ -37,12 +37,12 @@
     <PackageReference Include="ZstdSharp.Port" Version="0.8.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Photos\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Photos\" />
   </ItemGroup>
 </Project>

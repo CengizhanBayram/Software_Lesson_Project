@@ -23,14 +23,13 @@ namespace RealEstateApp.Forms
         public Login()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
             linkLblToRegister.Text = "If you don't have an account please click here to register.";
             linkLblToRegister.LinkArea = new LinkArea(42, 4);
-            textBoxEmail.Text = "ferhat3169@hotmail.com";
+            textBoxEmail.Text = "ferhat@hotmail.com";
             textBoxPassword.Text = "123456";
             
         }
@@ -124,11 +123,7 @@ namespace RealEstateApp.Forms
             return false;
         }
 
-        private void btnTemp_Click(object sender, EventArgs e)
-        {
-            Main mainForm = (Main)this.ParentForm;
-            mainForm.ShowFormInPanel(new Homepage());
-        }
+       
 
     }
 }

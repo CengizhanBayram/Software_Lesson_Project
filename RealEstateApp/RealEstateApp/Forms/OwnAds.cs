@@ -18,8 +18,6 @@ namespace RealEstateApp.Forms
         public OwnAds()
         {
             InitializeComponent();
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.WindowState = FormWindowState.Maximized;
         }
 
         private string connectionString = "Server=localhost;Database=emlak;Uid=root;Pwd=16072001;";
@@ -28,13 +26,12 @@ namespace RealEstateApp.Forms
         private void OwnAds_Load(object sender, EventArgs e)
         {
             try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
+    {
+        using (MySqlConnection connection = new MySqlConnection(connectionString))
+        {
+            connection.Open();
 
-                    // Kullanıcının ilan bilgilerini ve resim yollarını çek
-                    string query = @"
+            string query = @"
                 SELECT 
                     ads.AdID, 
                     ads.Title, 
@@ -47,7 +44,7 @@ namespace RealEstateApp.Forms
                     ads.Elevator,
                     ads.Status,
                     ads.CreatedAt,
-                    adphotos.PhotoPath 
+                    MIN(adphotos.PhotoPath) AS PhotoPath
                 FROM 
                     ads 
                 LEFT JOIN 
@@ -55,78 +52,71 @@ namespace RealEstateApp.Forms
                 ON 
                     ads.AdID = adphotos.AdID 
                 WHERE 
-                    ads.UserID = @userId;";
+                    ads.UserID = @userId
+                GROUP BY 
+                    ads.AdID, ads.Title, ads.Description, ads.Price, ads.Location, 
+                    ads.SquareMeters, ads.RoomCount, ads.FloorNo, ads.Elevator, 
+                    ads.Status, ads.CreatedAt";
 
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@userId", userId);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@userId", userId);
 
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
 
-                    // DataGridView yapılandırması
-                    dataGridViewAds.Rows.Clear(); // Önceki satırları temizle
-                    dataGridViewAds.Columns.Clear(); // Önceki sütunları temizle
+            dataGridViewAds.Rows.Clear();
+            dataGridViewAds.Columns.Clear();
 
-                    // Resim sütununu ekle
-                    DataGridViewImageColumn imgColumn = new DataGridViewImageColumn
+            DataGridViewImageColumn imgColumn = new DataGridViewImageColumn
+            {
+                HeaderText = "Image",
+                Name = "ImageColumn",
+                ImageLayout = DataGridViewImageCellLayout.Zoom
+            };
+            dataGridViewAds.Columns.Add(imgColumn);
+
+            foreach (DataColumn column in dataTable.Columns)
+            {
+                if (column.ColumnName != "PhotoPath")
+                {
+                    dataGridViewAds.Columns.Add(column.ColumnName, column.ColumnName);
+                }
+            }
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                string photoPath = row["PhotoPath"].ToString();
+                Image adImage = Properties.Resources.DefaultImage; // Default resim
+
+                if (!string.IsNullOrEmpty(photoPath) && File.Exists(photoPath))
+                {
+                    using (var stream = new MemoryStream(File.ReadAllBytes(photoPath)))
                     {
-                        HeaderText = "Image",
-                        Name = "ImageColumn",
-                        ImageLayout = DataGridViewImageCellLayout.Zoom
-                    };
-                    dataGridViewAds.Columns.Add(imgColumn);
-
-                    // Diğer sütunları ekle
-                    foreach (DataColumn column in dataTable.Columns)
-                    {
-                        if (column.ColumnName != "PhotoPath") // PhotoPath sütununu gizli tutuyoruz
-                        {
-                            dataGridViewAds.Columns.Add(column.ColumnName, column.ColumnName);
-                        }
+                        adImage = Image.FromStream(stream);
                     }
+                }
 
-                    // Satırları doldur
-                    foreach (DataRow row in dataTable.Rows)
+                int rowIndex = dataGridViewAds.Rows.Add();
+                dataGridViewAds.Rows[rowIndex].Cells["ImageColumn"].Value = adImage;
+                int colIndex = 1;
+
+                foreach (DataColumn column in dataTable.Columns)
+                {
+                    if (column.ColumnName != "PhotoPath")
                     {
-                        string photoPath = row["PhotoPath"].ToString();
-                        Image adImage = null;
-
-                        // Resim dosyasını yükle
-                        if (!string.IsNullOrEmpty(photoPath) && File.Exists(photoPath))
-                        {
-                            adImage = Image.FromFile(photoPath);
-                        }
-
-                        // Resim ve diğer bilgilerle satırı ekle
-                        int rowIndex = dataGridViewAds.Rows.Add();
-                        dataGridViewAds.Rows[rowIndex].Cells["ImageColumn"].Value = adImage ?? Properties.Resources.DefaultImage; // Default resim ekleyebilirsiniz
-                        int colIndex = 1; // Resim sütunu olduğu için diğer sütunlar 1'den başlıyor
-
-                        foreach (DataColumn column in dataTable.Columns)
-                        {
-                            if (column.ColumnName != "PhotoPath")
-                            {
-                                dataGridViewAds.Rows[rowIndex].Cells[colIndex].Value = row[column.ColumnName].ToString();
-                                colIndex++;
-                            }
-                        }
-                        dataGridViewAds.Columns["AdID"].ReadOnly = true; // AdID düzenlenemez, sabit
-                        dataGridViewAds.Columns["CreatedAt"].ReadOnly = true ;
-
-                        dataGridViewAds.RowTemplate.Height = 100; // Satır yüksekliğini ayarla
-                        dataGridViewAds.Columns["ImageColumn"].Width = 100; // Sütun genişliğini ayarla
-
-
-
+                        dataGridViewAds.Rows[rowIndex].Cells[colIndex].Value = row[column.ColumnName].ToString();
+                        colIndex++;
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading ads with images: " + ex.Message);
-            }
         }
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("Error loading ads with images: " + ex.Message);
+    }
+}
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -158,21 +148,19 @@ namespace RealEstateApp.Forms
 
 
                         string updateQuery = @"
-                    UPDATE ads
-                    SET 
-                        Title = @Title, 
-                        Description = @Description, 
-                        Price = @Price, 
-                        Location = @Location,
-                        SquareMeters = @SquareMeters,
-                        RoomCount = @RoomCount,
-                        FloorNo = @FloorNo,
-                        Elevator = @Elevator,
-                        Status = @Status
-
-                        
-                    WHERE 
-                        AdID = @AdID";
+                            UPDATE ads
+                            SET 
+                                Title = @Title, 
+                                Description = @Description, 
+                                Price = @Price, 
+                                Location = @Location,
+                                SquareMeters = @SquareMeters,
+                                RoomCount = @RoomCount,
+                                FloorNo = @FloorNo,
+                                Elevator = @Elevator,
+                                Status = @Status
+                            WHERE 
+                                AdID = @AdID";
 
                         using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
                         {
@@ -186,13 +174,6 @@ namespace RealEstateApp.Forms
                             command.Parameters.AddWithValue("FloorNo", floor);
                             command.Parameters.AddWithValue("Elevator", elevator);
                             command.Parameters.AddWithValue("@Status", status); // Yeni Status parametresi
-
-
-
-
-
-
-
                             command.ExecuteNonQuery();
                         }
                     }
@@ -224,6 +205,21 @@ namespace RealEstateApp.Forms
                         {
                             connection.Open();
 
+                            // Resim dosyalarının yollarını veritabanından al
+                            List<string> photoPaths = new List<string>();
+                            string getPhotoPathsQuery = "SELECT PhotoPath FROM adphotos WHERE AdID = @AdID;";
+                            using (MySqlCommand getPhotoCommand = new MySqlCommand(getPhotoPathsQuery, connection))
+                            {
+                                getPhotoCommand.Parameters.AddWithValue("@AdID", adID);
+                                using (MySqlDataReader reader = getPhotoCommand.ExecuteReader())
+                                {
+                                    while (reader.Read())
+                                    {
+                                        photoPaths.Add(reader["PhotoPath"].ToString());
+                                    }
+                                }
+                            }
+
                             // Resim verisini silme
                             string deletePhotoQuery = "DELETE FROM adphotos WHERE AdID = @AdID;";
                             using (MySqlCommand photoCommand = new MySqlCommand(deletePhotoQuery, connection))
@@ -240,7 +236,23 @@ namespace RealEstateApp.Forms
                                 adCommand.ExecuteNonQuery();
                             }
 
-                            MessageBox.Show("Ad deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // Resim dosyalarını fiziksel olarak sil
+                            foreach (string photoPath in photoPaths)
+                            {
+                                if (File.Exists(photoPath))
+                                {
+                                    try
+                                    {
+                                        File.Delete(photoPath);
+                                    }
+                                    catch (Exception fileEx)
+                                    {
+                                        MessageBox.Show($"Error deleting file '{photoPath}': {fileEx.Message}");
+                                    }
+                                }
+                            }
+
+                            MessageBox.Show("Ad and associated images deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Satırı DataGridView'den kaldır
                             dataGridViewAds.Rows.RemoveAt(selectedRowIndex);
@@ -257,5 +269,12 @@ namespace RealEstateApp.Forms
                 MessageBox.Show("Please select an ad to delete.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
     }
 }
+
+
+
+
+
+

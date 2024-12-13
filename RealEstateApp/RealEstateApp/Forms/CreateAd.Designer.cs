@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel2 = new System.Windows.Forms.Panel();
+            maskedTextBoxSquareMeters = new System.Windows.Forms.MaskedTextBox();
+            maskedTextBoxPrice = new System.Windows.Forms.MaskedTextBox();
             btnSaveAdvert = new System.Windows.Forms.Button();
             lblElevator = new System.Windows.Forms.Label();
             comboBoxFloorNo = new System.Windows.Forms.ComboBox();
@@ -40,26 +43,32 @@
             lblTitle = new System.Windows.Forms.Label();
             lblRoomNumber = new System.Windows.Forms.Label();
             lblDescription = new System.Windows.Forms.Label();
-            textBoxSquareMeters = new System.Windows.Forms.TextBox();
             richTextBoxDescription = new System.Windows.Forms.RichTextBox();
             lblLocation = new System.Windows.Forms.Label();
             flowLayoutPanelPhotos = new System.Windows.Forms.FlowLayoutPanel();
             comboBoxLocation = new System.Windows.Forms.ComboBox();
-            textBoxPrice = new System.Windows.Forms.TextBox();
             lblSquareMeters = new System.Windows.Forms.Label();
             btnUploadPhoto = new System.Windows.Forms.Button();
             lblPrice = new System.Windows.Forms.Label();
             panel6 = new System.Windows.Forms.Panel();
             navbar1 = new navbar();
             panel7 = new System.Windows.Forms.Panel();
+            errorProviderTitle = new System.Windows.Forms.ErrorProvider(components);
+            errorProviderDescription = new System.Windows.Forms.ErrorProvider(components);
+            errorProviderPrice = new System.Windows.Forms.ErrorProvider(components);
             panel2.SuspendLayout();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProviderTitle).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderDescription).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderPrice).BeginInit();
             SuspendLayout();
             // 
             // panel2
             // 
             panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            panel2.Controls.Add(maskedTextBoxSquareMeters);
+            panel2.Controls.Add(maskedTextBoxPrice);
             panel2.Controls.Add(btnSaveAdvert);
             panel2.Controls.Add(lblElevator);
             panel2.Controls.Add(comboBoxFloorNo);
@@ -71,19 +80,35 @@
             panel2.Controls.Add(lblTitle);
             panel2.Controls.Add(lblRoomNumber);
             panel2.Controls.Add(lblDescription);
-            panel2.Controls.Add(textBoxSquareMeters);
             panel2.Controls.Add(richTextBoxDescription);
             panel2.Controls.Add(lblLocation);
             panel2.Controls.Add(flowLayoutPanelPhotos);
             panel2.Controls.Add(comboBoxLocation);
-            panel2.Controls.Add(textBoxPrice);
             panel2.Controls.Add(lblSquareMeters);
             panel2.Controls.Add(btnUploadPhoto);
             panel2.Controls.Add(lblPrice);
-            panel2.Location = new System.Drawing.Point(330, 27);
+            panel2.Location = new System.Drawing.Point(275, 27);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(881, 1419);
+            panel2.Size = new System.Drawing.Size(881, 1404);
             panel2.TabIndex = 13;
+            // 
+            // maskedTextBoxSquareMeters
+            // 
+            maskedTextBoxSquareMeters.Location = new System.Drawing.Point(29, 734);
+            maskedTextBoxSquareMeters.Mask = "00000";
+            maskedTextBoxSquareMeters.Name = "maskedTextBoxSquareMeters";
+            maskedTextBoxSquareMeters.Size = new System.Drawing.Size(825, 32);
+            maskedTextBoxSquareMeters.TabIndex = 20;
+            maskedTextBoxSquareMeters.ValidatingType = typeof(int);
+            // 
+            // maskedTextBoxPrice
+            // 
+            maskedTextBoxPrice.Location = new System.Drawing.Point(29, 641);
+            maskedTextBoxPrice.Mask = "0000000000";
+            maskedTextBoxPrice.Name = "maskedTextBoxPrice";
+            maskedTextBoxPrice.Size = new System.Drawing.Size(825, 32);
+            maskedTextBoxPrice.TabIndex = 19;
+            maskedTextBoxPrice.ValidatingType = typeof(int);
             // 
             // btnSaveAdvert
             // 
@@ -194,15 +219,6 @@
             lblDescription.TabIndex = 6;
             lblDescription.Text = "Description";
             // 
-            // textBoxSquareMeters
-            // 
-            textBoxSquareMeters.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            textBoxSquareMeters.Location = new System.Drawing.Point(30, 734);
-            textBoxSquareMeters.Name = "textBoxSquareMeters";
-            textBoxSquareMeters.Size = new System.Drawing.Size(825, 32);
-            textBoxSquareMeters.TabIndex = 10;
-            textBoxSquareMeters.TextChanged += textBoxSquareMeters_TextChanged;
-            // 
             // richTextBoxDescription
             // 
             richTextBoxDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -239,15 +255,6 @@
             comboBoxLocation.Name = "comboBoxLocation";
             comboBoxLocation.Size = new System.Drawing.Size(826, 34);
             comboBoxLocation.TabIndex = 11;
-            // 
-            // textBoxPrice
-            // 
-            textBoxPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            textBoxPrice.Location = new System.Drawing.Point(29, 641);
-            textBoxPrice.Name = "textBoxPrice";
-            textBoxPrice.Size = new System.Drawing.Size(826, 32);
-            textBoxPrice.TabIndex = 8;
-            textBoxPrice.TextChanged += textBox1_TextChanged;
             // 
             // lblSquareMeters
             // 
@@ -310,6 +317,18 @@
             panel7.Size = new System.Drawing.Size(1482, 673);
             panel7.TabIndex = 3;
             // 
+            // errorProviderTitle
+            // 
+            errorProviderTitle.ContainerControl = this;
+            // 
+            // errorProviderDescription
+            // 
+            errorProviderDescription.ContainerControl = this;
+            // 
+            // errorProviderPrice
+            // 
+            errorProviderPrice.ContainerControl = this;
+            // 
             // CreateAd
             // 
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -325,6 +344,9 @@
             panel2.PerformLayout();
             panel6.ResumeLayout(false);
             panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)errorProviderTitle).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderDescription).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderPrice).EndInit();
             ResumeLayout(false);
         }
 
@@ -337,12 +359,10 @@
         private System.Windows.Forms.RichTextBox richTextBoxDescription;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.ComboBox comboBoxLocation;
         private System.Windows.Forms.Label lblLocation;
         private System.Windows.Forms.Label lblSquareMeters;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBoxSquareMeters;
         private System.Windows.Forms.ComboBox comboBoxRoomNumber;
         private System.Windows.Forms.Label lblFloorNo;
         private System.Windows.Forms.Label lblRoomNumber;
@@ -353,5 +373,10 @@
         private System.Windows.Forms.Label lblElevator;
         private System.Windows.Forms.ComboBox comboBoxElevator;
         private navbar navbar1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxSquareMeters;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxPrice;
+        private System.Windows.Forms.ErrorProvider errorProviderTitle;
+        private System.Windows.Forms.ErrorProvider errorProviderDescription;
+        private System.Windows.Forms.ErrorProvider errorProviderPrice;
     }
 }
