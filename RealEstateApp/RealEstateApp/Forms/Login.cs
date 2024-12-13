@@ -18,19 +18,18 @@ namespace RealEstateApp.Forms
         public static int userId = 0;
 
         // Veritabanı bağlantı bilgileri
-        string connectionString = "Server=localhost;Database=emlak;Uid=root;Pwd=16072001;";
+        string connectionString = "Server=localhost;Database=real_estate;Uid=root;Pwd=123456;";
 
         public Login()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
             linkLblToRegister.Text = "If you don't have an account please click here to register.";
             linkLblToRegister.LinkArea = new LinkArea(42, 4);
-            textBoxEmail.Text = "ferhat3169@hotmail.com";
+            textBoxEmail.Text = "user@example.com";
             textBoxPassword.Text = "123456";
             
         }

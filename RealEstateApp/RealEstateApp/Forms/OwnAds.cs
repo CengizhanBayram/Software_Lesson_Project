@@ -18,11 +18,9 @@ namespace RealEstateApp.Forms
         public OwnAds()
         {
             InitializeComponent();
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.WindowState = FormWindowState.Maximized;
         }
 
-        private string connectionString = "Server=localhost;Database=emlak;Uid=root;Pwd=16072001;";
+        private string connectionString = "Server=localhost;Database=real_estate;Uid=root;Pwd=123456;";
         int userId = Login.userId;
 
         private void OwnAds_Load(object sender, EventArgs e)
@@ -158,21 +156,19 @@ namespace RealEstateApp.Forms
 
 
                         string updateQuery = @"
-                    UPDATE ads
-                    SET 
-                        Title = @Title, 
-                        Description = @Description, 
-                        Price = @Price, 
-                        Location = @Location,
-                        SquareMeters = @SquareMeters,
-                        RoomCount = @RoomCount,
-                        FloorNo = @FloorNo,
-                        Elevator = @Elevator,
-                        Status = @Status
-
-                        
-                    WHERE 
-                        AdID = @AdID";
+                            UPDATE ads
+                            SET 
+                                Title = @Title, 
+                                Description = @Description, 
+                                Price = @Price, 
+                                Location = @Location,
+                                SquareMeters = @SquareMeters,
+                                RoomCount = @RoomCount,
+                                FloorNo = @FloorNo,
+                                Elevator = @Elevator,
+                                Status = @Status
+                            WHERE 
+                                AdID = @AdID";
 
                         using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
                         {
@@ -186,13 +182,6 @@ namespace RealEstateApp.Forms
                             command.Parameters.AddWithValue("FloorNo", floor);
                             command.Parameters.AddWithValue("Elevator", elevator);
                             command.Parameters.AddWithValue("@Status", status); // Yeni Status parametresi
-
-
-
-
-
-
-
                             command.ExecuteNonQuery();
                         }
                     }
