@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panel1 = new System.Windows.Forms.Panel();
+            panel2 = new System.Windows.Forms.Panel();
             navbar1 = new navbar();
+
+            panel1.SuspendLayout();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -41,15 +45,34 @@
             btnDelete = new System.Windows.Forms.Button();
             SuspendLayout();
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(navbar1);
+            panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(1482, 80);
+            panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel2.Location = new System.Drawing.Point(0, 80);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(1482, 673);
+            panel2.TabIndex = 1;
+            // 
             // navbar1
             // 
             navbar1.BackColor = System.Drawing.Color.Silver;
+            navbar1.Dock = System.Windows.Forms.DockStyle.Fill;
             navbar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
+            navbar1.Location = new System.Drawing.Point(0, 0);
             navbar1.Location = new System.Drawing.Point(-96, 1);
             navbar1.Margin = new System.Windows.Forms.Padding(5);
             navbar1.Name = "navbar1";
-            navbar1.Size = new System.Drawing.Size(1920, 60);
-            navbar1.TabIndex = 0;
+            navbar1.Size = new System.Drawing.Size(1482, 80);
+            navbar1.TabIndex = 2;
             // 
             // label1
             // 
@@ -145,6 +168,10 @@
             // 
             // Profile
             // 
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            ClientSize = new System.Drawing.Size(1482, 753);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1820, 707);
@@ -162,7 +189,9 @@
             Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
             Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             Name = "Profile";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Profile";
+            panel1.ResumeLayout(false);
             Load += Profile_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -170,6 +199,8 @@
 
         #endregion
 
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
         private navbar navbar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

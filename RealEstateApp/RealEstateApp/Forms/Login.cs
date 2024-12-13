@@ -124,11 +124,7 @@ namespace RealEstateApp.Forms
             return false;
         }
 
-        private void btnTemp_Click(object sender, EventArgs e)
-        {
-            Main mainForm = (Main)this.ParentForm;
-            mainForm.ShowFormInPanel(new Homepage());
-        }
+       
 
     }
 }
