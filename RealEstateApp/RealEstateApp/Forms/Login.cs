@@ -30,7 +30,7 @@ namespace RealEstateApp.Forms
         {
             linkLblToRegister.Text = "If you don't have an account please click here to register.";
             linkLblToRegister.LinkArea = new LinkArea(42, 4);
-            textBoxEmail.Text = "cengiz@gmail.com";
+            textBoxEmail.Text = "ferhat3169@hotmail.com";
             textBoxPassword.Text = "123456";
             
         }
