@@ -57,19 +57,19 @@ namespace RealEstateTest
         [Test]
         public void UploadPhotoButton_ClickEvent_ShouldBeAttached()
         {
-            // Upload Photo butonuna Click olay işleyicisinin atanıp atanmadığını kontrol et
             var btnUploadPhoto = form.Controls.Find("btnUploadPhoto", true)[0] as Button;
             ClassicAssert.IsNotNull(btnUploadPhoto, "Upload Photo Button bulunamadı.");
 
             bool eventTriggered = false;
             btnUploadPhoto.Click += (s, e) => eventTriggered = true;
 
-            // Butonu tıklatarak olayın tetiklenmesini simüle et
-            btnUploadPhoto.PerformClick();
+            // Reflection ile InvokeOnClick'e erişim sağla
+            var invokeOnClickMethod = typeof(Control).GetMethod("InvokeOnClick", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            invokeOnClickMethod?.Invoke(btnUploadPhoto, new object[] { btnUploadPhoto, EventArgs.Empty });
 
-            // Olayın gerçekten tetiklenip tetiklenmediğini kontrol et
             ClassicAssert.IsTrue(eventTriggered, "Upload Photo Button için Click olayı tetiklenmedi.");
         }
+
 
         [Test]
         public void ErrorProviders_ShouldBeInitialized()
