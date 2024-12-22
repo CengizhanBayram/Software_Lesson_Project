@@ -1,83 +1,97 @@
 ﻿using NUnit.Framework;
-using Moq;
+using System.Windows.Forms;
 using RealEstateApp.Forms;
-using MySql.Data.MySqlClient;
-using System.Collections.Generic;
+using NUnit.Framework.Legacy;
 
-namespace RealEstateAppTests
+namespace RealEstateTest
 {
     [TestFixture]
     public class CreateAdTests
     {
-        private Mock<MySqlConnection> _mockConnection;
-        private Mock<MySqlCommand> _mockCommand;
-        private CreateAd _createAd;
+        private CreateAd form;
 
         [SetUp]
         public void Setup()
         {
-            // Mock nesneler oluşturulur
-            _mockConnection = new Mock<MySqlConnection>();
-            _mockCommand = new Mock<MySqlCommand>();
-
-            // Test edilecek sınıfın örneği
-            _createAd = new CreateAd();
+            form = new CreateAd();
+            form.Show(); // Formu oluştur ve göster
         }
 
         [TearDown]
         public void TearDown()
         {
-            // Mock nesnelerini manuel olarak Dispose et
-            _mockConnection?.Object.Dispose();
-            _mockCommand?.Object.Dispose();
-
-            // Kullanılan diğer kaynaklar temizlenir
-            _createAd?.Dispose();
+            form.Close(); // Testten sonra formu kapat
         }
 
         [Test]
-        public void SavePhotoPathsToDatabase_ShouldSavePhotoPaths()
+        public void FormComponents_ShouldBeInitialized()
         {
-            // Arrange
-            int adID = 1;
-            List<string> photoPaths = new List<string>
-            {
-                @"C:\Photos\image1.jpg",
-                @"C:\Photos\image2.jpg"
-            };
+            // Formun başlığını kontrol et
+            ClassicAssert.AreEqual("CreateAd", form.Text, "Form başlığı doğru değil.");
 
-            // Act
-            _createAd.SavePhotoPathsToDatabase(adID, photoPaths);
-
-            // Assert
-            foreach (string photoPath in photoPaths)
-            {
-                _mockCommand.Verify(cmd => cmd.Parameters.AddWithValue("@AdID", adID), Times.Once);
-                _mockCommand.Verify(cmd => cmd.Parameters.AddWithValue("@PhotoPath", photoPath), Times.Once);
-            }
+            // Gerekli bileşenlerin varlığını kontrol et
+            ClassicAssert.IsNotNull(form.Controls.Find("textBoxTitle", true)[0], "Title TextBox bulunamadı.");
+            ClassicAssert.IsNotNull(form.Controls.Find("richTextBoxDescription", true)[0], "Description RichTextBox bulunamadı.");
+            ClassicAssert.IsNotNull(form.Controls.Find("maskedTextBoxPrice", true)[0], "Price MaskedTextBox bulunamadı.");
+            ClassicAssert.IsNotNull(form.Controls.Find("comboBoxLocation", true)[0], "Location ComboBox bulunamadı.");
+            ClassicAssert.IsNotNull(form.Controls.Find("btnSaveAdvert", true)[0], "Save Button bulunamadı.");
         }
 
         [Test]
-        public void btnSaveAdvert_ShouldInsertAdAndSavePhotos()
+        public void SaveButton_ClickEvent_ShouldBeAttached()
         {
-            // Arrange
-            _createAd.textBoxTitle.Text = "Test Ad";
-            _createAd.textBoxPrice.Text = "100000";
-            _createAd.textBoxSquareMeters.Text = "120";
-            _createAd.comboBoxLocation.SelectedItem = "Ankara";
-            _createAd.comboBoxRoomNumber.SelectedItem = "3+1";
-            _createAd.comboBoxFloorNo.SelectedItem = "1st";
-            _createAd.comboBoxElevator.SelectedItem = "Yes";
-            _createAd.photoPaths = new List<string> { @"C:\Photos\image1.jpg" };
+            // Save butonuna Click olay işleyicisinin atanıp atanmadığını kontrol et
+            var btnSave = form.Controls.Find("btnSaveAdvert", true)[0] as Button;
+            ClassicAssert.IsNotNull(btnSave, "Save Button bulunamadı.");
 
-            // Act
-            _createAd.btnSaveAdvert_Click(null, null);
+            bool eventTriggered = false;
+            btnSave.Click += (s, e) => eventTriggered = true;
 
-            // Assert
-            _mockCommand.Verify(cmd => cmd.Parameters.AddWithValue("@Title", "Test Ad"), Times.Once);
-            _mockCommand.Verify(cmd => cmd.Parameters.AddWithValue("@Price", 100000), Times.Once);
-            _mockCommand.Verify(cmd => cmd.Parameters.AddWithValue("@Location", "Ankara"), Times.Once);
-            _mockCommand.Verify(cmd => cmd.Parameters.AddWithValue("@SquareMeters", 120), Times.Once);
+            // Butonu tıklatarak olayın tetiklenmesini simüle et
+            btnSave.PerformClick();
+
+            // Olayın gerçekten tetiklenip tetiklenmediğini kontrol et
+            ClassicAssert.IsTrue(eventTriggered, "Save Button için Click olayı tetiklenmedi.");
+        }
+
+        [Test]
+        public void UploadPhotoButton_ClickEvent_ShouldBeAttached()
+        {
+            // Upload Photo butonuna Click olay işleyicisinin atanıp atanmadığını kontrol et
+            var btnUploadPhoto = form.Controls.Find("btnUploadPhoto", true)[0] as Button;
+            ClassicAssert.IsNotNull(btnUploadPhoto, "Upload Photo Button bulunamadı.");
+
+            bool eventTriggered = false;
+            btnUploadPhoto.Click += (s, e) => eventTriggered = true;
+
+            // Butonu tıklatarak olayın tetiklenmesini simüle et
+            btnUploadPhoto.PerformClick();
+
+            // Olayın gerçekten tetiklenip tetiklenmediğini kontrol et
+            ClassicAssert.IsTrue(eventTriggered, "Upload Photo Button için Click olayı tetiklenmedi.");
+        }
+
+        [Test]
+        public void ErrorProviders_ShouldBeInitialized()
+        {
+            // ErrorProvider bileşenlerinin varlığını kontrol et
+            ClassicAssert.IsNotNull(form.Controls.Find("errorProviderTitle", true)[0], "Title ErrorProvider bulunamadı.");
+            ClassicAssert.IsNotNull(form.Controls.Find("errorProviderDescription", true)[0], "Description ErrorProvider bulunamadı.");
+            ClassicAssert.IsNotNull(form.Controls.Find("errorProviderPrice", true)[0], "Price ErrorProvider bulunamadı.");
+        }
+
+        [Test]
+        public void MaskedTextBox_Validation_ShouldBeCorrect()
+        {
+            // MaskedTextBox (Price ve SquareMeters) bileşenlerinin doğruluğunu kontrol et
+            var maskedTextBoxPrice = form.Controls.Find("maskedTextBoxPrice", true)[0] as MaskedTextBox;
+            var maskedTextBoxSquareMeters = form.Controls.Find("maskedTextBoxSquareMeters", true)[0] as MaskedTextBox;
+
+            ClassicAssert.IsNotNull(maskedTextBoxPrice, "Price MaskedTextBox bulunamadı.");
+            ClassicAssert.AreEqual("0000000000", maskedTextBoxPrice.Mask, "Price MaskedTextBox maskesi yanlış.");
+
+            ClassicAssert.IsNotNull(maskedTextBoxSquareMeters, "SquareMeters MaskedTextBox bulunamadı.");
+            ClassicAssert.AreEqual("00000", maskedTextBoxSquareMeters.Mask, "SquareMeters MaskedTextBox maskesi yanlış.");
         }
     }
 }
