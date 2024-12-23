@@ -20,7 +20,7 @@ namespace RealEstateApp.Forms
             InitializeComponent();
         }
 
-        private string connectionString = "Server=localhost;Database=emlak;Uid=root;Pwd=16072001;";
+        private string connectionString = "Server=localhost;Database=appınfos;Uid=root;Pwd=123456;";
         int userId = Login.userId;
 
         private void OwnAds_Load(object sender, EventArgs e)
@@ -198,94 +198,87 @@ namespace RealEstateApp.Forms
 
 
 
-                private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewAds.SelectedRows.Count > 0)
             {
-                if (dataGridViewAds.SelectedRows.Count > 0)
+                // Seçili satırdaki AdID'yi al
+                int selectedRowIndex = dataGridViewAds.SelectedRows[0].Index;
+                int adID = Convert.ToInt32(dataGridViewAds.Rows[selectedRowIndex].Cells["AdID"].Value);
+
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this ad?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
                 {
-                    // Seçili satırdaki AdID'yi al
-                    int selectedRowIndex = dataGridViewAds.SelectedRows[0].Index;
-                    int adID = Convert.ToInt32(dataGridViewAds.Rows[selectedRowIndex].Cells["AdID"].Value);
-
-                    DialogResult result = MessageBox.Show("Are you sure you want to delete this ad?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                    if (result == DialogResult.Yes)
+                    try
                     {
-                        try
+                        using (MySqlConnection connection = new MySqlConnection(connectionString))
                         {
-                            using (MySqlConnection connection = new MySqlConnection(connectionString))
+                            connection.Open();
+
+                            // Resim dosyalarının yollarını veritabanından al
+                            List<string> photoPaths = new List<string>();
+                            string getPhotoPathsQuery = "SELECT PhotoPath FROM adphotos WHERE AdID = @AdID;";
+                            using (MySqlCommand getPhotoCommand = new MySqlCommand(getPhotoPathsQuery, connection))
                             {
-                                connection.Open();
-
-                                // Resim dosyalarının yollarını veritabanından al
-                                List<string> photoPaths = new List<string>();
-                                string getPhotoPathsQuery = "SELECT PhotoPath FROM adphotos WHERE AdID = @AdID;";
-                                using (MySqlCommand getPhotoCommand = new MySqlCommand(getPhotoPathsQuery, connection))
+                                getPhotoCommand.Parameters.AddWithValue("@AdID", adID);
+                                using (MySqlDataReader reader = getPhotoCommand.ExecuteReader())
                                 {
-                                    getPhotoCommand.Parameters.AddWithValue("@AdID", adID);
-                                    using (MySqlDataReader reader = getPhotoCommand.ExecuteReader())
+                                    while (reader.Read())
                                     {
-                                        while (reader.Read())
-                                        {
-                                            photoPaths.Add(reader["PhotoPath"].ToString());
-                                        }
+                                        photoPaths.Add(reader["PhotoPath"].ToString());
                                     }
                                 }
-
-                                // Resim verisini silme
-                                string deletePhotoQuery = "DELETE FROM adphotos WHERE AdID = @AdID;";
-                                using (MySqlCommand photoCommand = new MySqlCommand(deletePhotoQuery, connection))
-                                {
-                                    photoCommand.Parameters.AddWithValue("@AdID", adID);
-                                    photoCommand.ExecuteNonQuery();
-                                }
-
-                                // İlan verisini silme
-                                string deleteAdQuery = "DELETE FROM ads WHERE AdID = @AdID;";
-                                using (MySqlCommand adCommand = new MySqlCommand(deleteAdQuery, connection))
-                                {
-                                    adCommand.Parameters.AddWithValue("@AdID", adID);
-                                    adCommand.ExecuteNonQuery();
-                                }
-
-                                // Resim dosyalarını fiziksel olarak sil
-                                foreach (string photoPath in photoPaths)
-                                {
-                                    if (File.Exists(photoPath))
-                                    {
-                                        try
-                                        {
-                                            File.Delete(photoPath);
-                                        }
-                                        catch (Exception fileEx)
-                                        {
-                                            MessageBox.Show($"Error deleting file '{photoPath}': {fileEx.Message}");
-                                        }
-                                    }
-                                }
-
-                                MessageBox.Show("Ad and associated images deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                // Satırı DataGridView'den kaldır
-                                dataGridViewAds.Rows.RemoveAt(selectedRowIndex);
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error deleting ad: " + ex.Message);
+
+                            // Resim verisini silme
+                            string deletePhotoQuery = "DELETE FROM adphotos WHERE AdID = @AdID;";
+                            using (MySqlCommand photoCommand = new MySqlCommand(deletePhotoQuery, connection))
+                            {
+                                photoCommand.Parameters.AddWithValue("@AdID", adID);
+                                photoCommand.ExecuteNonQuery();
+                            }
+
+                            // İlan verisini silme
+                            string deleteAdQuery = "DELETE FROM ads WHERE AdID = @AdID;";
+                            using (MySqlCommand adCommand = new MySqlCommand(deleteAdQuery, connection))
+                            {
+                                adCommand.Parameters.AddWithValue("@AdID", adID);
+                                adCommand.ExecuteNonQuery();
+                            }
+
+                            // Resim dosyalarını fiziksel olarak sil
+                            foreach (string photoPath in photoPaths)
+                            {
+                                if (File.Exists(photoPath))
+                                {
+                                    try
+                                    {
+                                        File.Delete(photoPath);
+                                    }
+                                    catch (Exception fileEx)
+                                    {
+                                        MessageBox.Show($"Error deleting file '{photoPath}': {fileEx.Message}");
+                                    }
+                                }
+                            }
+
+                            MessageBox.Show("Ad and associated images deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Satırı DataGridView'den kaldır
+                            dataGridViewAds.Rows.RemoveAt(selectedRowIndex);
                         }
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Please select an ad to delete.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error deleting ad: " + ex.Message);
+                    }
                 }
             }
-
         }
+
+
+
     }
 
-
-
-
-
-
+}

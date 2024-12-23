@@ -2897,23 +2897,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cengh\\.nuget\\packages\\": {},
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
       "projectName": "RealEstateTest",
-      "projectPath": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
-      "packagesPath": "C:\\Users\\cengh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\obj\\",
+      "projectPath": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\cengh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2929,8 +2929,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj": {
-              "projectPath": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj"
+            "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj"
             }
           }
         }
@@ -2943,8 +2943,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -2999,8 +3000,26 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Text.Json' 8.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-8g4q-xg66-9fp4",
+      "libraryId": "System.Text.Json",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
 }

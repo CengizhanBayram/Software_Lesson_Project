@@ -19,7 +19,7 @@ namespace RealEstateApp.Forms
 
         }
         int userId = Login.userId;
-        private string connectionString = "Server=localhost;Database=emlak;Uid=root;Pwd=16072001;";
+        private string connectionString = "Server=localhost;Database=appınfos;Uid=root;Pwd=123456;";
         private void Profile_Load(object sender, EventArgs e)
         {
             try
@@ -90,7 +90,7 @@ namespace RealEstateApp.Forms
                     // Yeni şifre güncelleme sorgusu
                     string updateQuery = "UPDATE users SET password = @newPassword WHERE userID = @id;";
                     MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
-                    
+
                     updateCommand.Parameters.AddWithValue("@newPassword", txtPassword.Text.Trim());
                     updateCommand.Parameters.AddWithValue("@id", userId);
 
@@ -98,13 +98,13 @@ namespace RealEstateApp.Forms
 
                     if (rowsAffected > 0)
                     {
-                         MessageBox.Show("Account Information(s) updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Account Information(s) updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                         MessageBox.Show("Password update failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Password update failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    
+
                 }
             }
             catch (Exception ex)
@@ -139,6 +139,4 @@ namespace RealEstateApp.Forms
             }
         }
     }
-    }
-
-
+}

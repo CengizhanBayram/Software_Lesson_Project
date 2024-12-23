@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             panel1 = new System.Windows.Forms.Panel();
-            panel2 = new System.Windows.Forms.Panel();
             navbar1 = new navbar();
+            panel3 = new System.Windows.Forms.Panel();
+            flowLayoutPanelAds = new System.Windows.Forms.FlowLayoutPanel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -43,14 +44,6 @@
             panel1.Size = new System.Drawing.Size(1482, 80);
             panel1.TabIndex = 0;
             // 
-            // panel2
-            // 
-            panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel2.Location = new System.Drawing.Point(0, 80);
-            panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(1482, 673);
-            panel2.TabIndex = 1;
-            // 
             // navbar1
             // 
             navbar1.BackColor = System.Drawing.Color.Silver;
@@ -62,11 +55,33 @@
             navbar1.Size = new System.Drawing.Size(1482, 80);
             navbar1.TabIndex = 0;
             // 
+            // panel3
+            // 
+            panel3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            panel3.Location = new System.Drawing.Point(0, 80);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(289, 673);
+            panel3.TabIndex = 2;
+            // 
+            // flowLayoutPanelAds
+            // 
+            flowLayoutPanelAds.AllowDrop = true;
+            flowLayoutPanelAds.AutoScroll = true;
+            flowLayoutPanelAds.BackColor = System.Drawing.Color.DarkGray;
+            flowLayoutPanelAds.Dock = System.Windows.Forms.DockStyle.Fill;
+            flowLayoutPanelAds.Location = new System.Drawing.Point(289, 80);
+            flowLayoutPanelAds.Name = "flowLayoutPanelAds";
+            flowLayoutPanelAds.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            flowLayoutPanelAds.Size = new System.Drawing.Size(1193, 673);
+            flowLayoutPanelAds.TabIndex = 2;
+            // 
             // Homepage
             // 
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             ClientSize = new System.Drawing.Size(1482, 753);
-            Controls.Add(panel2);
+            Controls.Add(flowLayoutPanelAds);
+            Controls.Add(panel3);
             Controls.Add(panel1);
             Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
             Margin = new System.Windows.Forms.Padding(5);
@@ -81,6 +96,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private navbar navbar1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelAds;
     }
 }

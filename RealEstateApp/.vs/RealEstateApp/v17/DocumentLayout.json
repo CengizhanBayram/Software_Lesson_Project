@@ -1,106 +1,50 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\",
+  "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestatetest\\createadtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|solutionrelative:realestatetest\\createadtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestatetest\\profile_tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|solutionrelative:realestatetest\\profile_tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestatetest\\register_tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|solutionrelative:realestatetest\\register_tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\forms\\profile.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\profile.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestatetest\\logintests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|solutionrelative:realestatetest\\logintests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\forms\\createad.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\createad.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestatetest\\favoritestests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|solutionrelative:realestatetest\\favoritestests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestatetest\\ownads_tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|solutionrelative:realestatetest\\ownads_tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestatetest\\homepage_tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|solutionrelative:realestatetest\\homepage_tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\realestateapp\\forms\\createad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\createad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestatetest\\main_tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|solutionrelative:realestatetest\\main_tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestatetest\\realestatetest.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{FCAF4ADE-7CCD-4899-8E92-B9E5A315FBE4}|RealEstateTest\\RealEstateTest.csproj|solutionrelative:realestatetest\\realestatetest.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\realestateapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\realestateapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\realestateapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\realestateapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\forms\\ownads.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\ownads.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\forms\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\forms\\main.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\main.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\forms\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\asus\\desktop\\swe project\\software_lesson_project\\realestateapp\\realestateapp\\forms\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\forms\\homepage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\homepage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\asus\\desktop\\swe project\\software_lesson_project\\realestateapp\\realestateapp\\forms\\ownads.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\ownads.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\forms\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\asus\\desktop\\swe project\\software_lesson_project\\realestateapp\\realestateapp\\forms\\ownads.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\ownads.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\forms\\favorites.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\favorites.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\asus\\desktop\\swe project\\software_lesson_project\\realestateapp\\realestateapp\\forms\\ownads.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\ownads.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\forms\\favorites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\asus\\desktop\\swe project\\software_lesson_project\\realestateapp\\realestateapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\asus\\desktop\\swe project\\software_lesson_project\\realestateapp\\realestateapp\\forms\\createad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\createad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\asus\\desktop\\swe project\\software_lesson_project\\realestateapp\\realestateapp\\forms\\favorites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\favorites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\asus\\desktop\\swe project\\software_lesson_project\\realestateapp\\realestateapp\\forms\\favorites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\favorites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\cengh\\desktop\\software\\software_lesson_project\\realestateapp\\realestateapp\\forms\\createad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\createad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\realestateapp\\forms\\addetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\addetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\asus\\desktop\\swe project\\software_lesson_project\\realestateapp\\realestateapp\\forms\\addetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\addetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|c:\\users\\asus\\desktop\\swe project\\software_lesson_project\\realestateapp\\realestateapp\\forms\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3431E22-03FF-45E7-BFF8-94EAA762B48D}|RealEstateApp\\RealEstateApp.csproj|solutionrelative:realestateapp\\forms\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -110,323 +54,149 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 27,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CreateAd.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\CreateAd.Designer.cs",
-              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\CreateAd.Designer.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\CreateAd.Designer.cs",
-              "RelativeToolTip": "RealEstateApp\\Forms\\CreateAd.Designer.cs",
-              "ViewState": "AgIAABsBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T08:50:24.824Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CreateAd.cs [Tasar\u0131m]",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\CreateAd.cs",
-              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\CreateAd.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\CreateAd.cs [Tasar\u0131m]",
-              "RelativeToolTip": "RealEstateApp\\Forms\\CreateAd.cs [Tasar\u0131m]",
+              "DocumentIndex": 0,
+              "Title": "Profile.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Profile.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Profile.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Profile.cs",
+              "RelativeToolTip": "RealEstateApp\\Forms\\Profile.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T15:14:14.324Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Program.cs",
-              "RelativeDocumentMoniker": "RealEstateApp\\Program.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Program.cs",
-              "RelativeToolTip": "RealEstateApp\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T15:09:25.605Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FavoritesTests.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\FavoritesTests.cs",
-              "RelativeDocumentMoniker": "RealEstateTest\\FavoritesTests.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\FavoritesTests.cs",
-              "RelativeToolTip": "RealEstateTest\\FavoritesTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T15:03:01.048Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "RealEstateApp",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj",
-              "RelativeDocumentMoniker": "RealEstateApp\\RealEstateApp.csproj",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj",
-              "RelativeToolTip": "RealEstateApp\\RealEstateApp.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-22T14:55:30.374Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "RealEstateApp.csproj",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj",
-              "RelativeDocumentMoniker": "RealEstateApp\\RealEstateApp.csproj",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj",
-              "RelativeToolTip": "RealEstateApp\\RealEstateApp.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-22T14:55:28.747Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Register_tests.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\Register_tests.cs",
-              "RelativeDocumentMoniker": "RealEstateTest\\Register_tests.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\Register_tests.cs",
-              "RelativeToolTip": "RealEstateTest\\Register_tests.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAlwEkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:52:44.396Z",
+              "WhenOpened": "2024-12-23T12:16:19.94Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RealEstateTest.csproj",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
-              "RelativeDocumentMoniker": "RealEstateTest\\RealEstateTest.csproj",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj",
-              "RelativeToolTip": "RealEstateTest\\RealEstateTest.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-22T14:52:42.006Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "OwnAds_tests.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\OwnAds_tests.cs",
-              "RelativeDocumentMoniker": "RealEstateTest\\OwnAds_tests.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\OwnAds_tests.cs",
-              "RelativeToolTip": "RealEstateTest\\OwnAds_tests.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAQwDwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:50:35.644Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Main_tests.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\Main_tests.cs",
-              "RelativeDocumentMoniker": "RealEstateTest\\Main_tests.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\Main_tests.cs",
-              "RelativeToolTip": "RealEstateTest\\Main_tests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:50:33.969Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Profile.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Profile.Designer.cs",
-              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Profile.Designer.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Profile.Designer.cs",
-              "RelativeToolTip": "RealEstateApp\\Forms\\Profile.Designer.cs",
-              "ViewState": "AgIAAM0AAAAAAAAAAAAgwOkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:50:27.512Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "OwnAds.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\OwnAds.cs",
-              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\OwnAds.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\OwnAds.cs",
-              "RelativeToolTip": "RealEstateApp\\Forms\\OwnAds.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:50:20.237Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Main.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Main.cs",
-              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Main.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Main.cs",
-              "RelativeToolTip": "RealEstateApp\\Forms\\Main.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:50:11.421Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Main.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Main.Designer.cs",
-              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Main.Designer.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Main.Designer.cs",
-              "RelativeToolTip": "RealEstateApp\\Forms\\Main.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:50:10.876Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Login.cs",
-              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Login.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Login.cs",
-              "RelativeToolTip": "RealEstateApp\\Forms\\Login.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:50:07.298Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Profile_tests.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\Profile_tests.cs",
-              "RelativeDocumentMoniker": "RealEstateTest\\Profile_tests.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\Profile_tests.cs",
-              "RelativeToolTip": "RealEstateTest\\Profile_tests.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAAAGkAAAAAAAAAAAAAAA==",
+              "Title": "OwnAds.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\OwnAds.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\OwnAds.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\OwnAds.cs [Design]",
+              "RelativeToolTip": "RealEstateApp\\Forms\\OwnAds.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:50:01.697Z",
+              "WhenOpened": "2024-12-23T12:10:39.649Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OwnAds.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\OwnAds.Designer.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\OwnAds.Designer.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\OwnAds.Designer.cs",
+              "RelativeToolTip": "RealEstateApp\\Forms\\OwnAds.Designer.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAwwFUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T12:09:05.218Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Profile.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Profile.cs",
-              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Profile.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Profile.cs",
-              "RelativeToolTip": "RealEstateApp\\Forms\\Profile.cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAgwJAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "OwnAds.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\OwnAds.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\OwnAds.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\OwnAds.cs",
+              "RelativeToolTip": "RealEstateApp\\Forms\\OwnAds.cs",
+              "ViewState": "AgIAAPsAAAAAAAAAAAAgwBIBAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:49:59.636Z"
+              "WhenOpened": "2024-12-23T12:07:05.835Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "LoginTests.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\LoginTests.cs",
-              "RelativeDocumentMoniker": "RealEstateTest\\LoginTests.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\LoginTests.cs",
-              "RelativeToolTip": "RealEstateTest\\LoginTests.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAAAJEAAAAdAAAAAAAAAA==",
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Login.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Login.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Login.cs",
+              "RelativeToolTip": "RealEstateApp\\Forms\\Login.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAACAAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:49:55.973Z",
+              "WhenOpened": "2024-12-23T12:06:42.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CreateAd.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\CreateAd.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\CreateAd.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\CreateAd.cs",
+              "RelativeToolTip": "RealEstateApp\\Forms\\CreateAd.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAQwFcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T12:06:04.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AdDetails.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\AdDetails.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\AdDetails.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\AdDetails.cs",
+              "RelativeToolTip": "RealEstateApp\\Forms\\AdDetails.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAADwvwsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T20:15:43.489Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Homepage_tests.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\Homepage_tests.cs",
-              "RelativeDocumentMoniker": "RealEstateTest\\Homepage_tests.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\Homepage_tests.cs",
-              "RelativeToolTip": "RealEstateTest\\Homepage_tests.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAQwDYAAAAAAAAAAAAAAA==",
+              "Title": "AdDetails.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\AdDetails.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\AdDetails.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\AdDetails.cs [Design]",
+              "RelativeToolTip": "RealEstateApp\\Forms\\AdDetails.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:49:36.682Z"
+              "WhenOpened": "2024-12-22T20:14:55.564Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Homepage.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Homepage.Designer.cs",
-              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Homepage.Designer.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Homepage.Designer.cs",
-              "RelativeToolTip": "RealEstateApp\\Forms\\Homepage.Designer.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAgwFUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:48:45.203Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Homepage.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Homepage.cs",
-              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Homepage.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Homepage.cs",
-              "RelativeToolTip": "RealEstateApp\\Forms\\Homepage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:48:42.759Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Favorites.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Favorites.Designer.cs",
-              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Favorites.Designer.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Favorites.Designer.cs",
-              "RelativeToolTip": "RealEstateApp\\Forms\\Favorites.Designer.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:48:36.32Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 7,
               "Title": "Favorites.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Favorites.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Favorites.cs",
               "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Favorites.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Favorites.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Favorites.cs",
               "RelativeToolTip": "RealEstateApp\\Forms\\Favorites.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:48:32.553Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "CreateAd.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\CreateAd.cs",
-              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\CreateAd.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\CreateAd.cs",
-              "RelativeToolTip": "RealEstateApp\\Forms\\CreateAd.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:48:29.756Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CreateAdTests.cs",
-              "DocumentMoniker": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\CreateAdTests.cs",
-              "RelativeDocumentMoniker": "RealEstateTest\\CreateAdTests.cs",
-              "ToolTip": "C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\CreateAdTests.cs",
-              "RelativeToolTip": "RealEstateTest\\CreateAdTests.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAQwDkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T14:48:09.374Z",
+              "WhenOpened": "2024-12-21T18:30:52.982Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Homepage.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Homepage.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Homepage.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Homepage.cs",
+              "RelativeToolTip": "RealEstateApp\\Forms\\Homepage.cs",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAWwLQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T19:54:03.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Favorites.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Favorites.cs",
+              "RelativeDocumentMoniker": "RealEstateApp\\Forms\\Favorites.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Favorites.cs [Design]",
+              "RelativeToolTip": "RealEstateApp\\Forms\\Favorites.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T18:33:27.831Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
