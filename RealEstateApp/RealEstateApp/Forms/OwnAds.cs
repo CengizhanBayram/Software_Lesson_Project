@@ -275,11 +275,10 @@ namespace RealEstateApp.Forms
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Please select an ad to delete.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
 
+
+
     }
+
 }
