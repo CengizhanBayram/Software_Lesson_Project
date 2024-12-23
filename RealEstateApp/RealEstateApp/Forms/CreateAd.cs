@@ -18,7 +18,7 @@ namespace RealEstateApp.Forms
     public partial class CreateAd : Form
     {
         // Veritabanı bağlantı bilgileri
-        string connectionString = "Server=localhost;Database=real_estate;Uid=root;Pwd=123456;";
+        string connectionString = "Server=localhost;Database=appınfos;Uid=root;Pwd=123456;";
         List<string> photoPaths = new List<string>();
 
         public CreateAd()
@@ -85,7 +85,7 @@ namespace RealEstateApp.Forms
 
                     foreach (string filePath in ofd.FileNames)
                     {
-                        string destinationPath = @"C:\Users\furka\source\repos\Software_Lesson_Project\RealEstateApp\RealEstateApp\Photos\" + Path.GetFileName(filePath);
+                        string destinationPath = @"C:\Users\ASUS\Desktop\Swe project\Software_Lesson_Project\RealEstateApp\RealEstateApp\Photos\" + Path.GetFileName(filePath);
                         File.Copy(filePath, destinationPath, true);
 
                         // FlowLayoutPanel'e fotoğraf ekleme
