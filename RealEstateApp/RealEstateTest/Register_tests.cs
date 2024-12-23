@@ -64,11 +64,13 @@ namespace RealEstateTest
             bool eventTriggered = false;
             linkLblToLogin.LinkClicked += (s, e) => eventTriggered = true;
 
-            // LinkClicked olayını manuel olarak çağır
-            linkLblToLogin.OnLinkClicked(new LinkLabelLinkClickedEventArgs(linkLblToLogin.Links[0]));
+            // Reflection ile OnLinkClicked metoduna eriş
+            var onLinkClickedMethod = typeof(LinkLabel).GetMethod("OnLinkClicked", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            onLinkClickedMethod?.Invoke(linkLblToLogin, new object[] { new LinkLabelLinkClickedEventArgs(linkLblToLogin.Links[0]) });
 
             ClassicAssert.IsTrue(eventTriggered, "Login LinkLabel için LinkClicked olayı tetiklenmedi.");
         }
+
 
 
         [Test]

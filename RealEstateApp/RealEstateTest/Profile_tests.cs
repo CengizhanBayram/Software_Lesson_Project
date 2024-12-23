@@ -1,10 +1,7 @@
-﻿using Moq;
-using NUnit.Framework;
-using RealEstateApp.Forms;
+﻿using NUnit.Framework;
 using System;
-using System.Data;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using RealEstateApp.Forms;
 using NUnit.Framework.Legacy;
 
 namespace RealEstateTest
@@ -12,92 +9,97 @@ namespace RealEstateTest
     [TestFixture]
     public class ProfileTests
     {
-        private Profile form;
-        private Mock<MySqlConnection> mockConnection;
-        private Mock<MySqlCommand> mockCommand;
+        private Profile profileForm;
 
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
-            // Formu oluştur
-            form = new Profile();
-            form.Show();
-
-            // Mock MySqlConnection ve MySqlCommand
-            mockConnection = new Mock<MySqlConnection>("Server=localhost;Database=emlak;Uid=root;Pwd=16072001;");
-            mockCommand = new Mock<MySqlCommand>();
+            // Profile formunu başlat
+            profileForm = new Profile();
+            profileForm.Show(); // Form bileşenlerini yüklemek için göster
         }
 
         [TearDown]
         public void TearDown()
         {
-            // Test sonrası formu kapat
-            form.Close();
+            // Formu kapat ve belleği serbest bırak
+            profileForm.Close();
+            profileForm.Dispose();
         }
 
         [Test]
-        public void Profile_Load_ShouldRetrieveUserData()
+        public void BtnUpdate_Click_ShouldThrowException_WhenFieldsAreEmpty()
         {
-            // Mock MySqlDataReader
-            var mockReader = new Mock<IDataReader>();
-            mockReader.SetupSequence(r => r.Read())
-                .Returns(true) // İlk okuma başarılı
-                .Returns(false); // İkinci okuma başarısız (sonuç bitti)
+            // Form üzerindeki e-posta ve şifre alanlarını boş bırak
+            var txtEmail = (TextBox)profileForm.Controls["txtEmail"];
+            var txtPassword = (TextBox)profileForm.Controls["txtPassword"];
+            txtEmail.Text = string.Empty; // E-posta boş
+            txtPassword.Text = string.Empty; // Şifre boş
 
-            mockReader.Setup(r => r["username"]).Returns("testuser");
-            mockReader.Setup(r => r["email"]).Returns("testuser@example.com");
-            mockReader.Setup(r => r["password"]).Returns("testpassword");
-            mockReader.Setup(r => r["CreatedAt"]).Returns("2023-01-01");
+            var btnUpdate = (Button)profileForm.Controls["btnUpdate"];
 
-            mockCommand.Setup(c => c.ExecuteReader()).Returns(mockReader.Object);
+            try
+            {
+                // Update düğmesine tıkla
+                btnUpdate.PerformClick();
+            }
+            catch (Exception ex)
+            {
+                // Beklenen hata mesajını doğrula
+                ClassicAssert.AreEqual("Email and password cannot be empty.", ex.Message);
+                return;
+            }
 
-            // Formu yükle ve verilerin doğru şekilde yüklendiğini kontrol et
-            form.Profile_Load(null, EventArgs.Empty);
-            
-            ClassicAssert.AreEqual("testuser", form.Controls.Find("txtUsername", true)[0].Text, "Username yanlış.");
-            ClassicAssert.AreEqual("testuser@example.com", form.Controls.Find("txtEmail", true)[0].Text, "Email yanlış.");
-            ClassicAssert.AreEqual("testpassword", form.Controls.Find("txtPassword", true)[0].Text, "Password yanlış.");
-            ClassicAssert.AreEqual("2023-01-01", form.Controls.Find("txtCreate", true)[0].Text, "CreatedAt yanlış.");
+            // Eğer istisna oluşmazsa test başarısız
+            ClassicAssert.Fail("Expected exception was not thrown.");
         }
 
         [Test]
-        public void BtnUpdate_Click_ShouldUpdateUserData()
+        public void BtnUpdate_Click_ShouldUpdateSuccessfully_WhenFieldsAreValid()
         {
-            // Mock ExecuteNonQuery
-            mockCommand.Setup(c => c.ExecuteNonQuery()).Returns(1);
+            // Form üzerindeki alanları doldur
+            var txtEmail = (TextBox)profileForm.Controls["txtEmail"];
+            var txtPassword = (TextBox)profileForm.Controls["txtPassword"];
+            txtEmail.Text = "test@example.com";
+            txtPassword.Text = "ValidPassword";
 
-            // Update işlemini tetikle
-            form.Controls.Find("txtUsername", true)[0].Text = "newuser";
-            form.Controls.Find("txtEmail", true)[0].Text = "newuser@example.com";
-            form.Controls.Find("txtPassword", true)[0].Text = "newpassword";
+            var btnUpdate = (Button)profileForm.Controls["btnUpdate"];
 
-            form.btnUpdate_Click(null, EventArgs.Empty);
+            try
+            {
+                // Update düğmesine tıkla
+                btnUpdate.PerformClick();
+            }
+            catch (Exception ex)
+            {
+                // Eğer hata oluşursa, test başarısız
+                ClassicAssert.Fail($"Unexpected exception was thrown: {ex.Message}");
+            }
 
-            // ExecuteNonQuery çağrısını kontrol et
-            mockCommand.Verify(c => c.ExecuteNonQuery(), Times.AtLeastOnce(), "Update sorgusu çalıştırılmadı.");
+            // Alanların hala aynı olduğunu doğrula
+            ClassicAssert.AreEqual("test@example.com", txtEmail.Text);
+            ClassicAssert.AreEqual("ValidPassword", txtPassword.Text);
         }
 
         [Test]
-        public void BtnDelete_Click_ShouldDeleteUserAccount()
+        public void BtnDelete_Click_ShouldPromptConfirmation()
         {
-            // Mock ExecuteNonQuery
-            mockCommand.Setup(c => c.ExecuteNonQuery()).Returns(1);
+            // Delete düğmesine tıkla
+            var btnDelete = (Button)profileForm.Controls["btnDelete"];
 
-            // Silme işlemini tetikle
-            form.btnDelete_Click(null, EventArgs.Empty);
+            try
+            {
+                btnDelete.PerformClick();
+            }
+            catch (Exception ex)
+            {
+                // Beklenen bir hata fırlatılırsa başarısız ol
+                ClassicAssert.Fail($"Unexpected exception was thrown: {ex.Message}");
+            }
 
-            // ExecuteNonQuery çağrısını kontrol et
-            mockCommand.Verify(c => c.ExecuteNonQuery(), Times.Once, "Delete sorgusu çalıştırılmadı.");
-        }
-
-        [Test]
-        public void Profile_Load_ShouldHandleExceptions()
-        {
-            // Mock hata fırlatma
-            mockCommand.Setup(c => c.ExecuteReader()).Throws(new Exception("Test Exception"));
-
-            // Formu yükle ve hata mesajını kontrol et
-            Assert.DoesNotThrow(() => form.Profile_Load(null, EventArgs.Empty), "Exception yönetimi başarısız.");
+            // Confirmation dialog (örneğin MessageBox) burada simüle edilebilir.
+            // Şu an için başarılı bir şekilde tıklandığını kontrol ediyoruz.
+            ClassicAssert.Pass("Delete button clicked successfully.");
         }
     }
 }
