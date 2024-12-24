@@ -56,12 +56,14 @@
             errorProviderTitle = new System.Windows.Forms.ErrorProvider(components);
             errorProviderDescription = new System.Windows.Forms.ErrorProvider(components);
             errorProviderPrice = new System.Windows.Forms.ErrorProvider(components);
+            errorProviderSquareMeter = new System.Windows.Forms.ErrorProvider(components);
             panel2.SuspendLayout();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)errorProviderTitle).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProviderDescription).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProviderPrice).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderSquareMeter).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -87,7 +89,7 @@
             panel2.Controls.Add(lblSquareMeters);
             panel2.Controls.Add(btnUploadPhoto);
             panel2.Controls.Add(lblPrice);
-            panel2.Location = new System.Drawing.Point(275, 27);
+            panel2.Location = new System.Drawing.Point(264, 27);
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(881, 1404);
             panel2.TabIndex = 13;
@@ -329,6 +331,10 @@
             // 
             errorProviderPrice.ContainerControl = this;
             // 
+            // errorProviderSquareMeter
+            // 
+            errorProviderSquareMeter.ContainerControl = this;
+            // 
             // CreateAd
             // 
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -347,6 +353,7 @@
             ((System.ComponentModel.ISupportInitialize)errorProviderTitle).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProviderDescription).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProviderPrice).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderSquareMeter).EndInit();
             ResumeLayout(false);
         }
 
@@ -378,5 +385,6 @@
         private System.Windows.Forms.ErrorProvider errorProviderTitle;
         private System.Windows.Forms.ErrorProvider errorProviderDescription;
         private System.Windows.Forms.ErrorProvider errorProviderPrice;
+        private System.Windows.Forms.ErrorProvider errorProviderSquareMeter;
     }
 }

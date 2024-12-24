@@ -20,8 +20,8 @@ namespace RealEstateApp.Forms
             InitializeComponent();
         }
 
-        private string connectionString = "Server=localhost;Database=mydb;Uid=root;Pwd=123456;";
-        int userId = Login.userId;
+        private string connectionString = GlobalSettings.ConnectionString;
+        int userId = (int)GlobalSettings.UserID;
 
         private void OwnAds_Load(object sender, EventArgs e)
         {
@@ -32,31 +32,31 @@ namespace RealEstateApp.Forms
                     connection.Open();
 
                     string query = @"
-                SELECT 
-                    ads.AdID, 
-                    ads.Title, 
-                    ads.Description, 
-                    ads.Price, 
-                    ads.Location,
-                    ads.SquareMeters,
-                    ads.RoomCount,
-                    ads.FloorNo,
-                    ads.Elevator,
-                    ads.Status,
-                    ads.CreatedAt,
-                    MIN(adphotos.PhotoPath) AS PhotoPath
-                FROM 
-                    ads 
-                LEFT JOIN 
-                    adphotos 
-                ON 
-                    ads.AdID = adphotos.AdID 
-                WHERE 
-                    ads.UserID = @userId
-                GROUP BY 
-                    ads.AdID, ads.Title, ads.Description, ads.Price, ads.Location, 
-                    ads.SquareMeters, ads.RoomCount, ads.FloorNo, ads.Elevator, 
-                    ads.Status, ads.CreatedAt";
+                        SELECT 
+                            ads.AdID, 
+                            ads.Title, 
+                            ads.Description, 
+                            ads.Price, 
+                            ads.Location,
+                            ads.SquareMeters,
+                            ads.RoomCount,
+                            ads.FloorNo,
+                            ads.Elevator,
+                            ads.Status,
+                            ads.CreatedAt,
+                            MIN(adphotos.PhotoPath) AS PhotoPath
+                        FROM 
+                            ads 
+                        LEFT JOIN 
+                            adphotos 
+                        ON 
+                            ads.AdID = adphotos.AdID 
+                        WHERE 
+                            ads.UserID = @userId
+                        GROUP BY 
+                            ads.AdID, ads.Title, ads.Description, ads.Price, ads.Location, 
+                            ads.SquareMeters, ads.RoomCount, ads.FloorNo, ads.Elevator, 
+                            ads.Status, ads.CreatedAt";
 
                     MySqlCommand command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@userId", userId);
@@ -156,19 +156,19 @@ namespace RealEstateApp.Forms
                         string status = row.Cells["Status"].Value?.ToString() ?? "active";
 
                         string updateQuery = @"
-            UPDATE ads
-            SET 
-                Title = @Title, 
-                Description = @Description, 
-                Price = @Price, 
-                Location = @Location,
-                SquareMeters = @SquareMeters,
-                RoomCount = @RoomCount,
-                FloorNo = @FloorNo,
-                Elevator = @Elevator,
-                Status = @Status
-            WHERE 
-                AdID = @AdID";
+                            UPDATE ads
+                            SET 
+                                Title = @Title, 
+                                Description = @Description, 
+                                Price = @Price, 
+                                Location = @Location,
+                                SquareMeters = @SquareMeters,
+                                RoomCount = @RoomCount,
+                                FloorNo = @FloorNo,
+                                Elevator = @Elevator,
+                                Status = @Status
+                            WHERE 
+                                AdID = @AdID";
 
                         using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
                         {

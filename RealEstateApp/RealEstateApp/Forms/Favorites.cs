@@ -8,7 +8,7 @@ namespace RealEstateApp.Forms
 {
     public partial class Favorites : Form
     {
-        string connectionString = "Server=localhost;Database=mydb;Uid=root;Pwd=123456;";
+        string connectionString = GlobalSettings.ConnectionString;
 
         public Favorites()
         {
@@ -26,27 +26,27 @@ namespace RealEstateApp.Forms
             flowLayoutPanelFaves.Controls.Clear();
 
             // Giriş yapan kullanıcının UserID'sini burada alıyoruz.
-            int userID = Login.userId; // Bu metodu kendinize göre implement edebilirsiniz.
+            int userID = (int)GlobalSettings.UserID; // Bu metodu kendinize göre implement edebilirsiniz.
 
-        string query = @"
-        SELECT 
-            ads.AdID,
-            ads.Title,
-            ads.Price,
-            ads.SquareMeters,
-            MIN(adphotos.PhotoPath) AS PhotoPath
-        FROM 
-            ads
-        LEFT JOIN 
-            adphotos ON ads.AdID = adphotos.AdID
-        INNER JOIN 
-            favorites ON ads.AdID = favorites.AdID
-        WHERE 
-            ads.Status = 'Active' 
-            AND favorites.UserID = @UserID
-        GROUP BY 
-            ads.AdID, ads.Title, ads.Price, ads.SquareMeters
-    ";
+            string query = @"
+                SELECT 
+                    ads.AdID,
+                    ads.Title,
+                    ads.Price,
+                    ads.SquareMeters,
+                    MIN(adphotos.PhotoPath) AS PhotoPath
+                FROM 
+                    ads
+                LEFT JOIN 
+                    adphotos ON ads.AdID = adphotos.AdID
+                INNER JOIN 
+                    favorites ON ads.AdID = favorites.AdID
+                WHERE 
+                    ads.Status = 'Active' 
+                    AND favorites.UserID = @UserID
+                GROUP BY 
+                    ads.AdID, ads.Title, ads.Price, ads.SquareMeters
+            ";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -173,7 +173,7 @@ namespace RealEstateApp.Forms
             {
                 // Main formundaki ShowFormInPanel metodunu kullanarak geçiş yapıyoruz
                 Main mainForm = (Main)this.ParentForm; // Ana forma erişiyoruz
-                mainForm.ShowFormInPanel(new FaveAdDetails(adID)); // AdDetails formunu panele yüklüyoruz
+                mainForm.ShowFormInPanel(new FavAdDetails(adID)); // AdDetails formunu panele yüklüyoruz
             }
         }
 

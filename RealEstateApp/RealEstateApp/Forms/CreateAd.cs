@@ -18,7 +18,7 @@ namespace RealEstateApp.Forms
     public partial class CreateAd : Form
     {
         // Veritabanı bağlantı bilgileri
-        string connectionString = "Server=localhost;Database=mydb;Uid=root;Pwd=123456;";
+        string connectionString = GlobalSettings.ConnectionString;
         List<string> photoPaths = new List<string>();
 
         public CreateAd()
@@ -85,7 +85,7 @@ namespace RealEstateApp.Forms
 
                     foreach (string filePath in ofd.FileNames)
                     {
-                        string destinationPath = @"C:\swe proje\Software_Lesson_Project\RealEstateApp\RealEstateApp\Photos\" + Path.GetFileName(filePath);
+                        string destinationPath = GlobalSettings.DestinationPath + Path.GetFileName(filePath);
                         File.Copy(filePath, destinationPath, true);
 
                         // FlowLayoutPanel'e fotoğraf ekleme
@@ -135,6 +135,15 @@ namespace RealEstateApp.Forms
             }
             else
                 errorProviderPrice.Clear();
+
+            if (string.IsNullOrEmpty(maskedTextBoxSquareMeters.Text))
+            {
+                errorProviderSquareMeter.SetError(maskedTextBoxSquareMeters, "SquareMeters cannot be empty.");
+                isValid = false;
+            }
+            else
+                errorProviderSquareMeter.Clear();
+
 
             if (isValid)
             {

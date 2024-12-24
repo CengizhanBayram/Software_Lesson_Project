@@ -9,11 +9,11 @@ namespace RealEstateApp.Forms
     public partial class AdDetails : Form
     {
         private int adID;
-        private int userID = Login.userId; // Kullanıcı ID'si, burada statik bir değer kullandık. Gerçek uygulamada oturum yönetimi ile alınmalı.
-        private bool isFaved = false; // Favori durumu
-        string connectionString = "Server=localhost;Database=mydb;Uid=root;Pwd=123456;"; // Veritabanı bağlantı dizesi
-        private string fullHeartImagePath = @"C:\swe proje\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\fullHeart.png"; // Dolu kalp resminin yolu
-        private string emptyHeartImagePath = @"C:\swe proje\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\emptyHeart.png"; // Boş kalp resminin yolu
+        private int userID = (int)GlobalSettings.UserID; 
+        private bool isFaved = false; 
+        string connectionString = GlobalSettings.ConnectionString;
+        private string fullHeartImagePath =  GlobalSettings.ResourcePath + "fullHeart.png"; // Dolu kalp resminin yolu
+        private string emptyHeartImagePath = GlobalSettings.ResourcePath + "emptyHeart.png"; // Boş kalp resminin yolu
         
         // Yapıcı metot
         public AdDetails(int adID)
@@ -34,11 +34,11 @@ namespace RealEstateApp.Forms
 
                     // İlan detaylarını çek
                     string adQuery = @"
-                SELECT 
-                    Title, Description, Price, Location, SquareMeters, 
-                    RoomCount, FloorNo, Elevator, CreatedAt
-                FROM ads
-                WHERE AdID = @adID";
+                        SELECT 
+                            Title, Description, Price, Location, SquareMeters, 
+                            RoomCount, FloorNo, Elevator, CreatedAt
+                        FROM ads
+                        WHERE AdID = @adID";
 
                     using (MySqlCommand command = new MySqlCommand(adQuery, connection))
                     {
@@ -63,9 +63,9 @@ namespace RealEstateApp.Forms
 
                     // Kullanıcının favorilerinde bu ilan var mı kontrol et
                     string checkFavoriteQuery = @"
-                SELECT COUNT(*) 
-                FROM favorites 
-                WHERE UserID = @userID AND AdID = @adID";
+                        SELECT COUNT(*) 
+                        FROM favorites 
+                        WHERE UserID = @userID AND AdID = @adID";
 
                     using (MySqlCommand checkFavoriteCommand = new MySqlCommand(checkFavoriteQuery, connection))
                     {

@@ -8,7 +8,7 @@ namespace RealEstateApp.Forms
 {
     public partial class Homepage : Form
     {
-        string connectionString = "Server=localhost;Database=mydb;Uid=root;Pwd=123456;";
+        string connectionString = GlobalSettings.ConnectionString;
 
         public Homepage()
         {
@@ -17,7 +17,7 @@ namespace RealEstateApp.Forms
 
         private void Homepage_Load(object sender, EventArgs e)
         {
-            LoadAds(); // Form yüklendiğinde ilanları getir
+            LoadAds();
         }
 
         private void LoadAds()
@@ -25,23 +25,23 @@ namespace RealEstateApp.Forms
             flowLayoutPanelAds.Controls.Clear();
 
             string query = @"
-        SELECT 
-            ads.AdID,
-            ads.Title,
-            ads.Price,
-            ads.SquareMeters,
-            MIN(adphotos.PhotoPath) AS PhotoPath
-        FROM 
-            ads
-        LEFT JOIN 
-            adphotos
-        ON 
-            ads.AdID = adphotos.AdID
-        WHERE 
-            ads.Status = 'Active'
-        GROUP BY 
-            ads.AdID, ads.Title, ads.Price, ads.SquareMeters
-    ";
+                SELECT 
+                    ads.AdID,
+                    ads.Title,
+                    ads.Price,
+                    ads.SquareMeters,
+                    MIN(adphotos.PhotoPath) AS PhotoPath
+                FROM 
+                    ads
+                LEFT JOIN 
+                    adphotos
+                ON 
+                    ads.AdID = adphotos.AdID
+                WHERE 
+                    ads.Status = 'Active'
+                GROUP BY 
+                    ads.AdID, ads.Title, ads.Price, ads.SquareMeters
+            ";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -64,11 +64,10 @@ namespace RealEstateApp.Forms
                                            ? null
                                            : reader.GetString("PhotoPath");
 
-                        // İlan panelini oluşturuyoruz
                         Panel adPanel = new Panel
                         {
                             Width = 350,
-                            Height = 300, // 250 -> 300 oldu
+                            Height = 300,
                             BorderStyle = BorderStyle.FixedSingle,
                             Margin = new Padding(15),
                             BackColor = Color.White,
@@ -86,7 +85,7 @@ namespace RealEstateApp.Forms
                             BackColor = Color.LightGray,
                             Dock = DockStyle.Top,
                             SizeMode = PictureBoxSizeMode.StretchImage,
-                            Tag = adID // AdID'yi PictureBox'un Tag özelliğine ekliyoruz
+                            Tag = adID 
                         };
 
                         // Eğer fotoğraf yolu varsa resmi yükle
@@ -112,7 +111,7 @@ namespace RealEstateApp.Forms
                             Height = 30,
                             Location = new Point(10, 160),
                             TextAlign = ContentAlignment.MiddleLeft,
-                            Tag = adID // AdID'yi Label'in Tag özelliğine ekliyoruz
+                            Tag = adID 
                         };
 
                         // Click olayı için handler ekle
@@ -128,7 +127,7 @@ namespace RealEstateApp.Forms
                             Height = 20,
                             Location = new Point(10, 190),
                             TextAlign = ContentAlignment.MiddleLeft,
-                            Tag = adID // AdID'yi Label'in Tag özelliğine ekliyoruz
+                            Tag = adID 
                         };
                         // Click olayı için handler ekle
                         lblPrice.Click += AdPanel_Click;
@@ -142,10 +141,10 @@ namespace RealEstateApp.Forms
                             Height = 20,
                             Location = new Point(10, 220),
                             TextAlign = ContentAlignment.MiddleLeft,
-                            Tag = adID // AdID'yi Label'in Tag özelliğine ekliyoruz
+                            Tag = adID
                         };
 
-                        // Click olayı için handler ekle
+                        
                         lblSquareMeters.Click += AdPanel_Click;
                         // Panelleri birleştirme
                         adPanel.Controls.Add(imageBox);
@@ -153,7 +152,6 @@ namespace RealEstateApp.Forms
                         adPanel.Controls.Add(lblPrice);
                         adPanel.Controls.Add(lblSquareMeters);
 
-                        // FlowLayoutPanel'e ekleme
                         flowLayoutPanelAds.Controls.Add(adPanel);
                     }
 
@@ -167,7 +165,6 @@ namespace RealEstateApp.Forms
         }
         private void AdPanel_Click(object sender, EventArgs e)
         {
-            // Tıklanan kontrolün AdID'sini alıyoruz
             int adID = 0;
             if (sender is Control control && control.Tag != null)
             {
@@ -176,9 +173,8 @@ namespace RealEstateApp.Forms
 
             if (adID > 0)
             {
-                // Main formundaki ShowFormInPanel metodunu kullanarak geçiş yapıyoruz
-                Main mainForm = (Main)this.ParentForm; // Ana forma erişiyoruz
-                mainForm.ShowFormInPanel(new AdDetails(adID)); // AdDetails formunu panele yüklüyoruz
+                Main mainForm = (Main)this.ParentForm; 
+                mainForm.ShowFormInPanel(new AdDetails(adID)); 
             }
         }
 

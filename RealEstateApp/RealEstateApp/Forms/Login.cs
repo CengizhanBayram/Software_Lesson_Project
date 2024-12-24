@@ -15,10 +15,8 @@ namespace RealEstateApp.Forms
 {
     public partial class Login : Form
     {
-        public static int userId = 0;
 
-        // Veritabanı bağlantı bilgileri
-        string connectionString = "Server=localhost;Database=mydb;Uid=root;Pwd=123456;";
+        string connectionString = GlobalSettings.ConnectionString;
 
         public Login()
         {
@@ -29,9 +27,8 @@ namespace RealEstateApp.Forms
         {
             linkLblToRegister.Text = "If you don't have an account please click here to register.";
             linkLblToRegister.LinkArea = new LinkArea(42, 4);
-            textBoxEmail.Text = "musti@gmail.com";
-            textBoxPassword.Text = "12345";
-            
+            textBoxEmail.Text = "user@example.com";
+            textBoxPassword.Text = "123456";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -82,7 +79,7 @@ namespace RealEstateApp.Forms
                                 idCommand.Parameters.AddWithValue("@password", password);
 
                                 object result = idCommand.ExecuteScalar();
-                                userId = result != null ? Convert.ToInt32(result) : 0; // Kullanıcı ID'sini global değişkene atama
+                                GlobalSettings.UserID = result != null ? Convert.ToInt32(result) : 0;
 
                                 MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
