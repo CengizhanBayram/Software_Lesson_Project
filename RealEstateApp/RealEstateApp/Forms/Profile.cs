@@ -18,8 +18,8 @@ namespace RealEstateApp.Forms
             InitializeComponent();
 
         }
-        int userId = Login.userId;
-        private string connectionString = "Server=localhost;Database=mydb;Uid=root;Pwd=123456;";
+        int userId = (int)GlobalSettings.UserID;
+        private string connectionString = GlobalSettings.ConnectionString;
         private void Profile_Load(object sender, EventArgs e)
         {
             try
