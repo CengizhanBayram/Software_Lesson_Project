@@ -59,9 +59,10 @@
             // buttonBack
             // 
             buttonBack.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            buttonBack.Location = new System.Drawing.Point(703, 21);
+            buttonBack.Location = new System.Drawing.Point(615, 16);
+            buttonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             buttonBack.Name = "buttonBack";
-            buttonBack.Size = new System.Drawing.Size(147, 44);
+            buttonBack.Size = new System.Drawing.Size(129, 33);
             buttonBack.TabIndex = 0;
             buttonBack.Text = "Back";
             buttonBack.UseVisualStyleBackColor = true;
@@ -73,19 +74,22 @@
             buttonFave.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             buttonFave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             buttonFave.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            buttonFave.Location = new System.Drawing.Point(737, 614);
+            buttonFave.Location = new System.Drawing.Point(645, 460);
+            buttonFave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             buttonFave.Name = "buttonFave";
-            buttonFave.Size = new System.Drawing.Size(65, 65);
+            buttonFave.Size = new System.Drawing.Size(57, 49);
             buttonFave.TabIndex = 18;
             buttonFave.UseVisualStyleBackColor = false;
+            buttonFave.Click += buttonFave_Click;
             // 
             // flowLayoutPanelPhotos
             // 
             flowLayoutPanelPhotos.AutoScroll = true;
             flowLayoutPanelPhotos.BackColor = System.Drawing.Color.DarkGray;
-            flowLayoutPanelPhotos.Location = new System.Drawing.Point(52, 81);
+            flowLayoutPanelPhotos.Location = new System.Drawing.Point(46, 61);
+            flowLayoutPanelPhotos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             flowLayoutPanelPhotos.Name = "flowLayoutPanelPhotos";
-            flowLayoutPanelPhotos.Size = new System.Drawing.Size(750, 519);
+            flowLayoutPanelPhotos.Size = new System.Drawing.Size(656, 389);
             flowLayoutPanelPhotos.TabIndex = 17;
             flowLayoutPanelPhotos.WrapContents = false;
             // 
@@ -93,9 +97,9 @@
             // 
             labelTitle.BackColor = System.Drawing.Color.DarkGray;
             labelTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            labelTitle.Location = new System.Drawing.Point(52, 23);
+            labelTitle.Location = new System.Drawing.Point(46, 17);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new System.Drawing.Size(745, 55);
+            labelTitle.Size = new System.Drawing.Size(652, 41);
             labelTitle.TabIndex = 3;
             labelTitle.Text = "TITLE";
             // 
@@ -104,9 +108,9 @@
             labelDesription.BackColor = System.Drawing.Color.DarkGray;
             labelDesription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             labelDesription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            labelDesription.Location = new System.Drawing.Point(52, 614);
+            labelDesription.Location = new System.Drawing.Point(46, 460);
             labelDesription.Name = "labelDesription";
-            labelDesription.Size = new System.Drawing.Size(679, 71);
+            labelDesription.Size = new System.Drawing.Size(594, 54);
             labelDesription.TabIndex = 4;
             labelDesription.Text = "Description";
             // 
@@ -114,10 +118,10 @@
             // 
             labelDbFloorNo.BackColor = System.Drawing.Color.DarkGray;
             labelDbFloorNo.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            labelDbFloorNo.Location = new System.Drawing.Point(308, 193);
+            labelDbFloorNo.Location = new System.Drawing.Point(270, 145);
             labelDbFloorNo.Name = "labelDbFloorNo";
             labelDbFloorNo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            labelDbFloorNo.Size = new System.Drawing.Size(120, 23);
+            labelDbFloorNo.Size = new System.Drawing.Size(105, 17);
             labelDbFloorNo.TabIndex = 13;
             labelDbFloorNo.Text = "label8";
             labelDbFloorNo.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -126,10 +130,10 @@
             // 
             labelDbPrice.BackColor = System.Drawing.Color.DarkGray;
             labelDbPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            labelDbPrice.Location = new System.Drawing.Point(308, 17);
+            labelDbPrice.Location = new System.Drawing.Point(270, 13);
             labelDbPrice.Name = "labelDbPrice";
             labelDbPrice.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            labelDbPrice.Size = new System.Drawing.Size(120, 23);
+            labelDbPrice.Size = new System.Drawing.Size(105, 17);
             labelDbPrice.TabIndex = 9;
             labelDbPrice.Text = "label6";
             labelDbPrice.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -138,9 +142,9 @@
             // 
             labelLocation.AutoSize = true;
             labelLocation.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
-            labelLocation.Location = new System.Drawing.Point(47, 58);
+            labelLocation.Location = new System.Drawing.Point(41, 44);
             labelLocation.Name = "labelLocation";
-            labelLocation.Size = new System.Drawing.Size(85, 25);
+            labelLocation.Size = new System.Drawing.Size(69, 20);
             labelLocation.TabIndex = 8;
             labelLocation.Text = "Location";
             // 
@@ -148,10 +152,10 @@
             // 
             labelDbSquareMeters.BackColor = System.Drawing.Color.DarkGray;
             labelDbSquareMeters.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            labelDbSquareMeters.Location = new System.Drawing.Point(308, 103);
+            labelDbSquareMeters.Location = new System.Drawing.Point(270, 77);
             labelDbSquareMeters.Name = "labelDbSquareMeters";
             labelDbSquareMeters.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            labelDbSquareMeters.Size = new System.Drawing.Size(120, 23);
+            labelDbSquareMeters.Size = new System.Drawing.Size(105, 17);
             labelDbSquareMeters.TabIndex = 10;
             labelDbSquareMeters.Text = "label7";
             labelDbSquareMeters.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -160,10 +164,10 @@
             // 
             labelDbElevator.BackColor = System.Drawing.Color.DarkGray;
             labelDbElevator.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            labelDbElevator.Location = new System.Drawing.Point(308, 238);
+            labelDbElevator.Location = new System.Drawing.Point(270, 178);
             labelDbElevator.Name = "labelDbElevator";
             labelDbElevator.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            labelDbElevator.Size = new System.Drawing.Size(120, 23);
+            labelDbElevator.Size = new System.Drawing.Size(105, 17);
             labelDbElevator.TabIndex = 16;
             labelDbElevator.Text = "label2";
             labelDbElevator.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -172,10 +176,10 @@
             // 
             labelDbLocation.BackColor = System.Drawing.Color.DarkGray;
             labelDbLocation.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            labelDbLocation.Location = new System.Drawing.Point(308, 58);
+            labelDbLocation.Location = new System.Drawing.Point(270, 44);
             labelDbLocation.Name = "labelDbLocation";
             labelDbLocation.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            labelDbLocation.Size = new System.Drawing.Size(121, 23);
+            labelDbLocation.Size = new System.Drawing.Size(106, 17);
             labelDbLocation.TabIndex = 7;
             labelDbLocation.Text = "label4";
             labelDbLocation.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -184,10 +188,10 @@
             // 
             labelDbRoomCount.BackColor = System.Drawing.Color.DarkGray;
             labelDbRoomCount.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            labelDbRoomCount.Location = new System.Drawing.Point(308, 150);
+            labelDbRoomCount.Location = new System.Drawing.Point(270, 112);
             labelDbRoomCount.Name = "labelDbRoomCount";
             labelDbRoomCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            labelDbRoomCount.Size = new System.Drawing.Size(120, 23);
+            labelDbRoomCount.Size = new System.Drawing.Size(105, 17);
             labelDbRoomCount.TabIndex = 15;
             labelDbRoomCount.Text = "label3";
             labelDbRoomCount.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -196,9 +200,9 @@
             // 
             labelRooms.AutoSize = true;
             labelRooms.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
-            labelRooms.Location = new System.Drawing.Point(47, 150);
+            labelRooms.Location = new System.Drawing.Point(41, 112);
             labelRooms.Name = "labelRooms";
-            labelRooms.Size = new System.Drawing.Size(118, 25);
+            labelRooms.Size = new System.Drawing.Size(97, 20);
             labelRooms.TabIndex = 11;
             labelRooms.Text = "Room Count";
             // 
@@ -206,9 +210,9 @@
             // 
             labelM2.AutoSize = true;
             labelM2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
-            labelM2.Location = new System.Drawing.Point(47, 103);
+            labelM2.Location = new System.Drawing.Point(41, 77);
             labelM2.Name = "labelM2";
-            labelM2.Size = new System.Drawing.Size(130, 25);
+            labelM2.Size = new System.Drawing.Size(106, 20);
             labelM2.TabIndex = 6;
             labelM2.Text = "SquareMeters";
             // 
@@ -216,9 +220,9 @@
             // 
             labelFloorNo.AutoSize = true;
             labelFloorNo.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
-            labelFloorNo.Location = new System.Drawing.Point(47, 193);
+            labelFloorNo.Location = new System.Drawing.Point(41, 145);
             labelFloorNo.Name = "labelFloorNo";
-            labelFloorNo.Size = new System.Drawing.Size(129, 25);
+            labelFloorNo.Size = new System.Drawing.Size(107, 20);
             labelFloorNo.TabIndex = 14;
             labelFloorNo.Text = "Floor Number";
             // 
@@ -226,9 +230,9 @@
             // 
             labelElevator.AutoSize = true;
             labelElevator.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
-            labelElevator.Location = new System.Drawing.Point(47, 238);
+            labelElevator.Location = new System.Drawing.Point(41, 178);
             labelElevator.Name = "labelElevator";
-            labelElevator.Size = new System.Drawing.Size(82, 25);
+            labelElevator.Size = new System.Drawing.Size(66, 20);
             labelElevator.TabIndex = 12;
             labelElevator.Text = "Elevator";
             // 
@@ -236,9 +240,9 @@
             // 
             labelPrice.AutoSize = true;
             labelPrice.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
-            labelPrice.Location = new System.Drawing.Point(47, 17);
+            labelPrice.Location = new System.Drawing.Point(41, 13);
             labelPrice.Name = "labelPrice";
-            labelPrice.Size = new System.Drawing.Size(54, 25);
+            labelPrice.Size = new System.Drawing.Size(43, 20);
             labelPrice.TabIndex = 5;
             labelPrice.Text = "Price";
             // 
@@ -252,9 +256,10 @@
             panel2.Controls.Add(flowLayoutPanelPhotos);
             panel2.Controls.Add(labelTitle);
             panel2.Controls.Add(labelDesription);
-            panel2.Location = new System.Drawing.Point(142, 22);
+            panel2.Location = new System.Drawing.Point(124, 16);
+            panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(872, 979);
+            panel2.Size = new System.Drawing.Size(763, 734);
             panel2.TabIndex = 17;
             // 
             // panel3
@@ -272,9 +277,10 @@
             panel3.Controls.Add(labelFloorNo);
             panel3.Controls.Add(labelElevator);
             panel3.Controls.Add(labelPrice);
-            panel3.Location = new System.Drawing.Point(169, 700);
+            panel3.Location = new System.Drawing.Point(148, 525);
+            panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new System.Drawing.Size(490, 279);
+            panel3.Size = new System.Drawing.Size(429, 210);
             panel3.TabIndex = 19;
             // 
             // panel1
@@ -283,8 +289,9 @@
             panel1.Controls.Add(navbar1);
             panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1254, 674);
+            panel1.Size = new System.Drawing.Size(1097, 506);
             panel1.TabIndex = 2;
             // 
             // panelAdDetails
@@ -293,9 +300,10 @@
             panelAdDetails.BackColor = System.Drawing.Color.DarkGray;
             panelAdDetails.Controls.Add(panel2);
             panelAdDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            panelAdDetails.Location = new System.Drawing.Point(0, 100);
+            panelAdDetails.Location = new System.Drawing.Point(0, 76);
+            panelAdDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panelAdDetails.Name = "panelAdDetails";
-            panelAdDetails.Size = new System.Drawing.Size(1254, 574);
+            panelAdDetails.Size = new System.Drawing.Size(1097, 430);
             panelAdDetails.TabIndex = 1;
             // 
             // navbar1
@@ -305,17 +313,18 @@
             navbar1.Dock = System.Windows.Forms.DockStyle.Top;
             navbar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
             navbar1.Location = new System.Drawing.Point(0, 0);
-            navbar1.Margin = new System.Windows.Forms.Padding(5);
+            navbar1.Margin = new System.Windows.Forms.Padding(4);
             navbar1.Name = "navbar1";
-            navbar1.Size = new System.Drawing.Size(1254, 100);
+            navbar1.Size = new System.Drawing.Size(1097, 76);
             navbar1.TabIndex = 0;
             // 
             // FaveAdDetails
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1254, 674);
+            ClientSize = new System.Drawing.Size(1097, 506);
             Controls.Add(panel1);
+            Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             Name = "FaveAdDetails";
             Text = "FaveAdDetails";
             panel2.ResumeLayout(false);

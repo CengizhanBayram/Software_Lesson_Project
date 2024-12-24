@@ -8,7 +8,7 @@ namespace RealEstateApp.Forms
 {
     public partial class Homepage : Form
     {
-        string connectionString = "Server=localhost;Database=appınfos;Uid=root;Pwd=123456;";
+        string connectionString = "Server=localhost;Database=mydb;Uid=root;Pwd=123456;";
 
         public Homepage()
         {
