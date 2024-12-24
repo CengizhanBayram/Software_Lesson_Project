@@ -11,7 +11,10 @@ namespace RealEstateApp.Forms
         private int adID;
         private int userID = Login.userId; // Kullanıcı ID'si, burada statik bir değer kullandık. Gerçek uygulamada oturum yönetimi ile alınmalı.
         private bool isFaved = false; // Favori durumu
-
+        string connectionString = "Server=localhost;Database=mydb;Uid=root;Pwd=123456;"; // Veritabanı bağlantı dizesi
+        private string fullHeartImagePath = @"C:\swe proje\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\fullHeart.png"; // Dolu kalp resminin yolu
+        private string emptyHeartImagePath = @"C:\swe proje\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\emptyHeart.png"; // Boş kalp resminin yolu
+        
         // Yapıcı metot
         public AdDetails(int adID)
         {
@@ -22,7 +25,6 @@ namespace RealEstateApp.Forms
 
         private void LoadAdDetails()
         {
-            string connectionString = "Server=localhost;Database=appınfos;Uid=root;Pwd=123456;"; // Veritabanı bağlantı dizesi
 
             try
             {
@@ -77,12 +79,12 @@ namespace RealEstateApp.Forms
                         if (favoriteCount > 0)
                         {
                             isFaved = true;
-                            buttonFave.BackgroundImage = Image.FromFile(@"C:\Users\ASUS\Desktop\Swe project\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\fullHeart.png");
+                            buttonFave.BackgroundImage = Image.FromFile(fullHeartImagePath);
                         }
                         else
                         {
                             isFaved = false;
-                            buttonFave.BackgroundImage = Image.FromFile(@"C:\Users\ASUS\Desktop\Swe project\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\emptyHeart.png");
+                            buttonFave.BackgroundImage = Image.FromFile(emptyHeartImagePath);
                         }
 
                         buttonFave.BackgroundImageLayout = ImageLayout.Stretch; // Resmin butonun tamamını kaplamasını sağla
@@ -148,9 +150,7 @@ namespace RealEstateApp.Forms
             }
 
             // Butonun arka plan resmini değiştir
-            string path = isFaved
-                ? @"C:\Users\ASUS\Desktop\Swe project\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\fullHeart.png" // Dolu kalp resmi
-                : @"C:\Users\ASUS\Desktop\Swe project\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\emptyHeart.png"; // Boş kalp resmi
+            string path = isFaved ? fullHeartImagePath : emptyHeartImagePath; // Boş kalp resmi
 
             buttonFave.BackgroundImage = Image.FromFile(path); // Resmi yükle
             buttonFave.BackgroundImageLayout = ImageLayout.Stretch; // Resmin butonun tamamını kaplamasını sağla
@@ -168,7 +168,6 @@ namespace RealEstateApp.Forms
 
         private void AddToFavorites()
         {
-            string connectionString = "Server=localhost;Database=appınfos;Uid=root;Pwd=123456;"; // Veritabanı bağlantı dizesi
 
             try
             {
@@ -200,7 +199,6 @@ namespace RealEstateApp.Forms
 
         private void RemoveFromFavorites()
         {
-            string connectionString = "Server=localhost;Database=appınfos;Uid=root;Pwd=123456;"; // Veritabanı bağlantı dizesi
 
             try
             {

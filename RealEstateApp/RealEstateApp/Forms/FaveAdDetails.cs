@@ -8,103 +8,105 @@ namespace RealEstateApp.Forms
 {
     public partial class FaveAdDetails : Form
     {
-        private int adIDF;
-        private int userIDF = Login.userId; // Kullanıcı ID'si, burada statik bir değer kullandık. Gerçek uygulamada oturum yönetimi ile alınmalı.
-        private bool isFavedF = false; // Favori durumu
+        private int adID;
+        private int userID = Login.userId; // Kullanıcı ID'si, burada statik bir değer kullandık. Gerçek uygulamada oturum yönetimi ile alınmalı.
+        private bool isFaved = false; // Favori durumu
+        string connectionString = "Server=localhost;Database=mydb;Uid=root;Pwd=123456;"; // Veritabanı bağlantı dizesi
+        private string fullHeartImagePath = @"C:\swe proje\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\fullHeart.png"; // Dolu kalp resminin yolu
+        private string emptyHeartImagePath = @"C:\swe proje\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\emptyHeart.png"; // Boş kalp resminin yolu
 
         // Yapıcı metot
-        public FaveAdDetails(int adIDF)
+        public FaveAdDetails(int adID)
         {
             InitializeComponent();
-            this.adIDF = adIDF; // Parametreyi sınıf değişkenine atıyoruz
-            LoadAdDetailsF(); // İlan detaylarını yüklemek için bir metot çağırıyoruz
+            this.adID = adID; // Parametreyi sınıf değişkenine atıyoruz
+            LoadAdDetails(); // İlan detaylarını yüklemek için bir metot çağırıyoruz
         }
 
-        private void LoadAdDetailsF()
+        private void LoadAdDetails()
         {
-            string connectionStringF = "Server=localhost;Database=appınfos;Uid=root;Pwd=123456;"; // Veritabanı bağlantı dizesi
 
             try
             {
-                using (MySqlConnection connectionF = new MySqlConnection(connectionStringF))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    connectionF.Open();
+                    connection.Open();
 
                     // İlan detaylarını çek
-                    string adQueryF = @"
+                    string adQuery = @"
                 SELECT 
                     Title, Description, Price, Location, SquareMeters, 
                     RoomCount, FloorNo, Elevator, CreatedAt
                 FROM ads
-                WHERE AdID = @adIDF";
+                WHERE AdID = @adID";
 
-                    using (MySqlCommand commandF = new MySqlCommand(adQueryF, connectionF))
+                    using (MySqlCommand command = new MySqlCommand(adQuery, connection))
                     {
-                        commandF.Parameters.AddWithValue("@adIDF", adIDF);
+                        command.Parameters.AddWithValue("@adID", adID);
 
-                        using (MySqlDataReader readerF = commandF.ExecuteReader())
+                        using (MySqlDataReader reader = command.ExecuteReader())
                         {
-                            if (readerF.Read())
+                            if (reader.Read())
                             {
                                 // Verileri UI öğelerine atıyoruz
-                                labelTitle.Text = readerF["Title"].ToString();
-                                labelDesription.Text = readerF["Description"].ToString();
-                                labelDbPrice.Text = $" {readerF["Price"]} TL";
-                                labelDbLocation.Text = $" {readerF["Location"]}";
-                                labelDbSquareMeters.Text = $"{readerF["SquareMeters"]} m²";
-                                labelDbRoomCount.Text = $" {readerF["RoomCount"]}";
-                                labelDbFloorNo.Text = $" {readerF["FloorNo"]}";
-                                labelDbElevator.Text = $" {(readerF["Elevator"].ToString() == "1" ? "Yes" : "No")}";
+                                labelTitle.Text = reader["Title"].ToString();
+                                labelDesription.Text = reader["Description"].ToString();
+                                labelDbPrice.Text = $" {reader["Price"]} TL";
+                                labelDbLocation.Text = $" {reader["Location"]}";
+                                labelDbSquareMeters.Text = $"{reader["SquareMeters"]} m²";
+                                labelDbRoomCount.Text = $" {reader["RoomCount"]}";
+                                labelDbFloorNo.Text = $" {reader["FloorNo"]}";
+                                labelDbElevator.Text = $" {(reader["Elevator"].ToString() == "1" ? "Yes" : "No")}";
                             }
                         }
                     }
 
                     // Kullanıcının favorilerinde bu ilan var mı kontrol et
-                    string checkFavoriteQueryF = @"
+                    string checkFavoriteQuery = @"
                 SELECT COUNT(*) 
                 FROM favorites 
-                WHERE UserID = @userIDF AND AdID = @adIDF";
+                WHERE UserID = @userID AND AdID = @adID";
 
-                    using (MySqlCommand checkFavoriteCommandF = new MySqlCommand(checkFavoriteQueryF, connectionF))
+                    using (MySqlCommand checkFavoriteCommand = new MySqlCommand(checkFavoriteQuery, connection))
                     {
-                        checkFavoriteCommandF.Parameters.AddWithValue("@userIDF", userIDF); // Kullanıcı ID'si
-                        checkFavoriteCommandF.Parameters.AddWithValue("@adIDF", adIDF); // İlan ID'si
+                        checkFavoriteCommand.Parameters.AddWithValue("@userID", userID); // Kullanıcı ID'si
+                        checkFavoriteCommand.Parameters.AddWithValue("@adID", adID); // İlan ID'si
 
                         // Favori kaydını kontrol et
-                        int favoriteCountF = Convert.ToInt32(checkFavoriteCommandF.ExecuteScalar());
+                        int favoriteCount = Convert.ToInt32(checkFavoriteCommand.ExecuteScalar());
 
                         // Favori kaydı varsa, butonu dolu kalp yap
-                        if (favoriteCountF > 0)
+                        if (favoriteCount > 0)
                         {
-                            isFavedF = true;
-                            buttonFave.BackgroundImage = Image.FromFile(@"C:\Users\ASUS\Desktop\Swe project\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\fullHeart.png");
+                            isFaved = true;
+                            buttonFave.BackgroundImage = Image.FromFile(fullHeartImagePath);
                         }
                         else
                         {
-                            isFavedF = false;
-                            buttonFave.BackgroundImage = Image.FromFile(@"C:\Users\ASUS\Desktop\Swe project\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\emptyHeart.png");
+                            isFaved = false;
+                            buttonFave.BackgroundImage = Image.FromFile(emptyHeartImagePath);
                         }
 
                         buttonFave.BackgroundImageLayout = ImageLayout.Stretch; // Resmin butonun tamamını kaplamasını sağla
                     }
 
                     // İlan fotoğraflarını çek
-                    string photosQueryF = "SELECT PhotoPath FROM adphotos WHERE AdID = @adIDF";
-                    using (MySqlCommand photoCommandF = new MySqlCommand(photosQueryF, connectionF))
+                    string photosQuery = "SELECT PhotoPath FROM adphotos WHERE AdID = @adID";
+                    using (MySqlCommand photoCommand = new MySqlCommand(photosQuery, connection))
                     {
-                        photoCommandF.Parameters.AddWithValue("@adIDF", adIDF);
+                        photoCommand.Parameters.AddWithValue("@adID", adID);
 
-                        using (MySqlDataReader photoReaderF = photoCommandF.ExecuteReader())
+                        using (MySqlDataReader photoReader = photoCommand.ExecuteReader())
                         {
                             // Fotoğrafları ekliyoruz
-                            while (photoReaderF.Read())
+                            while (photoReader.Read())
                             {
-                                string photoPathF = photoReaderF["PhotoPath"].ToString();
+                                string photoPath = photoReader["PhotoPath"].ToString();
 
                                 // Dinamik bir PictureBox oluşturuyoruz
-                                PictureBox pictureBoxF = new PictureBox
+                                PictureBox pictureBox = new PictureBox
                                 {
-                                    ImageLocation = photoPathF,  // Resim yolu
+                                    ImageLocation = photoPath,  // Resim yolu
                                     SizeMode = PictureBoxSizeMode.StretchImage,  // Resmin doğru şekilde görünmesi için
                                     Width = 550,  // Resmin genişliği
                                     Height = 350, // Resmin yüksekliği
@@ -112,15 +114,15 @@ namespace RealEstateApp.Forms
                                 };
 
                                 // FlowLayoutPanel'e ekliyoruz
-                                flowLayoutPanelPhotos.Controls.Add(pictureBoxF);
+                                flowLayoutPanelPhotos.Controls.Add(pictureBox);
                             }
                         }
                     }
                 }
             }
-            catch (Exception exF)
+            catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {exF.Message}");
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
 
@@ -135,10 +137,10 @@ namespace RealEstateApp.Forms
 
         private void buttonFave_Click(object sender, EventArgs e)
         {
-            isFavedF = !isFavedF;
+            isFaved = !isFaved;
 
             // Duruma göre favoriye ekle veya çıkar
-            if (isFavedF)
+            if (isFaved)
             {
                 AddToFavorites();
             }
@@ -148,11 +150,10 @@ namespace RealEstateApp.Forms
             }
 
             // Butonun arka plan resmini değiştir
-            string pathF = isFavedF
-                ? @"C:\Users\ASUS\Desktop\Swe project\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\fullHeart.png" // Dolu kalp resmi
-                : @"C:\Users\ASUS\Desktop\Swe project\Software_Lesson_Project\RealEstateApp\RealEstateApp\Resources\emptyHeart.png"; // Boş kalp resmi
+            // Butonun arka plan resmini değiştir
+            string path = isFaved ? fullHeartImagePath : emptyHeartImagePath;
 
-            buttonFave.BackgroundImage = Image.FromFile(pathF); // Resmi yükle
+            buttonFave.BackgroundImage = Image.FromFile(path); // Resmi yükle
             buttonFave.BackgroundImageLayout = ImageLayout.Stretch; // Resmin butonun tamamını kaplamasını sağla
         }
         // Form üzerindeki diğer event handler'lar
@@ -168,56 +169,54 @@ namespace RealEstateApp.Forms
 
         private void AddToFavorites()
         {
-            string connectionStringF = "Server=localhost;Database=appınfos;Uid=root;Pwd=123456;"; // Veritabanı bağlantı dizesi
 
             try
             {
-                using (MySqlConnection connectionF = new MySqlConnection(connectionStringF))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    connectionF.Open();
+                    connection.Open();
 
                     // Veritabanına favori ekleme sorgusu
-                    string addFavoriteQueryF = @"
+                    string addFavoriteQuery = @"
                         INSERT INTO favorites (UserID, AdID, CreatedAt)
-                        VALUES (@userIDF, @adIDF, NOW())";
+                        VALUES (@userID, @adID, NOW())";
 
-                    using (MySqlCommand commandF = new MySqlCommand(addFavoriteQueryF, connectionF))
+                    using (MySqlCommand command = new MySqlCommand(addFavoriteQuery, connection))
                     {
                         // Parametreleri ekliyoruz
-                        commandF.Parameters.AddWithValue("@userIDF", userIDF); // Kullanıcı ID'si
-                        commandF.Parameters.AddWithValue("@adIDF", adIDF); // İlan ID'si
+                        command.Parameters.AddWithValue("@userID", userID); // Kullanıcı ID'si
+                        command.Parameters.AddWithValue("@adID", adID); // İlan ID'si
 
                         // Sorguyu çalıştır
-                        commandF.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
                     }
                 }
             }
-            catch (Exception exF)
+            catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while adding to favorites: {exF.Message}");
+                MessageBox.Show($"An error occurred while adding to favorites: {ex.Message}");
             }
         }
 
         private void RemoveFromFavorites()
         {
-            string connectionStringF = "Server=localhost;Database=appınfos;Uid=root;Pwd=123456;"; // Veritabanı bağlantı dizesi
 
             try
             {
-                using (MySqlConnection connectionF = new MySqlConnection(connectionStringF))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    connectionF.Open();
+                    connection.Open();
 
                     // Veritabanından favoriyi kaldırma sorgusu
-                    string removeFavoriteQueryF = @"
+                    string removeFavoriteQuery = @"
                         DELETE FROM favorites 
-                        WHERE UserID = @userIDF AND AdID = @adIDF";
+                        WHERE UserID = @userID AND AdID = @adID";
 
-                    using (MySqlCommand command = new MySqlCommand(removeFavoriteQueryF, connectionF))
+                    using (MySqlCommand command = new MySqlCommand(removeFavoriteQuery, connection))
                     {
                         // Parametreleri ekliyoruz
-                        command.Parameters.AddWithValue("@userIDF", userIDF); // Kullanıcı ID'si
-                        command.Parameters.AddWithValue("@adIDF", adIDF); // İlan ID'si
+                        command.Parameters.AddWithValue("@userID", userID); // Kullanıcı ID'si
+                        command.Parameters.AddWithValue("@adID", adID); // İlan ID'si
 
                         // Sorguyu çalıştır
                         command.ExecuteNonQuery();

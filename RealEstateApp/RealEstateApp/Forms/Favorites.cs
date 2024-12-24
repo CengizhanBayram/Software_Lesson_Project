@@ -8,6 +8,7 @@ namespace RealEstateApp.Forms
 {
     public partial class Favorites : Form
     {
+        string connectionString = "Server=localhost;Database=mydb;Uid=root;Pwd=123456;";
 
         public Favorites()
         {
@@ -23,7 +24,6 @@ namespace RealEstateApp.Forms
         private void LoadAds()
         {
             flowLayoutPanelFaves.Controls.Clear();
-            string connectionString = "Server=localhost;Database=appınfos;Uid=root;Pwd=123456;";
 
             // Giriş yapan kullanıcının UserID'sini burada alıyoruz.
             int userID = Login.userId; // Bu metodu kendinize göre implement edebilirsiniz.

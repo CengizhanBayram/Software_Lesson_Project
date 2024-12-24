@@ -20,7 +20,7 @@ namespace RealEstateApp.Forms
             InitializeComponent();
         }
 
-        private string connectionString = "Server=localhost;Database=appınfos;Uid=root;Pwd=123456;";
+        private string connectionString = "Server=localhost;Database=mydb;Uid=root;Pwd=123456;";
         int userId = Login.userId;
 
         private void OwnAds_Load(object sender, EventArgs e)

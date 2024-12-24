@@ -18,7 +18,7 @@ namespace RealEstateApp.Forms
         public static int userId = 0;
 
         // Veritabanı bağlantı bilgileri
-        string connectionString = "Server=localhost;Database=appınfos;Uid=root;Pwd=123456;";
+        string connectionString = "Server=localhost;Database=mydb;Uid=root;Pwd=123456;";
 
         public Login()
         {
@@ -29,8 +29,8 @@ namespace RealEstateApp.Forms
         {
             linkLblToRegister.Text = "If you don't have an account please click here to register.";
             linkLblToRegister.LinkArea = new LinkArea(42, 4);
-            textBoxEmail.Text = "umit@gmail.com";
-            textBoxPassword.Text = "123456";
+            textBoxEmail.Text = "musti@gmail.com";
+            textBoxPassword.Text = "12345";
             
         }
 
