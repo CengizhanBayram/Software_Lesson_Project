@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             btnTemp = new System.Windows.Forms.Button();
             errorProviderEmail = new System.Windows.Forms.ErrorProvider(components);
             errorProviderPassword = new System.Windows.Forms.ErrorProvider(components);
@@ -66,21 +67,22 @@
             // panel2
             // 
             panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            panel2.BackColor = System.Drawing.Color.Transparent;
             panel2.Controls.Add(textBoxPassword);
             panel2.Controls.Add(btnLogin);
             panel2.Controls.Add(lblEmail);
             panel2.Controls.Add(linkLblToRegister);
             panel2.Controls.Add(lblPassword);
             panel2.Controls.Add(textBoxEmail);
-            panel2.Location = new System.Drawing.Point(566, 192);
+            panel2.Location = new System.Drawing.Point(539, 190);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(402, 368);
+            panel2.Size = new System.Drawing.Size(473, 368);
             panel2.TabIndex = 6;
             // 
             // textBoxPassword
             // 
             textBoxPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            textBoxPassword.Location = new System.Drawing.Point(34, 121);
+            textBoxPassword.Location = new System.Drawing.Point(69, 121);
             textBoxPassword.Margin = new System.Windows.Forms.Padding(5);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PasswordChar = '*';
@@ -90,7 +92,7 @@
             // btnLogin
             // 
             btnLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            btnLogin.Location = new System.Drawing.Point(136, 208);
+            btnLogin.Location = new System.Drawing.Point(171, 208);
             btnLogin.Margin = new System.Windows.Forms.Padding(5);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new System.Drawing.Size(122, 49);
@@ -103,10 +105,11 @@
             // 
             lblEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lblEmail.AutoSize = true;
-            lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            lblEmail.Location = new System.Drawing.Point(30, 19);
+            lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 162);
+            lblEmail.ForeColor = System.Drawing.Color.WhiteSmoke;
+            lblEmail.Location = new System.Drawing.Point(65, 17);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new System.Drawing.Size(51, 20);
+            lblEmail.Size = new System.Drawing.Size(59, 22);
             lblEmail.TabIndex = 3;
             lblEmail.Text = "Email";
             // 
@@ -114,10 +117,12 @@
             // 
             linkLblToRegister.Anchor = System.Windows.Forms.AnchorStyles.Top;
             linkLblToRegister.AutoSize = true;
-            linkLblToRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            linkLblToRegister.Location = new System.Drawing.Point(14, 314);
+            linkLblToRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 162);
+            linkLblToRegister.ForeColor = System.Drawing.Color.WhiteSmoke;
+            linkLblToRegister.LinkColor = System.Drawing.Color.Red;
+            linkLblToRegister.Location = new System.Drawing.Point(49, 314);
             linkLblToRegister.Name = "linkLblToRegister";
-            linkLblToRegister.Size = new System.Drawing.Size(379, 20);
+            linkLblToRegister.Size = new System.Drawing.Size(405, 22);
             linkLblToRegister.TabIndex = 5;
             linkLblToRegister.TabStop = true;
             linkLblToRegister.Text = "If you don't have an account click here to register.";
@@ -127,17 +132,18 @@
             // 
             lblPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lblPassword.AutoSize = true;
-            lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            lblPassword.Location = new System.Drawing.Point(30, 96);
+            lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            lblPassword.ForeColor = System.Drawing.Color.WhiteSmoke;
+            lblPassword.Location = new System.Drawing.Point(65, 96);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new System.Drawing.Size(83, 20);
+            lblPassword.Size = new System.Drawing.Size(97, 22);
             lblPassword.TabIndex = 4;
             lblPassword.Text = "Password";
             // 
             // textBoxEmail
             // 
             textBoxEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            textBoxEmail.Location = new System.Drawing.Point(34, 44);
+            textBoxEmail.Location = new System.Drawing.Point(69, 44);
             textBoxEmail.Margin = new System.Windows.Forms.Padding(5);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.Size = new System.Drawing.Size(344, 32);
@@ -145,6 +151,7 @@
             // 
             // panel1
             // 
+            panel1.BackgroundImage = (System.Drawing.Image)resources.GetObject("panel1.BackgroundImage");
             panel1.Controls.Add(panel2);
             panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             panel1.ForeColor = System.Drawing.SystemColors.ControlText;

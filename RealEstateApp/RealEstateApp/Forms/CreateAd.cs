@@ -93,8 +93,8 @@ namespace RealEstateApp.Forms
                         {
                             Image = Image.FromFile(filePath),
                             SizeMode = PictureBoxSizeMode.StretchImage,
-                            Width = 150,
-                            Height = 150
+                            Width = 200,
+                            Height = 200
                         };
                         flowLayoutPanelPhotos.Controls.Add(pb);
 

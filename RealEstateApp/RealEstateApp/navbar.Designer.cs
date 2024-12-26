@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(navbar));
             label1 = new System.Windows.Forms.Label();
             contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
             MenuItemProfile = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,9 +48,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = System.Drawing.Color.Silver;
+            label1.BackColor = System.Drawing.Color.Transparent;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            label1.Location = new System.Drawing.Point(17, 18);
+            label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            label1.Location = new System.Drawing.Point(17, 22);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(269, 39);
             label1.TabIndex = 0;
@@ -87,14 +89,16 @@
             // 
             // linkLblCreateAd
             // 
-            linkLblCreateAd.ActiveLinkColor = System.Drawing.Color.Black;
+            linkLblCreateAd.ActiveLinkColor = System.Drawing.Color.WhiteSmoke;
             linkLblCreateAd.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             linkLblCreateAd.AutoSize = true;
-            linkLblCreateAd.BackColor = System.Drawing.Color.Silver;
+            linkLblCreateAd.BackColor = System.Drawing.Color.Transparent;
+            linkLblCreateAd.DisabledLinkColor = System.Drawing.Color.White;
             linkLblCreateAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            linkLblCreateAd.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
-            linkLblCreateAd.LinkColor = System.Drawing.Color.Black;
-            linkLblCreateAd.Location = new System.Drawing.Point(21, 25);
+            linkLblCreateAd.ForeColor = System.Drawing.Color.WhiteSmoke;
+            linkLblCreateAd.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            linkLblCreateAd.LinkColor = System.Drawing.Color.WhiteSmoke;
+            linkLblCreateAd.Location = new System.Drawing.Point(37, 27);
             linkLblCreateAd.Name = "linkLblCreateAd";
             linkLblCreateAd.Size = new System.Drawing.Size(126, 29);
             linkLblCreateAd.TabIndex = 4;
@@ -105,8 +109,8 @@
             // pictureBox1
             // 
             pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            pictureBox1.BackColor = System.Drawing.Color.Silver;
-            pictureBox1.Image = Properties.Resources.user;
+            pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new System.Drawing.Point(188, 16);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(45, 45);
@@ -117,6 +121,7 @@
             // 
             // panel1
             // 
+            panel1.BackColor = System.Drawing.Color.Transparent;
             panel1.Controls.Add(label1);
             panel1.Dock = System.Windows.Forms.DockStyle.Left;
             panel1.Location = new System.Drawing.Point(0, 0);
@@ -126,6 +131,7 @@
             // 
             // panel2
             // 
+            panel2.BackColor = System.Drawing.Color.Transparent;
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(linkLblCreateAd);
             panel2.Dock = System.Windows.Forms.DockStyle.Right;
@@ -137,7 +143,8 @@
             // navbar
             // 
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            BackColor = System.Drawing.Color.Silver;
+            BackColor = System.Drawing.Color.FromArgb(142, 163, 166);
+            BackgroundImage = (System.Drawing.Image)resources.GetObject("$this.BackgroundImage");
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);

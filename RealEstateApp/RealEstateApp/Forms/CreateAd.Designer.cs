@@ -69,6 +69,7 @@
             // panel2
             // 
             panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            panel2.BackColor = System.Drawing.Color.Transparent;
             panel2.Controls.Add(maskedTextBoxSquareMeters);
             panel2.Controls.Add(maskedTextBoxPrice);
             panel2.Controls.Add(btnSaveAdvert);
@@ -89,7 +90,7 @@
             panel2.Controls.Add(lblSquareMeters);
             panel2.Controls.Add(btnUploadPhoto);
             panel2.Controls.Add(lblPrice);
-            panel2.Location = new System.Drawing.Point(264, 27);
+            panel2.Location = new System.Drawing.Point(280, 27);
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(881, 1404);
             panel2.TabIndex = 13;
@@ -127,6 +128,7 @@
             // 
             lblElevator.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lblElevator.AutoSize = true;
+            lblElevator.ForeColor = System.Drawing.Color.WhiteSmoke;
             lblElevator.Location = new System.Drawing.Point(30, 1109);
             lblElevator.Name = "lblElevator";
             lblElevator.Size = new System.Drawing.Size(92, 26);
@@ -175,6 +177,7 @@
             // 
             lblPhotos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lblPhotos.AutoSize = true;
+            lblPhotos.ForeColor = System.Drawing.Color.WhiteSmoke;
             lblPhotos.Location = new System.Drawing.Point(30, 12);
             lblPhotos.Name = "lblPhotos";
             lblPhotos.Size = new System.Drawing.Size(80, 26);
@@ -185,6 +188,7 @@
             // 
             lblFloorNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lblFloorNo.AutoSize = true;
+            lblFloorNo.ForeColor = System.Drawing.Color.WhiteSmoke;
             lblFloorNo.Location = new System.Drawing.Point(29, 1004);
             lblFloorNo.Name = "lblFloorNo";
             lblFloorNo.Size = new System.Drawing.Size(145, 26);
@@ -195,6 +199,7 @@
             // 
             lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lblTitle.AutoSize = true;
+            lblTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
             lblTitle.Location = new System.Drawing.Point(30, 336);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new System.Drawing.Size(52, 26);
@@ -205,6 +210,7 @@
             // 
             lblRoomNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lblRoomNumber.AutoSize = true;
+            lblRoomNumber.ForeColor = System.Drawing.Color.WhiteSmoke;
             lblRoomNumber.Location = new System.Drawing.Point(29, 904);
             lblRoomNumber.Name = "lblRoomNumber";
             lblRoomNumber.Size = new System.Drawing.Size(155, 26);
@@ -215,6 +221,7 @@
             // 
             lblDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lblDescription.AutoSize = true;
+            lblDescription.ForeColor = System.Drawing.Color.WhiteSmoke;
             lblDescription.Location = new System.Drawing.Point(30, 438);
             lblDescription.Name = "lblDescription";
             lblDescription.Size = new System.Drawing.Size(121, 26);
@@ -234,6 +241,7 @@
             // 
             lblLocation.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lblLocation.AutoSize = true;
+            lblLocation.ForeColor = System.Drawing.Color.WhiteSmoke;
             lblLocation.Location = new System.Drawing.Point(29, 803);
             lblLocation.Name = "lblLocation";
             lblLocation.Size = new System.Drawing.Size(94, 26);
@@ -262,6 +270,7 @@
             // 
             lblSquareMeters.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lblSquareMeters.AutoSize = true;
+            lblSquareMeters.ForeColor = System.Drawing.Color.WhiteSmoke;
             lblSquareMeters.Location = new System.Drawing.Point(30, 705);
             lblSquareMeters.Name = "lblSquareMeters";
             lblSquareMeters.Size = new System.Drawing.Size(154, 26);
@@ -283,6 +292,7 @@
             // 
             lblPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lblPrice.AutoSize = true;
+            lblPrice.ForeColor = System.Drawing.Color.WhiteSmoke;
             lblPrice.Location = new System.Drawing.Point(29, 612);
             lblPrice.Name = "lblPrice";
             lblPrice.Size = new System.Drawing.Size(106, 26);
@@ -312,6 +322,7 @@
             // panel7
             // 
             panel7.AutoScroll = true;
+            panel7.BackColor = System.Drawing.Color.FromArgb(0, 41, 85);
             panel7.Controls.Add(panel2);
             panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             panel7.Location = new System.Drawing.Point(0, 80);

@@ -85,7 +85,7 @@ namespace RealEstateApp.Forms
                             BackColor = Color.LightGray,
                             Dock = DockStyle.Top,
                             SizeMode = PictureBoxSizeMode.StretchImage,
-                            Tag = adID 
+                            Tag = adID
                         };
 
                         // Eğer fotoğraf yolu varsa resmi yükle
@@ -111,7 +111,7 @@ namespace RealEstateApp.Forms
                             Height = 30,
                             Location = new Point(10, 160),
                             TextAlign = ContentAlignment.MiddleLeft,
-                            Tag = adID 
+                            Tag = adID
                         };
 
                         // Click olayı için handler ekle
@@ -127,7 +127,7 @@ namespace RealEstateApp.Forms
                             Height = 20,
                             Location = new Point(10, 190),
                             TextAlign = ContentAlignment.MiddleLeft,
-                            Tag = adID 
+                            Tag = adID
                         };
                         // Click olayı için handler ekle
                         lblPrice.Click += AdPanel_Click;
@@ -144,7 +144,7 @@ namespace RealEstateApp.Forms
                             Tag = adID
                         };
 
-                        
+
                         lblSquareMeters.Click += AdPanel_Click;
                         // Panelleri birleştirme
                         adPanel.Controls.Add(imageBox);
@@ -173,11 +173,10 @@ namespace RealEstateApp.Forms
 
             if (adID > 0)
             {
-                Main mainForm = (Main)this.ParentForm; 
-                mainForm.ShowFormInPanel(new AdDetails(adID)); 
+                Main mainForm = (Main)this.ParentForm;
+                mainForm.ShowFormInPanel(new AdDetails(adID));
             }
         }
-
 
     }
 }
