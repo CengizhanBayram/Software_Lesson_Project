@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace RealEstateApp.Forms
 {
@@ -18,6 +19,49 @@ namespace RealEstateApp.Forms
         private void Homepage_Load(object sender, EventArgs e)
         {
             LoadAds();
+            ConfigureFilterTextBoxPrice(textBoxPriceMin, "min");
+            ConfigureFilterTextBoxPrice(textBoxPriceMax, "max");
+
+            // combox box location
+            string[] iller = GlobalSettings.iller;
+            comboBoxLocationFilter.Items.AddRange(iller);
+            comboBoxLocationFilter.DropDownHeight = 150;
+
+
+            // combo box room
+            string[] roomNumber = GlobalSettings.roomNumber;
+            comboBoxRoom.Items.AddRange(roomNumber);
+            comboBoxRoom.DropDownHeight = 150;
+
+
+            // combo box filter
+            string[] floorNumbers = GlobalSettings.floorNumbers;
+            comboBoxFloor.Items.AddRange(floorNumbers);
+            comboBoxFloor.DropDownHeight = 150;
+
+
+            // combox box elevator
+            comboBoxElevator.Items.AddRange(["Yes", "No"]);
+
+
+            // square meter text box
+            textBoxSquareMeter.KeyPress += (s, e) =>
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    e.Handled = true;
+
+                if (char.IsDigit(e.KeyChar) && textBoxSquareMeter.Text.Length >= 5)
+                    e.Handled = true;
+            };
+
+            textBoxSquareMeter.TextChanged += (s, e) =>
+            {
+                if (textBoxSquareMeter.Text.Length > 5)
+                {
+                    textBoxSquareMeter.Text = textBoxSquareMeter.Text.Substring(0, 5);
+                    textBoxSquareMeter.SelectionStart = textBoxSquareMeter.Text.Length; 
+                }
+            };
         }
 
         private void LoadAds()
@@ -176,6 +220,57 @@ namespace RealEstateApp.Forms
                 Main mainForm = (Main)this.ParentForm;
                 mainForm.ShowFormInPanel(new AdDetails(adID));
             }
+        }
+
+        private void ConfigureFilterTextBoxPrice(System.Windows.Forms.TextBox textBox, string placeholder)
+        {
+            // Placeholder ayarı
+            textBox.Text = placeholder;
+            textBox.ForeColor = Color.Gray;
+
+            textBox.GotFocus += (s, e) =>
+            {
+                if (textBox.Text == placeholder)
+                {
+                    textBox.Text = "";
+                    textBox.ForeColor = Color.Black;
+                }
+            };
+
+            textBox.LostFocus += (s, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    textBox.Text = placeholder;
+                    textBox.ForeColor = Color.Gray;
+                }
+            };
+
+            // Sadece 10 haneli sayı girişi kontrolü
+            textBox.KeyPress += (s, e) =>
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    // Sadece rakamlara izin ver
+                    e.Handled = true;
+                }
+
+                // En fazla 10 hane kontrolü
+                if (char.IsDigit(e.KeyChar) && textBox.Text.Length >= 10)
+                {
+                    e.Handled = true;
+                }
+            };
+
+            textBox.TextChanged += (s, e) =>
+            {
+                // Eğer uzunluk 10 karakteri geçerse kırp
+                if (textBox.Text.Length > 10 && textBox.ForeColor == Color.Black)
+                {
+                    textBox.Text = textBox.Text.Substring(0, 10);
+                    textBox.SelectionStart = textBox.Text.Length; // İmleci sona taşı
+                }
+            };
         }
 
     }

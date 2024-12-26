@@ -43,20 +43,11 @@ namespace RealEstateApp.Forms
                             ads.FloorNo,
                             ads.Elevator,
                             ads.Status,
-                            ads.CreatedAt,
-                            MIN(adphotos.PhotoPath) AS PhotoPath
+                            ads.CreatedAt
                         FROM 
-                            ads 
-                        LEFT JOIN 
-                            adphotos 
-                        ON 
-                            ads.AdID = adphotos.AdID 
+                            ads
                         WHERE 
-                            ads.UserID = @userId
-                        GROUP BY 
-                            ads.AdID, ads.Title, ads.Description, ads.Price, ads.Location, 
-                            ads.SquareMeters, ads.RoomCount, ads.FloorNo, ads.Elevator, 
-                            ads.Status, ads.CreatedAt";
+                            ads.UserID = @userId";
 
                     MySqlCommand command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@userId", userId);
@@ -68,60 +59,29 @@ namespace RealEstateApp.Forms
                     dataGridViewAds.Rows.Clear();
                     dataGridViewAds.Columns.Clear();
 
-                    DataGridViewImageColumn imgColumn = new DataGridViewImageColumn
-                    {
-                        HeaderText = "Image",
-                        Name = "ImageColumn",
-                        ImageLayout = DataGridViewImageCellLayout.Zoom
-                    };
-                    dataGridViewAds.Columns.Add(imgColumn);
-
                     foreach (DataColumn column in dataTable.Columns)
                     {
-                        if (column.ColumnName != "PhotoPath")
-                        {
-                            dataGridViewAds.Columns.Add(column.ColumnName, column.ColumnName);
-                        }
+                        dataGridViewAds.Columns.Add(column.ColumnName, column.ColumnName);
                     }
 
                     foreach (DataRow row in dataTable.Rows)
                     {
-                        string photoPath = row["PhotoPath"].ToString();
-                        Image adImage = Properties.Resources.DefaultImage; // Default resim
-
-                        if (!string.IsNullOrEmpty(photoPath) && File.Exists(photoPath))
-                        {
-                            using (var stream = new MemoryStream(File.ReadAllBytes(photoPath)))
-                            {
-                                adImage = Image.FromStream(stream);
-                            }
-                        }
-
                         int rowIndex = dataGridViewAds.Rows.Add();
-                        dataGridViewAds.Rows[rowIndex].Cells["ImageColumn"].Value = adImage;
-                        int colIndex = 1;
-
-                        foreach (DataColumn column in dataTable.Columns)
+                        for (int i = 0; i < dataTable.Columns.Count; i++)
                         {
-                            if (column.ColumnName != "PhotoPath")
-                            {
-                                dataGridViewAds.Rows[rowIndex].Cells[colIndex].Value = row[column.ColumnName].ToString();
-                                colIndex++;
-                            }
+                            dataGridViewAds.Rows[rowIndex].Cells[i].Value = row[i].ToString();
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading ads with images: " + ex.Message);
+                MessageBox.Show("Error loading ads: " + ex.Message);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
@@ -142,7 +102,6 @@ namespace RealEstateApp.Forms
                         string floorNo = row.Cells["FloorNo"].Value?.ToString() ?? "";
                         string roomCount = row.Cells["RoomCount"].Value?.ToString() ?? "";
 
-                        // Elevator kontrol ve dönüştürme işlemi
                         string elevatorValue = row.Cells["Elevator"].Value?.ToString() ?? "false";
                         bool elevator = elevatorValue.ToLower() switch
                         {
@@ -150,7 +109,7 @@ namespace RealEstateApp.Forms
                             "false" => false,
                             "1" => true,
                             "0" => false,
-                            _ => false // Geçersiz format durumunda varsayılan olarak false atanır
+                            _ => false
                         };
 
                         string status = row.Cells["Status"].Value?.ToString() ?? "active";
@@ -180,7 +139,7 @@ namespace RealEstateApp.Forms
                             command.Parameters.AddWithValue("@SquareMeters", square);
                             command.Parameters.AddWithValue("@RoomCount", roomCount);
                             command.Parameters.AddWithValue("@FloorNo", floorNo);
-                            command.Parameters.AddWithValue("@Elevator", elevator ? 1 : 0); // Boolean değeri integer (1/0) olarak gönderilir
+                            command.Parameters.AddWithValue("@Elevator", elevator ? 1 : 0);
                             command.Parameters.AddWithValue("@Status", status);
                             command.ExecuteNonQuery();
                         }
@@ -194,15 +153,10 @@ namespace RealEstateApp.Forms
             }
         }
 
-
-
-
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (dataGridViewAds.SelectedRows.Count > 0)
             {
-                // Seçili satırdaki AdID'yi al
                 int selectedRowIndex = dataGridViewAds.SelectedRows[0].Index;
                 int adID = Convert.ToInt32(dataGridViewAds.Rows[selectedRowIndex].Cells["AdID"].Value);
 
@@ -216,30 +170,6 @@ namespace RealEstateApp.Forms
                         {
                             connection.Open();
 
-                            // Resim dosyalarının yollarını veritabanından al
-                            List<string> photoPaths = new List<string>();
-                            string getPhotoPathsQuery = "SELECT PhotoPath FROM adphotos WHERE AdID = @AdID;";
-                            using (MySqlCommand getPhotoCommand = new MySqlCommand(getPhotoPathsQuery, connection))
-                            {
-                                getPhotoCommand.Parameters.AddWithValue("@AdID", adID);
-                                using (MySqlDataReader reader = getPhotoCommand.ExecuteReader())
-                                {
-                                    while (reader.Read())
-                                    {
-                                        photoPaths.Add(reader["PhotoPath"].ToString());
-                                    }
-                                }
-                            }
-
-                            // Resim verisini silme
-                            string deletePhotoQuery = "DELETE FROM adphotos WHERE AdID = @AdID;";
-                            using (MySqlCommand photoCommand = new MySqlCommand(deletePhotoQuery, connection))
-                            {
-                                photoCommand.Parameters.AddWithValue("@AdID", adID);
-                                photoCommand.ExecuteNonQuery();
-                            }
-
-                            // İlan verisini silme
                             string deleteAdQuery = "DELETE FROM ads WHERE AdID = @AdID;";
                             using (MySqlCommand adCommand = new MySqlCommand(deleteAdQuery, connection))
                             {
@@ -247,25 +177,7 @@ namespace RealEstateApp.Forms
                                 adCommand.ExecuteNonQuery();
                             }
 
-                            // Resim dosyalarını fiziksel olarak sil
-                            foreach (string photoPath in photoPaths)
-                            {
-                                if (File.Exists(photoPath))
-                                {
-                                    try
-                                    {
-                                        File.Delete(photoPath);
-                                    }
-                                    catch (Exception fileEx)
-                                    {
-                                        MessageBox.Show($"Error deleting file '{photoPath}': {fileEx.Message}");
-                                    }
-                                }
-                            }
-
-                            MessageBox.Show("Ad and associated images deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // Satırı DataGridView'den kaldır
+                            MessageBox.Show("Ad deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             dataGridViewAds.Rows.RemoveAt(selectedRowIndex);
                         }
                     }
@@ -276,9 +188,5 @@ namespace RealEstateApp.Forms
                 }
             }
         }
-
-
-
     }
-
 }

@@ -17,7 +17,6 @@ namespace RealEstateApp.Forms
 {
     public partial class CreateAd : Form
     {
-        // Veritabanı bağlantı bilgileri
         string connectionString = GlobalSettings.ConnectionString;
         List<string> photoPaths = new List<string>();
 
@@ -28,38 +27,17 @@ namespace RealEstateApp.Forms
 
         private void CreateAd_Load(object sender, EventArgs e)
         {
-            string[] iller = new string[]
-            {
-                "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Amasya", "Ankara", "Antalya",
-                "Artvin", "Aydın", "Balıkesir", "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur",
-                "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli", "Diyarbakır", "Edirne",
-                "Elazığ", "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane",
-                "Hakkâri", "Hatay", "Iğdır", "Isparta", "İstanbul", "İzmir", "Kahramanmaraş",
-                "Karabük", "Karaman", "Kars", "Kastamonu", "Kayseri", "Kırıkkale", "Kırklareli",
-                "Kırşehir", "Kilis", "Kocaeli", "Konya", "Kütahya", "Malatya", "Manisa", "Mardin",
-                "Mersin", "Muğla", "Muş", "Nevşehir", "Niğde", "Ordu", "Osmaniye", "Rize",
-                "Sakarya", "Samsun", "Siirt", "Sinop", "Sivas", "Şanlıurfa", "Şırnak", "Tekirdağ",
-                "Tokat", "Trabzon", "Tunceli", "Uşak", "Van", "Yalova", "Yozgat", "Zonguldak"
-            };
+            string[] iller = GlobalSettings.iller;
             comboBoxLocation.Items.AddRange(iller);
+            comboBoxLocation.DropDownHeight = 150;
 
-            string[] roomNumber = new string[]
-            {
-                "1+0", "1+1", "2+1", "2+2", "3+1", "3+2", "4+1", "4+2", "5+1",
-                "1+0 Dubleks", "1+1 Dubleks", "2+1 Dubleks", "3+1 Dubleks", "4+1 Dubleks",
-                "2+0", "3+0", "4+0", "1+1 Penthouse", "2+2 Penthouse", "3+2 Penthouse",
-                "3+1 Villa", "4+1 Villa", "5+2", "5+3", "6+1", "6+2", "7+1", "8+2", "9+1",
-                "9+2", "10+1"
-            };
+            string[] roomNumber = GlobalSettings.roomNumber;
             comboBoxRoomNumber.Items.AddRange(roomNumber);
+            comboBoxRoomNumber.DropDownHeight = 150;
 
-            string[] floorNumbers = new string[]
-            {
-                "Ground Floor", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th",
-                "10th", "11th", "12th", "13th", "14th", "15th", "16th", "17th", "18th", "19th",
-                "20th", "Penthouse", "Attic", "Basement", "Mezzanine", "Upper Floor"
-            };
+            string[] floorNumbers = GlobalSettings.floorNumbers;
             comboBoxFloorNo.Items.AddRange(floorNumbers);
+            comboBoxFloorNo.DropDownHeight = 150;
 
             comboBoxElevator.Items.AddRange(["Yes", "No"]);
         }
@@ -188,7 +166,7 @@ namespace RealEstateApp.Forms
                         cmd.Parameters.AddWithValue("@RoomCount", roomNumber);
                         cmd.Parameters.AddWithValue("@FloorNo", floorNo);
                         cmd.Parameters.AddWithValue("@Elevator", elevator);
-                        cmd.Parameters.AddWithValue("@UserID", Properties.Settings.Default.UserId);  
+                        cmd.Parameters.AddWithValue("@UserID", GlobalSettings.UserID);  
 
                         connection.Open();
                         cmd.ExecuteNonQuery();

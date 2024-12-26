@@ -31,6 +31,7 @@ namespace RealEstateApp.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Favorites));
             panel1 = new Panel();
             flowLayoutPanelFavorites = new FlowLayoutPanel();
             panel3 = new Panel();
@@ -70,6 +71,7 @@ namespace RealEstateApp.Forms
             // navbar1
             // 
             navbar1.BackColor = System.Drawing.Color.Silver;
+            navbar1.BackgroundImage = (System.Drawing.Image)resources.GetObject("navbar1.BackgroundImage");
             navbar1.Dock = DockStyle.Fill;
             navbar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
             navbar1.Location = new System.Drawing.Point(0, 0);
