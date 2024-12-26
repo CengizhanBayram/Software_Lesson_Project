@@ -31,15 +31,15 @@ namespace RealEstateApp.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Favorites));
             panel1 = new Panel();
             flowLayoutPanelFavorites = new FlowLayoutPanel();
             panel3 = new Panel();
             navbar1 = new navbar();
-            panelFaves = new Panel();
-            panel2 = new Panel();
             flowLayoutPanelFaves = new FlowLayoutPanel();
+            panel4 = new Panel();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -71,6 +71,7 @@ namespace RealEstateApp.Forms
             // navbar1
             // 
             navbar1.BackColor = System.Drawing.Color.Silver;
+            navbar1.BackgroundImage = (System.Drawing.Image)resources.GetObject("navbar1.BackgroundImage");
             navbar1.Dock = DockStyle.Fill;
             navbar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
             navbar1.Location = new System.Drawing.Point(0, 0);
@@ -79,50 +80,38 @@ namespace RealEstateApp.Forms
             navbar1.Size = new System.Drawing.Size(1482, 80);
             navbar1.TabIndex = 0;
             // 
-            // panelFaves
-            // 
-            panelFaves.AutoScroll = true;
-            panelFaves.AutoSize = true;
-            panelFaves.BorderStyle = BorderStyle.FixedSingle;
-            panelFaves.Dock = DockStyle.Top;
-            panelFaves.Location = new System.Drawing.Point(0, 0);
-            panelFaves.Name = "panelFaves";
-            panelFaves.Size = new System.Drawing.Size(1482, 2);
-            panelFaves.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            panel2.Controls.Add(flowLayoutPanelFaves);
-            panel2.Controls.Add(panelFaves);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new System.Drawing.Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(1482, 753);
-            panel2.TabIndex = 1;
-            // 
             // flowLayoutPanelFaves
             // 
+            flowLayoutPanelFaves.Anchor = AnchorStyles.Top;
             flowLayoutPanelFaves.AutoScroll = true;
-            flowLayoutPanelFaves.BackColor = System.Drawing.Color.Violet;
-            flowLayoutPanelFaves.Location = new System.Drawing.Point(69, 103);
+            flowLayoutPanelFaves.BackColor = System.Drawing.Color.Transparent;
+            flowLayoutPanelFaves.Location = new System.Drawing.Point(154, 28);
             flowLayoutPanelFaves.Name = "flowLayoutPanelFaves";
-            flowLayoutPanelFaves.Size = new System.Drawing.Size(1252, 670);
+            flowLayoutPanelFaves.Size = new System.Drawing.Size(1195, 633);
             flowLayoutPanelFaves.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = System.Drawing.Color.FromArgb(0, 41, 85);
+            panel4.Controls.Add(flowLayoutPanelFaves);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new System.Drawing.Point(0, 80);
+            panel4.Name = "panel4";
+            panel4.Size = new System.Drawing.Size(1482, 673);
+            panel4.TabIndex = 2;
             // 
             // Favorites
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new System.Drawing.Size(1482, 753);
+            Controls.Add(panel4);
             Controls.Add(panel1);
-            Controls.Add(panel2);
             Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
             Margin = new Padding(0);
             Name = "Favorites";
             Text = "Favorites";
             panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            panel4.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -137,8 +126,7 @@ namespace RealEstateApp.Forms
         private navbar navbar1;
         private FlowLayoutPanel flowLayoutPanelFavorites;
         private Panel panel3;
-        private Panel panelFaves;
-        private Panel panel2;
         private FlowLayoutPanel flowLayoutPanelFaves;
+        private Panel panel4;
     }
 }

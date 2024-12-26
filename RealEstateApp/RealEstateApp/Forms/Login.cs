@@ -119,8 +119,5 @@ namespace RealEstateApp.Forms
 
             return false;
         }
-
-       
-
     }
 }

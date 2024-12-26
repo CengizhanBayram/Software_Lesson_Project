@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OwnAds));
             dataGridViewAds = new System.Windows.Forms.DataGridView();
             Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             button1 = new System.Windows.Forms.Button();
@@ -49,7 +50,7 @@
             dataGridViewAds.Location = new System.Drawing.Point(105, 31);
             dataGridViewAds.Name = "dataGridViewAds";
             dataGridViewAds.RowHeadersWidth = 40;
-            dataGridViewAds.Size = new System.Drawing.Size(1232, 436);
+            dataGridViewAds.Size = new System.Drawing.Size(1232, 498);
             dataGridViewAds.TabIndex = 1;
             // 
             // Column1
@@ -63,25 +64,26 @@
             // 
             // button1
             // 
-            button1.BackColor = System.Drawing.Color.FromArgb(128, 255, 255);
-            button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            button1.Location = new System.Drawing.Point(375, 512);
+            button1.BackColor = System.Drawing.Color.White;
+            button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
+            button1.Location = new System.Drawing.Point(1168, 563);
             button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(232, 57);
+            button1.Size = new System.Drawing.Size(169, 45);
             button1.TabIndex = 2;
-            button1.Text = "Update Ad";
+            button1.Text = "Update";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.BackColor = System.Drawing.Color.Red;
-            button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            button2.Location = new System.Drawing.Point(786, 512);
+            button2.BackColor = System.Drawing.Color.White;
+            button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
+            button2.ForeColor = System.Drawing.Color.Red;
+            button2.Location = new System.Drawing.Point(981, 563);
             button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(232, 57);
+            button2.Size = new System.Drawing.Size(155, 45);
             button2.TabIndex = 3;
-            button2.Text = "Delete Ad";
+            button2.Text = "Delete";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
@@ -107,6 +109,7 @@
             // 
             // panel2
             // 
+            panel2.BackgroundImage = (System.Drawing.Image)resources.GetObject("panel2.BackgroundImage");
             panel2.Controls.Add(button2);
             panel2.Controls.Add(button1);
             panel2.Controls.Add(dataGridViewAds);

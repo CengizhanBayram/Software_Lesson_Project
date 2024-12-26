@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"ShowEmptyProjects":false,"CustomColumnOrderings":{"name":0,"file-path":1,"file-name":2,"neutral-value":3,"neutral-comment":4,"type":5},"ShowValidationErrors":true,"SelectedResourceGroupsByProject":{"C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateTest\\RealEstateTest.csproj":[],"C:\\Users\\ASUS\\Desktop\\Swe project\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\RealEstateApp.csproj":[]},"VisibleColumnKeys":["name","neutral-value","neutral-comment"]}
-=======
-{"CustomColumnOrderings":{"name":0,"file-path":1,"file-name":2,"neutral-value":3,"neutral-comment":4,"type":5},"ShowValidationErrors":true,"SelectedResourceGroups":["C:\\Users\\cengh\\Desktop\\software\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Forms\\Profile.resx"],"VisibleColumnKeys":["name","neutral-value"]}
->>>>>>> 9158e35bde4ece009bab8743ab83d5b7e0ef64ad
+{"CustomColumnOrderings":{"name":0,"file-path":1,"file-name":2,"neutral-value":3,"neutral-comment":4,"type":5},"ShowValidationErrors":true,"SelectedResourceGroups":["C:\\Users\\furka\\source\\repos\\Software_Lesson_Project\\RealEstateApp\\RealEstateApp\\Properties\\Resources.resx"],"VisibleColumnKeys":["name","neutral-value","neutral-comment","type","file-path","file-name"]}

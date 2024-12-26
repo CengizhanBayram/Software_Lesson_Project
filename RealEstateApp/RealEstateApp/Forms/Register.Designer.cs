@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             lblFullName = new System.Windows.Forms.Label();
             textBoxFullName = new System.Windows.Forms.TextBox();
             textBoxEmail = new System.Windows.Forms.TextBox();
@@ -40,11 +41,13 @@
             btnRegister = new System.Windows.Forms.Button();
             linkLblToLogin = new System.Windows.Forms.LinkLabel();
             panel1 = new System.Windows.Forms.Panel();
+            panel2 = new System.Windows.Forms.Panel();
             errorProvider1 = new System.Windows.Forms.ErrorProvider(components);
             errorProvider2 = new System.Windows.Forms.ErrorProvider(components);
             errorProvider3 = new System.Windows.Forms.ErrorProvider(components);
             errorProvider4 = new System.Windows.Forms.ErrorProvider(components);
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider3).BeginInit();
@@ -54,24 +57,25 @@
             // lblFullName
             // 
             lblFullName.AutoSize = true;
-            lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            lblFullName.Location = new System.Drawing.Point(605, 103);
+            lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
+            lblFullName.ForeColor = System.Drawing.Color.WhiteSmoke;
+            lblFullName.Location = new System.Drawing.Point(44, 44);
             lblFullName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lblFullName.Name = "lblFullName";
-            lblFullName.Size = new System.Drawing.Size(85, 20);
+            lblFullName.Size = new System.Drawing.Size(100, 22);
             lblFullName.TabIndex = 0;
             lblFullName.Text = "Full Name";
             // 
             // textBoxFullName
             // 
-            textBoxFullName.Location = new System.Drawing.Point(605, 126);
+            textBoxFullName.Location = new System.Drawing.Point(48, 68);
             textBoxFullName.Name = "textBoxFullName";
             textBoxFullName.Size = new System.Drawing.Size(346, 32);
             textBoxFullName.TabIndex = 1;
             // 
             // textBoxEmail
             // 
-            textBoxEmail.Location = new System.Drawing.Point(605, 211);
+            textBoxEmail.Location = new System.Drawing.Point(48, 153);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.Size = new System.Drawing.Size(346, 32);
             textBoxEmail.TabIndex = 3;
@@ -79,17 +83,18 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            lblEmail.Location = new System.Drawing.Point(605, 188);
+            lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
+            lblEmail.ForeColor = System.Drawing.Color.WhiteSmoke;
+            lblEmail.Location = new System.Drawing.Point(44, 129);
             lblEmail.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new System.Drawing.Size(51, 20);
+            lblEmail.Size = new System.Drawing.Size(59, 22);
             lblEmail.TabIndex = 2;
             lblEmail.Text = "Email";
             // 
             // textBoxPassword
             // 
-            textBoxPassword.Location = new System.Drawing.Point(605, 300);
+            textBoxPassword.Location = new System.Drawing.Point(48, 242);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PasswordChar = '*';
             textBoxPassword.Size = new System.Drawing.Size(346, 32);
@@ -98,17 +103,18 @@
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            lblPassword.Location = new System.Drawing.Point(605, 277);
+            lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
+            lblPassword.ForeColor = System.Drawing.Color.WhiteSmoke;
+            lblPassword.Location = new System.Drawing.Point(44, 218);
             lblPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new System.Drawing.Size(83, 20);
+            lblPassword.Size = new System.Drawing.Size(97, 22);
             lblPassword.TabIndex = 4;
             lblPassword.Text = "Password";
             // 
             // textBoxConfirmPassword
             // 
-            textBoxConfirmPassword.Location = new System.Drawing.Point(605, 396);
+            textBoxConfirmPassword.Location = new System.Drawing.Point(48, 338);
             textBoxConfirmPassword.Name = "textBoxConfirmPassword";
             textBoxConfirmPassword.PasswordChar = '*';
             textBoxConfirmPassword.Size = new System.Drawing.Size(346, 32);
@@ -117,17 +123,18 @@
             // lblConfirmPassword
             // 
             lblConfirmPassword.AutoSize = true;
-            lblConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            lblConfirmPassword.Location = new System.Drawing.Point(605, 373);
+            lblConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
+            lblConfirmPassword.ForeColor = System.Drawing.Color.WhiteSmoke;
+            lblConfirmPassword.Location = new System.Drawing.Point(44, 314);
             lblConfirmPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lblConfirmPassword.Name = "lblConfirmPassword";
-            lblConfirmPassword.Size = new System.Drawing.Size(147, 20);
+            lblConfirmPassword.Size = new System.Drawing.Size(172, 22);
             lblConfirmPassword.TabIndex = 7;
             lblConfirmPassword.Text = "Confirm Password";
             // 
             // btnRegister
             // 
-            btnRegister.Location = new System.Drawing.Point(718, 491);
+            btnRegister.Location = new System.Drawing.Point(161, 433);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new System.Drawing.Size(129, 40);
             btnRegister.TabIndex = 6;
@@ -137,11 +144,14 @@
             // 
             // linkLblToLogin
             // 
+            linkLblToLogin.ActiveLinkColor = System.Drawing.Color.Red;
             linkLblToLogin.AutoSize = true;
-            linkLblToLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            linkLblToLogin.Location = new System.Drawing.Point(592, 609);
+            linkLblToLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 162);
+            linkLblToLogin.ForeColor = System.Drawing.Color.WhiteSmoke;
+            linkLblToLogin.LinkColor = System.Drawing.Color.Red;
+            linkLblToLogin.Location = new System.Drawing.Point(45, 551);
             linkLblToLogin.Name = "linkLblToLogin";
-            linkLblToLogin.Size = new System.Drawing.Size(380, 20);
+            linkLblToLogin.Size = new System.Drawing.Size(408, 22);
             linkLblToLogin.TabIndex = 9;
             linkLblToLogin.TabStop = true;
             linkLblToLogin.Text = "If you already have an account click here to log in.";
@@ -149,21 +159,32 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(textBoxFullName);
-            panel1.Controls.Add(linkLblToLogin);
-            panel1.Controls.Add(lblFullName);
-            panel1.Controls.Add(textBoxConfirmPassword);
-            panel1.Controls.Add(lblEmail);
-            panel1.Controls.Add(lblConfirmPassword);
-            panel1.Controls.Add(textBoxEmail);
-            panel1.Controls.Add(btnRegister);
-            panel1.Controls.Add(lblPassword);
-            panel1.Controls.Add(textBoxPassword);
+            panel1.BackgroundImage = (System.Drawing.Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.Controls.Add(panel2);
             panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             panel1.Location = new System.Drawing.Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(1482, 753);
             panel1.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            panel2.BackColor = System.Drawing.Color.Transparent;
+            panel2.Controls.Add(lblFullName);
+            panel2.Controls.Add(textBoxFullName);
+            panel2.Controls.Add(textBoxPassword);
+            panel2.Controls.Add(linkLblToLogin);
+            panel2.Controls.Add(lblPassword);
+            panel2.Controls.Add(btnRegister);
+            panel2.Controls.Add(textBoxConfirmPassword);
+            panel2.Controls.Add(textBoxEmail);
+            panel2.Controls.Add(lblEmail);
+            panel2.Controls.Add(lblConfirmPassword);
+            panel2.Location = new System.Drawing.Point(571, 71);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(463, 601);
+            panel2.TabIndex = 10;
             // 
             // errorProvider1
             // 
@@ -192,7 +213,8 @@
             Text = "Register";
             Load += Register_Load;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider2).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider3).EndInit();
@@ -217,5 +239,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.ErrorProvider errorProvider3;
         private System.Windows.Forms.ErrorProvider errorProvider4;
+        private System.Windows.Forms.Panel panel2;
     }
 }
