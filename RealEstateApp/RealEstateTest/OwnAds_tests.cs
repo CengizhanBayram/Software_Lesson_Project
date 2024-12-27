@@ -1,7 +1,8 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System.Windows.Forms;
 using RealEstateApp.Forms;
 using NUnit.Framework.Legacy;
+using RealEstateApp;
 
 namespace RealEstateTest
 {
@@ -13,14 +14,29 @@ namespace RealEstateTest
         [SetUp]
         public void Setup()
         {
+            // Varsayılan değerleri ayarla
+            GlobalSettings.UserID = 1; // Test için bir kullanıcı ID ayarla
+            GlobalSettings.ConnectionString = "server=localhost;user=root;database=emlak;password=16072001;";
+
             form = new OwnAds();
-            form.Show(); // Formu oluştur ve göster
+
+            // Formun yüklenmesini tetikle
+            form.Load += (s, e) => form.OwnAds_Load(s, e);
+
+            form.Show();
+
+            // Application.DoEvents() çağrısı, formun tam olarak yüklenmesini bekler
+            Application.DoEvents();
         }
 
         [TearDown]
         public void TearDown()
         {
-            form.Close(); // Testten sonra formu kapat
+            if (form != null)
+            {
+                form.Close();
+                form.Dispose();
+            }
         }
 
         [Test]
@@ -74,18 +90,22 @@ namespace RealEstateTest
             // Olayın gerçekten tetiklenip tetiklenmediğini kontrol et
             ClassicAssert.IsTrue(eventTriggered, "Update Ad butonu için Click olayı tetiklenmedi.");
         }
-
         [Test]
         public void DataGridView_ShouldHaveCorrectColumns()
         {
-            // DataGridView'in sütunlarını kontrol et
-            var dataGridView = form.Controls.Find("dataGridViewAds", true)[0] as DataGridView;
-            ClassicAssert.IsNotNull(dataGridView, "DataGridView bulunamadı.");
-            ClassicAssert.AreEqual(1, dataGridView.Columns.Count, "DataGridView sütun sayısı yanlış.");
-            ClassicAssert.AreEqual("Column1", dataGridView.Columns[0].Name, "DataGridView sütun ismi yanlış.");
+            var dataGridViewAds = form.Controls.Find("dataGridViewAds", true)[0] as DataGridView;
+            ClassicAssert.IsNotNull(dataGridViewAds, "DataGridView bulunamadı.");
+
+            // Beklenen sütunlar listesi
+            string[] expectedColumns = { "AdID", "Title", "Description", "Price", "Location", "SquareMeters", "RoomCount", "FloorNo", "Elevator", "Status", "CreatedAt" };
+
+            foreach (var column in expectedColumns)
+            {
+                ClassicAssert.IsTrue(dataGridViewAds.Columns.Contains(column), $"{column} sütunu eksik.");
+            }
+
+            // Sütun sayısının doğru olup olmadığını kontrol et
+            ClassicAssert.AreEqual(expectedColumns.Length, dataGridViewAds.Columns.Count, "DataGridView sütun sayısı yanlış.");
         }
-
-
-
     }
 }
