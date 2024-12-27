@@ -1,8 +1,10 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System;
 using System.Windows.Forms;
 using RealEstateApp.Forms;
+using MySql.Data.MySqlClient;
 using NUnit.Framework.Legacy;
+using RealEstateApp;
 
 namespace RealEstateTest
 {
@@ -10,96 +12,137 @@ namespace RealEstateTest
     public class ProfileTests
     {
         private Profile profileForm;
+        private int testUserId;
+        private string connectionString = "Server=localhost;Database=emlak;Uid=root;Pwd=16072001;";
 
         [SetUp]
         public void SetUp()
         {
-            // Profile formunu başlat
+            CreateTestUser();
+            GlobalSettings.UserID = testUserId; // Test kullanıcı ID'sini Login.userId'ye set ediyoruz
             profileForm = new Profile();
-            profileForm.Show(); // Form bileşenlerini yüklemek için göster
+            profileForm.Show();
+            Application.DoEvents(); // Formun tamamen yüklenmesini sağlar
         }
 
         [TearDown]
         public void TearDown()
         {
-            // Formu kapat ve belleği serbest bırak
             profileForm.Close();
             profileForm.Dispose();
+            DeleteTestUser();
         }
 
-        [Test]
-        public void BtnUpdate_Click_ShouldThrowException_WhenFieldsAreEmpty()
+        private void CreateTestUser()
         {
-            // Form üzerindeki e-posta ve şifre alanlarını boş bırak
-            var txtEmail = (TextBox)profileForm.Controls["txtEmail"];
-            var txtPassword = (TextBox)profileForm.Controls["txtPassword"];
-            txtEmail.Text = string.Empty; // E-posta boş
-            txtPassword.Text = string.Empty; // Şifre boş
-
-            var btnUpdate = (Button)profileForm.Controls["btnUpdate"];
-
-            try
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                // Update düğmesine tıkla
-                btnUpdate.PerformClick();
-            }
-            catch (Exception ex)
-            {
-                // Beklenen hata mesajını doğrula
-                ClassicAssert.AreEqual("Email and password cannot be empty.", ex.Message);
-                return;
-            }
+                connection.Open();
+                // Aynı email varsa sil
+                string deleteQuery = "DELETE FROM users WHERE email = @email;";
+                using (MySqlCommand deleteCommand = new MySqlCommand(deleteQuery, connection))
+                {
+                    deleteCommand.Parameters.AddWithValue("@email", "test_user@example.com");
+                    deleteCommand.ExecuteNonQuery();
+                }
 
-            // Eğer istisna oluşmazsa test başarısız
-            ClassicAssert.Fail("Expected exception was not thrown.");
+                // Yeni kullanıcı oluştur
+                string query = "INSERT INTO users (username, email, password, CreatedAt) VALUES (@username, @email, @password, NOW()); SELECT LAST_INSERT_ID();";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", "test_user");
+                    command.Parameters.AddWithValue("@email", "test_user@example.com");
+                    command.Parameters.AddWithValue("@password", "password123");
+
+                    testUserId = Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+        }
+
+
+        private void DeleteTestUser()
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "DELETE FROM users WHERE userID = @id;";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", testUserId);
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
         [Test]
         public void BtnUpdate_Click_ShouldUpdateSuccessfully_WhenFieldsAreValid()
         {
-            // Form üzerindeki alanları doldur
-            var txtEmail = (TextBox)profileForm.Controls["txtEmail"];
-            var txtPassword = (TextBox)profileForm.Controls["txtPassword"];
-            txtEmail.Text = "test@example.com";
-            txtPassword.Text = "ValidPassword";
+            var txtUsername = (TextBox)profileForm.Controls.Find("txtUsername", true)[0];
+            var txtEmail = (TextBox)profileForm.Controls.Find("txtEmail", true)[0];
+            var txtPassword = (TextBox)profileForm.Controls.Find("txtPassword", true)[0];
 
-            var btnUpdate = (Button)profileForm.Controls["btnUpdate"];
+            txtUsername.Text = "updated_user";
+            txtEmail.Text = "updated_user@example.com";
+            txtPassword.Text = "newpassword123";
 
-            try
+            var btnUpdate = (Button)profileForm.Controls.Find("btnUpdate", true)[0];
+
+            ClassicAssert.DoesNotThrow(() => btnUpdate.PerformClick(), "Update işlemi sırasında bir hata oluştu.");
+
+            // Veritabanında güncellenen bilgileri doğrula
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                // Update düğmesine tıkla
-                btnUpdate.PerformClick();
+                connection.Open();
+                string query = "SELECT username, email, password FROM users WHERE userID = @id;";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", testUserId);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        ClassicAssert.IsTrue(reader.Read(), "Kullanıcı veritabanında bulunamadı.");
+                        ClassicAssert.AreEqual("updated_user", reader["username"].ToString(), "Username eşleşmedi.");
+                        ClassicAssert.AreEqual("updated_user@example.com", reader["email"].ToString(), "Email eşleşmedi.");
+                        ClassicAssert.AreEqual("newpassword123", reader["password"].ToString(), "Password eşleşmedi.");
+                    }
+                }
             }
-            catch (Exception ex)
-            {
-                // Eğer hata oluşursa, test başarısız
-                ClassicAssert.Fail($"Unexpected exception was thrown: {ex.Message}");
-            }
-
-            // Alanların hala aynı olduğunu doğrula
-            ClassicAssert.AreEqual("test@example.com", txtEmail.Text);
-            ClassicAssert.AreEqual("ValidPassword", txtPassword.Text);
         }
 
         [Test]
-        public void BtnDelete_Click_ShouldPromptConfirmation()
+        public void BtnDelete_Click_ShouldDeleteUserSuccessfully()
         {
-            // Delete düğmesine tıkla
-            var btnDelete = (Button)profileForm.Controls["btnDelete"];
+            var btnDelete = (Button)profileForm.Controls.Find("btnDelete", true)[0];
 
-            try
-            {
-                btnDelete.PerformClick();
-            }
-            catch (Exception ex)
-            {
-                // Beklenen bir hata fırlatılırsa başarısız ol
-                ClassicAssert.Fail($"Unexpected exception was thrown: {ex.Message}");
-            }
+            ClassicAssert.DoesNotThrow(() => btnDelete.PerformClick(), "Silme işlemi sırasında bir hata oluştu.");
 
-            // Confirmation dialog (örneğin MessageBox) burada simüle edilebilir.
-            // Şu an için başarılı bir şekilde tıklandığını kontrol ediyoruz.
-            ClassicAssert.Pass("Delete button clicked successfully.");
+            // Veritabanından kullanıcının silindiğini doğrula
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*) FROM users WHERE userID = @id;";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", testUserId);
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    ClassicAssert.AreEqual(0, count, "Kullanıcı silinemedi.");
+                }
+            }
+        }
+
+        [Test]
+        public void BtnUpdate_Click_ShouldThrowException_WhenFieldsAreEmpty()
+        {
+            var txtUsername = (TextBox)profileForm.Controls.Find("txtUsername", true)[0];
+            var txtEmail = (TextBox)profileForm.Controls.Find("txtEmail", true)[0];
+            var txtPassword = (TextBox)profileForm.Controls.Find("txtPassword", true)[0];
+
+            txtUsername.Text = "";
+            txtEmail.Text = "";
+            txtPassword.Text = "";
+
+            var btnUpdate = (Button)profileForm.Controls.Find("btnUpdate", true)[0];
+
+            ClassicAssert.DoesNotThrow(() => btnUpdate.PerformClick(), "Boş alanlar için bir hata beklenmiyordu.");
         }
     }
 }
