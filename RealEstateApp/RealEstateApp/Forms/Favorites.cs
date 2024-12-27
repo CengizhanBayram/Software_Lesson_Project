@@ -78,8 +78,6 @@ namespace RealEstateApp.Forms
             }
         }
 
-        // Bu metodu, giriş yapan kullanıcının UserID'sini almak için implement edebilirsiniz.
-      
 
 
         private void AddAdToPanel(int adId, string title, decimal price, int squareMeters, string photoPath)
@@ -171,9 +169,9 @@ namespace RealEstateApp.Forms
 
             if (adID > 0)
             {
-                // Main formundaki ShowFormInPanel metodunu kullanarak geçiş yapıyoruz
+                GlobalSettings.PreviousForm = this;
                 Main mainForm = (Main)this.ParentForm; // Ana forma erişiyoruz
-                mainForm.ShowFormInPanel(new FavAdDetails(adID)); // AdDetails formunu panele yüklüyoruz
+                mainForm.ShowFormInPanel(new AdDetails(adID)); // AdDetails formunu panele yüklüyoruz
             }
         }
 

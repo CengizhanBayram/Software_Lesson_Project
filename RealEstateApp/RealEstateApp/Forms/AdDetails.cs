@@ -9,12 +9,12 @@ namespace RealEstateApp.Forms
     public partial class AdDetails : Form
     {
         private int adID;
-        private int userID = (int)GlobalSettings.UserID; 
-        private bool isFaved = false; 
+        private int userID = (int)GlobalSettings.UserID;
+        private bool isFaved = false;
         string connectionString = GlobalSettings.ConnectionString;
-        private string fullHeartImagePath =  GlobalSettings.ResourcePath + "fullHeart.png"; // Dolu kalp resminin yolu
+        private string fullHeartImagePath = GlobalSettings.ResourcePath + "fullHeart.png"; // Dolu kalp resminin yolu
         private string emptyHeartImagePath = GlobalSettings.ResourcePath + "emptyHeart.png"; // Boş kalp resminin yolu
-        
+
         // Yapıcı metot
         public AdDetails(int adID)
         {
@@ -50,7 +50,7 @@ namespace RealEstateApp.Forms
                             {
                                 // Verileri UI öğelerine atıyoruz
                                 labelTitle.Text = reader["Title"].ToString();
-                                labelDesription.Text = reader["Description"].ToString();
+                                textBoxDescription.Text = reader["Description"].ToString();
                                 labelDbPrice.Text = $" {reader["Price"]} TL";
                                 labelDbLocation.Text = $" {reader["Location"]}";
                                 labelDbSquareMeters.Text = $"{reader["SquareMeters"]} m²";
@@ -108,7 +108,7 @@ namespace RealEstateApp.Forms
                                 {
                                     ImageLocation = photoPath,  // Resim yolu
                                     SizeMode = PictureBoxSizeMode.StretchImage,  // Resmin doğru şekilde görünmesi için
-                                    Width = 550,  // Resmin genişliği
+                                    Width = 700,  // Resmin genişliği
                                     Height = 350, // Resmin yüksekliği
                                     Margin = new Padding(5) // Resim aralarındaki boşluk
                                 };
@@ -131,7 +131,7 @@ namespace RealEstateApp.Forms
             // Parent form üzerinden Homepage'e geçiş yap
             if (this.ParentForm is Main mainForm)
             {
-                mainForm.ShowFormInPanel(new Homepage()); // Homepage formunu göster
+                mainForm.ShowFormInPanel(GlobalSettings.PreviousForm); // Homepage formunu göster
             }
         }
 
@@ -156,15 +156,7 @@ namespace RealEstateApp.Forms
             buttonFave.BackgroundImageLayout = ImageLayout.Stretch; // Resmin butonun tamamını kaplamasını sağla
         }
         // Form üzerindeki diğer event handler'lar
-        private void labelTitle_Click(object sender, EventArgs e) { }
-        private void pictureBoxAdPhotos_Click(object sender, EventArgs e) { }
-        private void labelDesription_Click(object sender, EventArgs e) { }
-        private void labelDbPrice_Click(object sender, EventArgs e) { }
-        private void labelDbLocation_Click(object sender, EventArgs e) { }
-        private void labelDbSquareMeters_Click(object sender, EventArgs e) { }
-        private void labelDbRoomCount_Click(object sender, EventArgs e) { }
-        private void labelDbFloorNo_Click(object sender, EventArgs e) { }
-        private void labelDbElevator_Click(object sender, EventArgs e) { }
+      
 
         private void AddToFavorites()
         {
@@ -227,5 +219,7 @@ namespace RealEstateApp.Forms
                 MessageBox.Show($"An error occurred while removing from favorites: {ex.Message}");
             }
         }
+
+      
     }
 }

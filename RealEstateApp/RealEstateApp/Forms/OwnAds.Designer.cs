@@ -45,19 +45,20 @@
             // 
             dataGridViewAds.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             dataGridViewAds.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            dataGridViewAds.BackgroundColor = System.Drawing.Color.FromArgb(0, 41, 85);
             dataGridViewAds.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewAds.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1 });
-            dataGridViewAds.Location = new System.Drawing.Point(105, 31);
+            dataGridViewAds.Location = new System.Drawing.Point(155, 31);
             dataGridViewAds.Name = "dataGridViewAds";
-            dataGridViewAds.RowHeadersWidth = 40;
-            dataGridViewAds.Size = new System.Drawing.Size(1232, 498);
+            dataGridViewAds.RowHeadersWidth = 60;
+            dataGridViewAds.Size = new System.Drawing.Size(1163, 498);
             dataGridViewAds.TabIndex = 1;
             // 
             // Column1
             // 
             Column1.FillWeight = 500F;
             Column1.HeaderText = "Column1";
-            Column1.MinimumWidth = 50;
+            Column1.MinimumWidth = 55;
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
             Column1.Width = 1190;
@@ -66,7 +67,7 @@
             // 
             button1.BackColor = System.Drawing.Color.White;
             button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            button1.Location = new System.Drawing.Point(1168, 563);
+            button1.Location = new System.Drawing.Point(1181, 563);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(169, 45);
             button1.TabIndex = 2;
@@ -79,7 +80,7 @@
             button2.BackColor = System.Drawing.Color.White;
             button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
             button2.ForeColor = System.Drawing.Color.Red;
-            button2.Location = new System.Drawing.Point(981, 563);
+            button2.Location = new System.Drawing.Point(964, 563);
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(155, 45);
             button2.TabIndex = 3;
@@ -99,6 +100,7 @@
             // navbar1
             // 
             navbar1.BackColor = System.Drawing.Color.Silver;
+            navbar1.BackgroundImage = (System.Drawing.Image)resources.GetObject("navbar1.BackgroundImage");
             navbar1.Dock = System.Windows.Forms.DockStyle.Fill;
             navbar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
             navbar1.Location = new System.Drawing.Point(0, 0);
@@ -109,7 +111,7 @@
             // 
             // panel2
             // 
-            panel2.BackgroundImage = (System.Drawing.Image)resources.GetObject("panel2.BackgroundImage");
+            panel2.BackColor = System.Drawing.Color.FromArgb(0, 41, 85);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(button1);
             panel2.Controls.Add(dataGridViewAds);
@@ -140,9 +142,9 @@
         private System.Windows.Forms.DataGridView dataGridViewAds;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridViewImageColumn Column1;
         private System.Windows.Forms.Panel panel1;
         private navbar navbar1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridViewImageColumn Column1;
     }
 }

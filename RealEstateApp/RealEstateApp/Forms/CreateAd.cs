@@ -127,7 +127,7 @@ namespace RealEstateApp.Forms
             {
                 
                 string title = textBoxTitle.Text;
-                string description = textBoxTitle.Text;
+                string description = richTextBoxDescription.Text;
                 int price = Convert.ToInt32(maskedTextBoxPrice.Text);
                 int? squareMeters = null;
                 string? location = null;

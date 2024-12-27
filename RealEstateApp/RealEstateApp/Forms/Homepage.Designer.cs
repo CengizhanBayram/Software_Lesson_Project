@@ -41,7 +41,7 @@
             labelFloorNumber = new System.Windows.Forms.Label();
             comboBoxRoom = new System.Windows.Forms.ComboBox();
             labelRoomNumber = new System.Windows.Forms.Label();
-            textBoxSquareMeter = new System.Windows.Forms.TextBox();
+            textBoxSquareMeterMin = new System.Windows.Forms.TextBox();
             labelSquareMeterFilter = new System.Windows.Forms.Label();
             comboBoxLocationFilter = new System.Windows.Forms.ComboBox();
             textBoxPriceMax = new System.Windows.Forms.TextBox();
@@ -50,6 +50,7 @@
             labelLocationFilter = new System.Windows.Forms.Label();
             buttonSearchTitle = new System.Windows.Forms.Button();
             textBoxSearchTitle = new System.Windows.Forms.TextBox();
+            textBoxSquareMeterMax = new System.Windows.Forms.TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -104,6 +105,7 @@
             // panel3
             // 
             panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            panel3.Controls.Add(textBoxSquareMeterMax);
             panel3.Controls.Add(buttonSearchFilter);
             panel3.Controls.Add(comboBoxElevator);
             panel3.Controls.Add(label1);
@@ -111,7 +113,7 @@
             panel3.Controls.Add(labelFloorNumber);
             panel3.Controls.Add(comboBoxRoom);
             panel3.Controls.Add(labelRoomNumber);
-            panel3.Controls.Add(textBoxSquareMeter);
+            panel3.Controls.Add(textBoxSquareMeterMin);
             panel3.Controls.Add(labelSquareMeterFilter);
             panel3.Controls.Add(comboBoxLocationFilter);
             panel3.Controls.Add(textBoxPriceMax);
@@ -131,6 +133,7 @@
             buttonSearchFilter.TabIndex = 14;
             buttonSearchFilter.Text = "Search";
             buttonSearchFilter.UseVisualStyleBackColor = true;
+            buttonSearchFilter.Click += buttonSearchFilter_Click;
             // 
             // comboBoxElevator
             // 
@@ -201,14 +204,14 @@
             labelRoomNumber.TabIndex = 8;
             labelRoomNumber.Text = "Room Number";
             // 
-            // textBoxSquareMeter
+            // textBoxSquareMeterMin
             // 
-            textBoxSquareMeter.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            textBoxSquareMeter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
-            textBoxSquareMeter.Location = new System.Drawing.Point(12, 127);
-            textBoxSquareMeter.Name = "textBoxSquareMeter";
-            textBoxSquareMeter.Size = new System.Drawing.Size(206, 28);
-            textBoxSquareMeter.TabIndex = 7;
+            textBoxSquareMeterMin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            textBoxSquareMeterMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
+            textBoxSquareMeterMin.Location = new System.Drawing.Point(12, 127);
+            textBoxSquareMeterMin.Name = "textBoxSquareMeterMin";
+            textBoxSquareMeterMin.Size = new System.Drawing.Size(97, 28);
+            textBoxSquareMeterMin.TabIndex = 7;
             // 
             // labelSquareMeterFilter
             // 
@@ -287,6 +290,7 @@
             buttonSearchTitle.Size = new System.Drawing.Size(38, 32);
             buttonSearchTitle.TabIndex = 4;
             buttonSearchTitle.UseVisualStyleBackColor = false;
+            buttonSearchTitle.Click += buttonSearchTitle_Click;
             // 
             // textBoxSearchTitle
             // 
@@ -296,6 +300,15 @@
             textBoxSearchTitle.Name = "textBoxSearchTitle";
             textBoxSearchTitle.Size = new System.Drawing.Size(453, 36);
             textBoxSearchTitle.TabIndex = 3;
+            // 
+            // textBoxSquareMeterMax
+            // 
+            textBoxSquareMeterMax.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            textBoxSquareMeterMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
+            textBoxSquareMeterMax.Location = new System.Drawing.Point(121, 127);
+            textBoxSquareMeterMax.Name = "textBoxSquareMeterMax";
+            textBoxSquareMeterMax.Size = new System.Drawing.Size(97, 28);
+            textBoxSquareMeterMax.TabIndex = 15;
             // 
             // Homepage
             // 
@@ -332,7 +345,7 @@
         private System.Windows.Forms.TextBox textBoxPriceMax;
         private System.Windows.Forms.ComboBox comboBoxLocationFilter;
         private System.Windows.Forms.Label labelSquareMeterFilter;
-        private System.Windows.Forms.TextBox textBoxSquareMeter;
+        private System.Windows.Forms.TextBox textBoxSquareMeterMin;
         private System.Windows.Forms.ComboBox comboBoxRoom;
         private System.Windows.Forms.Label labelRoomNumber;
         private System.Windows.Forms.ComboBox comboBoxFloor;
@@ -340,5 +353,6 @@
         private System.Windows.Forms.ComboBox comboBoxElevator;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSearchFilter;
+        private System.Windows.Forms.TextBox textBoxSquareMeterMax;
     }
 }
