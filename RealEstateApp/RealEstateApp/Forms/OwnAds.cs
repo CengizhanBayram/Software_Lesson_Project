@@ -23,7 +23,7 @@ namespace RealEstateApp.Forms
         private string connectionString = GlobalSettings.ConnectionString;
         int userId = (int)GlobalSettings.UserID;
 
-        private void OwnAds_Load(object sender, EventArgs e)
+        public void OwnAds_Load(object sender, EventArgs e)
         {
             try
             {
