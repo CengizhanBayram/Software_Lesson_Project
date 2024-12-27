@@ -13,8 +13,7 @@ namespace RealEstateTest
     {
         private Profile profileForm;
         private int testUserId;
-        private string connectionString = "Server=localhost;Database=emlak;Uid=root;Pwd=16072001;";
-
+        
         [SetUp]
         public void SetUp()
         {
@@ -35,7 +34,7 @@ namespace RealEstateTest
 
         private void CreateTestUser()
         {
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(GlobalSettings.ConnectionString))
             {
                 connection.Open();
                 // Aynı email varsa sil
@@ -62,7 +61,7 @@ namespace RealEstateTest
 
         private void DeleteTestUser()
         {
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(GlobalSettings.ConnectionString))
             {
                 connection.Open();
                 string query = "DELETE FROM users WHERE userID = @id;";
@@ -90,7 +89,7 @@ namespace RealEstateTest
             ClassicAssert.DoesNotThrow(() => btnUpdate.PerformClick(), "Update işlemi sırasında bir hata oluştu.");
 
             // Veritabanında güncellenen bilgileri doğrula
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(GlobalSettings.ConnectionString))
             {
                 connection.Open();
                 string query = "SELECT username, email, password FROM users WHERE userID = @id;";
@@ -116,7 +115,7 @@ namespace RealEstateTest
             ClassicAssert.DoesNotThrow(() => btnDelete.PerformClick(), "Silme işlemi sırasında bir hata oluştu.");
 
             // Veritabanından kullanıcının silindiğini doğrula
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(GlobalSettings.ConnectionString))
             {
                 connection.Open();
                 string query = "SELECT COUNT(*) FROM users WHERE userID = @id;";
