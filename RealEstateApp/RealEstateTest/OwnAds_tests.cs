@@ -16,7 +16,7 @@ namespace RealEstateTest
         {
             // Varsayılan değerleri ayarla
             GlobalSettings.UserID = 1; // Test için bir kullanıcı ID ayarla
-            GlobalSettings.ConnectionString = "server=localhost;user=root;database=emlak;password=16072001;";
+            GlobalSettings.ConnectionString = "Server=localhost;Database=swe_real_estate;Uid=root;Pwd=123456;";
 
             form = new OwnAds();
 
