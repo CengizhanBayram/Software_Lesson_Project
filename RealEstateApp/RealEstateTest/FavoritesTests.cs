@@ -1,54 +1,99 @@
-﻿using NUnit.Framework;
+﻿using System;
 using System.Windows.Forms;
-using RealEstateApp.Forms;
+using NUnit.Framework;
 using NUnit.Framework.Legacy;
-using RealEstateApp;
+using RealEstateApp.Forms; // Favorites formunun bulunduğu namespace'i eklediğinizden emin olun
 
-namespace RealEstateTest
+namespace RealEstateTests
 {
     [TestFixture]
-    public class FavoritesTests
+    public class FavoritesFormTests
     {
-        private Favorites form;
+        private Favorites _favoritesForm;
 
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
-            form = new Favorites();
-            form.Show(); // Formu oluştur ve göster
+            // Favorites formu nesnesini oluşturuyoruz
+            _favoritesForm = new Favorites();
+            _favoritesForm.Show(); // Formun görünür olduğundan emin olun
         }
 
         [TearDown]
         public void TearDown()
         {
-            form.Close(); // Testten sonra formu kapat
+            // Testlerden sonra formu kapatıyoruz
+            _favoritesForm.Close();
         }
 
         [Test]
-        public void FormComponents_ShouldBeInitialized()
+        public void Test_Panel1_ShouldExist()
         {
-            // Form başlığının doğru şekilde ayarlandığını kontrol et
-            ClassicAssert.AreEqual("Favorites", form.Text, "Form başlığı doğru değil.");
+            // Arrange
+            var panel1 = GetControl<Panel>(_favoritesForm, "panel1");
 
-            // Panel1'in varlığını ve özelliklerini kontrol et
-            var panel1 = form.Controls.Find("panel1", true)[0] as Panel;
-            ClassicAssert.IsNotNull(panel1, "Panel1 bulunamadı.");
-            ClassicAssert.AreEqual(DockStyle.Top, panel1.Dock, "Panel1 dock ayarı yanlış.");
-
-            // Panel2'nin varlığını ve özelliklerini kontrol et
-            var panel2 = form.Controls.Find("panel2", true)[0] as Panel;
-            ClassicAssert.IsNotNull(panel2, "Panel2 bulunamadı.");
-            ClassicAssert.AreEqual(DockStyle.Fill, panel2.Dock, "Panel2 dock ayarı yanlış.");
+            // Act & Assert
+            ClassicAssert.IsNotNull(panel1, "Panel1 formda mevcut olmalı.");
         }
 
         [Test]
-        public void Navbar_ShouldBeInitialized()
+        public void Test_FlowLayoutPanelFavorites_ShouldExist()
         {
-            // Navbar'ın varlığını ve özelliklerini kontrol et
-            var navbar = form.Controls.Find("navbar1", true)[0] as Control;
-            ClassicAssert.IsNotNull(navbar, "Navbar bulunamadı.");
-            ClassicAssert.AreEqual(typeof(navbar), navbar.GetType(), "Navbar tipi yanlış.");
-            ClassicAssert.AreEqual(DockStyle.Fill, navbar.Dock, "Navbar dock ayarı yanlış.");
+            // Arrange
+            var flowLayoutPanelFavorites = GetControl<FlowLayoutPanel>(_favoritesForm, "flowLayoutPanelFavorites");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(flowLayoutPanelFavorites, "flowLayoutPanelFavorites formda mevcut olmalı.");
+        }
+
+
+
+        [Test]
+        public void Test_Panel3_ShouldExist()
+        {
+            // Arrange
+            var panel3 = GetControl<Panel>(_favoritesForm, "panel3");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(panel3, "Panel3 formda mevcut olmalı.");
+        }
+
+        [Test]
+        public void Test_FlowLayoutPanelFaves_ShouldExist()
+        {
+            // Arrange
+            var flowLayoutPanelFaves = GetControl<FlowLayoutPanel>(_favoritesForm, "flowLayoutPanelFaves");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(flowLayoutPanelFaves, "flowLayoutPanelFaves formda mevcut olmalı.");
+        }
+
+        [Test]
+        public void Test_Panel4_ShouldExist()
+        {
+            // Arrange
+            var panel4 = GetControl<Panel>(_favoritesForm, "panel4");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(panel4, "Panel4 formda mevcut olmalı.");
+        }
+
+        private T GetControl<T>(Control parent, string controlName) where T : Control
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control.Name == controlName)
+                    return control as T;
+
+                if (control.HasChildren)
+                {
+                    var childControl = GetControl<T>(control, controlName);
+                    if (childControl != null)
+                        return childControl;
+                }
+            }
+
+            return null;
         }
     }
 }

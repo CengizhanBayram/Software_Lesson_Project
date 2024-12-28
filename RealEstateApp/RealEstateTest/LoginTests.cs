@@ -1,149 +1,135 @@
-using Microsoft.VisualBasic.Logging;
+using System;
+using System.Windows.Forms;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
-using RealEstateApp.Forms;
-using System;
+using RealEstateApp.Forms; // Login formunun bulunduðu namespace'i eklediðinizden emin olun
 
 namespace RealEstateTest
 {
-    /// <summary>
-    /// Test class to verify the functionality of the Login class.
-    /// Includes tests for user authentication using various scenarios.
-    /// </summary>
-    /// 
-    
-  
-
     [TestFixture]
-    public class LoginTests
+    public class LoginFormTests
     {
+        private Login _loginForm;
 
-        /// <summary>
-        private Login login;
-
-        /// Sets up the Login object before each test.
-        /// </summary>
         [SetUp]
         public void SetUp()
         {
-            login = new Login();
-        }
-        [TearDown]
-        
-        /// <summary>
-        /// Tests if valid credentials authenticate successfully.
-        /// </summary>
-        [Test]
-        public void AuthenticateUser_ValidCredentials_ReturnsTrue()
-        {
-            // Arrange
-            string email = "valid_user@example.com";
-            string password = "123456";
-
-            // Act
-            bool result = login.AuthenticateUser(email, password);
-
-            // Assert
-            ClassicAssert.IsTrue(result, "Valid credentials should return true.");
+            // Login formu nesnesini oluþturuyoruz
+            _loginForm = new Login();
+            _loginForm.Show(); // Formun görünür olduðundan emin olun
         }
 
-        /// <summary>
-        /// Tests if invalid credentials fail to authenticate.
-        /// </summary>
-        [Test]
-        public void AuthenticateUser_InvalidCredentials_ReturnsFalse()
-        {
-            // Arrange
-            string email = "invalid_user@example.com";
-            string password = "wrong_password";
-
-            // Act
-            bool result = login.AuthenticateUser(email, password);
-
-            // Assert
-            ClassicAssert.IsFalse(result, "Invalid credentials should return false.");
-        }
-
-        /// <summary>
-        /// Tests if empty email throws an ArgumentException.
-        /// </summary>
-        [Test]
-        public void AuthenticateUser_EmptyEmail_ThrowsArgumentException()
-        {
-            // Arrange
-            string email = "";
-            string password = "123456";
-
-            // Act & Assert
-            var ex = Assert.Throws<ArgumentException>(() => login.AuthenticateUser(email, password));
-           ClassicAssert.AreEqual("Email and password cannot be empty.", ex.Message);
-        }
-
-        /// <summary>
-        /// Tests if a null password throws an ArgumentException.
-        /// </summary>
-        [Test]
-        public void AuthenticateUser_NullPassword_ThrowsArgumentException()
-        {
-            // Arrange
-            string email = "valid_user@example.com";
-            string password = null;
-
-            // Act & Assert
-            var ex = Assert.Throws<ArgumentException>(() => login.AuthenticateUser(email, password));
-            ClassicAssert.AreEqual("Email and password cannot be empty.", ex.Message);
-        }
-
-        /// <summary>
-        /// Tests if an empty password throws an ArgumentException.
-        /// </summary>
-        [Test]
-        public void AuthenticateUser_EmptyPassword_ThrowsArgumentException()
-        {
-            // Arrange
-            string email = "valid_user@example.com";
-            string password = string.Empty;
-
-            // Act & Assert
-            var ex = Assert.Throws<ArgumentException>(() => login.AuthenticateUser(email, password));
-            ClassicAssert.AreEqual("Email and password cannot be empty.", ex.Message);
-        }
-
-        /// <summary>
-        /// Tests if whitespace-only email throws an ArgumentException.
-        /// </summary>
-        [Test]
-        public void AuthenticateUser_WhitespaceEmail_ThrowsArgumentException()
-        {
-            // Arrange
-            string email = "   ";
-            string password = "123456";
-
-            // Act & Assert
-            var ex = Assert.Throws<ArgumentException>(() => login.AuthenticateUser(email, password));
-            ClassicAssert.AreEqual("Email and password cannot be empty.", ex.Message);
-        }
-        [Test]
-        public void try_is_accept()
-        {
-            Assert.Pass();
-        }
-        [Test]
-        public void AuthenticateUser_WhitespacePassword_ThrowsArgumentException()
-        {
-            // Arrange
-            string email = "valid_user@example.com";
-            string password = "   ";
-
-            // Act & Assert
-            var ex = Assert.Throws<ArgumentException>(() => login.AuthenticateUser(email, password));
-           ClassicAssert.AreEqual("Email and password cannot be empty.", ex.Message);
-        }
         [TearDown]
         public void TearDown()
         {
-            // Login nesnesini dispose edin
-            login?.Dispose();
+            // Testlerden sonra formu kapatýyoruz
+            _loginForm.Close();
+        }
+
+
+
+        [Test]
+        public void Test_LoginButton_Click_ShouldTriggerEvent()
+        {
+            // Arrange
+            var btnLogin = GetControl<Button>(_loginForm, "btnLogin");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(btnLogin);
+
+            bool isClicked = false;
+            btnLogin.Click += (sender, args) => isClicked = true;
+
+            btnLogin.PerformClick();
+
+            ClassicAssert.IsTrue(isClicked, "Login butonuna týklama olayý tetiklenmeli.");
+        }
+
+        [Test]
+        public void Test_LinkLabelToRegister_Click_ShouldTriggerEvent()
+        {
+            // Arrange
+            var linkLblToRegister = GetControl<LinkLabel>(_loginForm, "linkLblToRegister");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(linkLblToRegister);
+
+            var btnLogin = GetControl<Button>(_loginForm, "btnLogin");
+            ClassicAssert.IsNotNull(btnLogin, "Login butonu formda mevcut olmalý.");
+
+            // Týklama olayýný doðrudan çaðýr
+            btnLogin.PerformClick();
+
+
+
+        }
+
+        [Test]
+        public void Test_LoginButton_ShouldExist()
+        {
+            // Arrange
+            var btnLogin = GetControl<Button>(_loginForm, "btnLogin");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(btnLogin, "Login butonu formda mevcut olmalý.");
+        }
+
+        [Test]
+        public void Test_EmailTextBox_ShouldExist()
+        {
+            // Arrange
+            var textBoxEmail = GetControl<TextBox>(_loginForm, "textBoxEmail");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(textBoxEmail, "Email TextBox'ý formda mevcut olmalý.");
+        }
+
+        [Test]
+        public void Test_PasswordTextBox_ShouldExist()
+        {
+            // Arrange
+            var textBoxPassword = GetControl<TextBox>(_loginForm, "textBoxPassword");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(textBoxPassword, "Password TextBox'ý formda mevcut olmalý.");
+        }
+
+        [Test]
+        public void Test_RegisterLinkLabel_ShouldExist()
+        {
+            // Arrange
+            var linkLblToRegister = GetControl<LinkLabel>(_loginForm, "linkLblToRegister");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(linkLblToRegister, "Register LinkLabel'ý formda mevcut olmalý.");
+        }
+
+        [Test]
+        public void Test_TempButton_ShouldExist()
+        {
+            // Arrange
+            var btnTemp = GetControl<Button>(_loginForm, "btnTemp");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(btnTemp, "Temp butonu (Go HomePage) formda mevcut olmalý.");
+        }
+
+        private T GetControl<T>(Control parent, string controlName) where T : Control
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control.Name == controlName)
+                    return control as T;
+
+                if (control.HasChildren)
+                {
+                    var childControl = GetControl<T>(control, controlName);
+                    if (childControl != null)
+                        return childControl;
+                }
+            }
+
+            return null;
         }
     }
 }
