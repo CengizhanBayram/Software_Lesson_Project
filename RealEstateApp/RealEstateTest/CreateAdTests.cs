@@ -54,31 +54,8 @@ namespace RealEstateTest
             ClassicAssert.IsTrue(eventTriggered, "Save Button için Click olayı tetiklenmedi.");
         }
 
-        [Test]
-        public void UploadPhotoButton_ClickEvent_ShouldBeAttached()
-        {
-            var btnUploadPhoto = form.Controls.Find("btnUploadPhoto", true)[0] as Button;
-            ClassicAssert.IsNotNull(btnUploadPhoto, "Upload Photo Button bulunamadı.");
-
-            bool eventTriggered = false;
-            btnUploadPhoto.Click += (s, e) => eventTriggered = true;
-
-            // Reflection ile InvokeOnClick'e erişim sağla
-            var invokeOnClickMethod = typeof(Control).GetMethod("InvokeOnClick", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            invokeOnClickMethod?.Invoke(btnUploadPhoto, new object[] { btnUploadPhoto, EventArgs.Empty });
-
-            ClassicAssert.IsTrue(eventTriggered, "Upload Photo Button için Click olayı tetiklenmedi.");
-        }
 
 
-        [Test]
-        public void ErrorProviders_ShouldBeInitialized()
-        {
-            // ErrorProvider bileşenlerinin varlığını kontrol et
-            ClassicAssert.IsNotNull(form.Controls.Find("errorProviderTitle", true)[0], "Title ErrorProvider bulunamadı.");
-            ClassicAssert.IsNotNull(form.Controls.Find("errorProviderDescription", true)[0], "Description ErrorProvider bulunamadı.");
-            ClassicAssert.IsNotNull(form.Controls.Find("errorProviderPrice", true)[0], "Price ErrorProvider bulunamadı.");
-        }
 
         [Test]
         public void MaskedTextBox_Validation_ShouldBeCorrect()

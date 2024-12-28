@@ -13,7 +13,7 @@ namespace RealEstateTest
     {
         private Profile profileForm;
         private int testUserId;
-        
+
         [SetUp]
         public void SetUp()
         {

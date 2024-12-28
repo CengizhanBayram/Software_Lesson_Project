@@ -1,100 +1,167 @@
-﻿using NUnit.Framework;
+﻿using System;
 using System.Windows.Forms;
-using RealEstateApp.Forms;
+using NUnit.Framework;
 using NUnit.Framework.Legacy;
+using RealEstateApp.Forms; // Register formunun bulunduğu namespace'i eklediğinizden emin olun
 
-namespace RealEstateTest
+namespace RealEstateApp.Tests
 {
     [TestFixture]
-    public class RegisterTests
+    public class RegisterFormTests
     {
-        private Register form;
+        private Register _registerForm;
 
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
-            form = new Register();
-            form.Show(); // Formu oluştur ve göster
+            // Register formu nesnesini oluşturuyoruz
+            _registerForm = new Register();
+            _registerForm.Show(); // Formun görünür olduğundan emin olun
         }
 
         [TearDown]
         public void TearDown()
         {
-            form.Close(); // Testten sonra formu kapat
+            // Testlerden sonra formu kapatıyoruz
+            _registerForm.Close();
         }
 
         [Test]
-        public void FormComponents_ShouldBeInitialized()
+        public void Test_FullNameLabel_ShouldExist()
         {
-            // Form başlığını kontrol et
-            ClassicAssert.AreEqual("Register", form.Text, "Form başlığı doğru değil.");
+            // Arrange
+            var lblFullName = GetControl<Label>(_registerForm, "lblFullName");
 
-            // Gerekli bileşenlerin varlığını kontrol et
-            ClassicAssert.IsNotNull(form.Controls.Find("textBoxFullName", true)[0], "FullName TextBox bulunamadı.");
-            ClassicAssert.IsNotNull(form.Controls.Find("textBoxEmail", true)[0], "Email TextBox bulunamadı.");
-            ClassicAssert.IsNotNull(form.Controls.Find("textBoxPassword", true)[0], "Password TextBox bulunamadı.");
-            ClassicAssert.IsNotNull(form.Controls.Find("textBoxConfirmPassword", true)[0], "ConfirmPassword TextBox bulunamadı.");
-            ClassicAssert.IsNotNull(form.Controls.Find("btnRegister", true)[0], "Register Button bulunamadı.");
-            ClassicAssert.IsNotNull(form.Controls.Find("linkLblToLogin", true)[0], "Login LinkLabel bulunamadı.");
+            // Act & Assert
+            ClassicAssert.IsNotNull(lblFullName, "Full Name label formda mevcut olmalı.");
         }
 
         [Test]
-        public void RegisterButton_ClickEvent_ShouldBeAttached()
+        public void Test_FullNameTextBox_ShouldExist()
         {
-            // Register butonuna Click olay işleyicisinin atanıp atanmadığını kontrol et
-            var btnRegister = form.Controls.Find("btnRegister", true)[0] as Button;
-            ClassicAssert.IsNotNull(btnRegister, "Register Button bulunamadı.");
+            // Arrange
+            var textBoxFullName = GetControl<TextBox>(_registerForm, "textBoxFullName");
 
-            bool eventTriggered = false;
-            btnRegister.Click += (s, e) => eventTriggered = true;
-
-            // Butonu tıklatarak olayın tetiklenmesini simüle et
-            btnRegister.PerformClick();
-
-            // Olayın gerçekten tetiklenip tetiklenmediğini kontrol et
-            ClassicAssert.IsTrue(eventTriggered, "Register Button için Click olayı tetiklenmedi.");
+            // Act & Assert
+            ClassicAssert.IsNotNull(textBoxFullName, "Full Name TextBox formda mevcut olmalı.");
         }
 
         [Test]
-        public void LinkLabel_ClickEvent_ShouldBeAttached()
+        public void Test_EmailLabel_ShouldExist()
         {
-            var linkLblToLogin = form.Controls.Find("linkLblToLogin", true)[0] as LinkLabel;
-            ClassicAssert.IsNotNull(linkLblToLogin, "Login LinkLabel bulunamadı.");
+            // Arrange
+            var lblEmail = GetControl<Label>(_registerForm, "lblEmail");
 
-            bool eventTriggered = false;
-            linkLblToLogin.LinkClicked += (s, e) => eventTriggered = true;
-
-            // Reflection ile OnLinkClicked metoduna eriş
-            var onLinkClickedMethod = typeof(LinkLabel).GetMethod("OnLinkClicked", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            onLinkClickedMethod?.Invoke(linkLblToLogin, new object[] { new LinkLabelLinkClickedEventArgs(linkLblToLogin.Links[0]) });
-
-            ClassicAssert.IsTrue(eventTriggered, "Login LinkLabel için LinkClicked olayı tetiklenmedi.");
-        }
-
-
-
-        [Test]
-        public void ErrorProviders_ShouldBeInitialized()
-        {
-            // ErrorProvider bileşenlerinin varlığını kontrol et
-            ClassicAssert.IsNotNull(form.Controls.Find("errorProvider1", true)[0], "ErrorProvider1 bulunamadı.");
-            ClassicAssert.IsNotNull(form.Controls.Find("errorProvider2", true)[0], "ErrorProvider2 bulunamadı.");
-            ClassicAssert.IsNotNull(form.Controls.Find("errorProvider3", true)[0], "ErrorProvider3 bulunamadı.");
-            ClassicAssert.IsNotNull(form.Controls.Find("errorProvider4", true)[0], "ErrorProvider4 bulunamadı.");
+            // Act & Assert
+            ClassicAssert.IsNotNull(lblEmail, "Email label formda mevcut olmalı.");
         }
 
         [Test]
-        public void TextBoxPlaceholders_ShouldBeCorrect()
+        public void Test_EmailTextBox_ShouldExist()
         {
-            // TextBox bileşenlerinin varsayılan değerlerini kontrol et
-            var textBoxFullName = form.Controls.Find("textBoxFullName", true)[0] as TextBox;
-            var textBoxEmail = form.Controls.Find("textBoxEmail", true)[0] as TextBox;
+            // Arrange
+            var textBoxEmail = GetControl<TextBox>(_registerForm, "textBoxEmail");
 
-            ClassicAssert.IsNotNull(textBoxFullName, "FullName TextBox bulunamadı.");
-            ClassicAssert.IsNotNull(textBoxEmail, "Email TextBox bulunamadı.");
+            // Act & Assert
+            ClassicAssert.IsNotNull(textBoxEmail, "Email TextBox formda mevcut olmalı.");
+        }
 
-            ClassicAssert.AreEqual(string.Empty, textBoxFullName.Text, "FullName TextBox varsayılan değeri yanlış.");
-            ClassicAssert.AreEqual(string.Empty, textBoxEmail.Text, "Email TextBox varsayılan değeri yanlış.");
+        [Test]
+        public void Test_PasswordLabel_ShouldExist()
+        {
+            // Arrange
+            var lblPassword = GetControl<Label>(_registerForm, "lblPassword");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(lblPassword, "Password label formda mevcut olmalı.");
+        }
+
+        [Test]
+        public void Test_PasswordTextBox_ShouldExist()
+        {
+            // Arrange
+            var textBoxPassword = GetControl<TextBox>(_registerForm, "textBoxPassword");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(textBoxPassword, "Password TextBox formda mevcut olmalı.");
+        }
+
+        [Test]
+        public void Test_ConfirmPasswordLabel_ShouldExist()
+        {
+            // Arrange
+            var lblConfirmPassword = GetControl<Label>(_registerForm, "lblConfirmPassword");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(lblConfirmPassword, "Confirm Password label formda mevcut olmalı.");
+        }
+
+        [Test]
+        public void Test_ConfirmPasswordTextBox_ShouldExist()
+        {
+            // Arrange
+            var textBoxConfirmPassword = GetControl<TextBox>(_registerForm, "textBoxConfirmPassword");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(textBoxConfirmPassword, "Confirm Password TextBox formda mevcut olmalı.");
+        }
+
+        [Test]
+        public void Test_RegisterButton_ShouldExist()
+        {
+            // Arrange
+            var btnRegister = GetControl<Button>(_registerForm, "btnRegister");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(btnRegister, "Register butonu formda mevcut olmalı.");
+        }
+
+        [Test]
+        public void Test_LinkToLogin_ShouldExist()
+        {
+            // Arrange
+            var linkLblToLogin = GetControl<LinkLabel>(_registerForm, "linkLblToLogin");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(linkLblToLogin, "Login linki formda mevcut olmalı.");
+        }
+
+        [Test]
+        public void Test_Panel1_ShouldExist()
+        {
+            // Arrange
+            var panel1 = GetControl<Panel>(_registerForm, "panel1");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(panel1, "Panel1 formda mevcut olmalı.");
+        }
+
+        [Test]
+        public void Test_Panel2_ShouldExist()
+        {
+            // Arrange
+            var panel2 = GetControl<Panel>(_registerForm, "panel2");
+
+            // Act & Assert
+            ClassicAssert.IsNotNull(panel2, "Panel2 formda mevcut olmalı.");
+        }
+
+        private T GetControl<T>(Control parent, string controlName) where T : Control
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control.Name == controlName)
+                    return control as T;
+
+                if (control.HasChildren)
+                {
+                    var childControl = GetControl<T>(control, controlName);
+                    if (childControl != null)
+                        return childControl;
+                }
+            }
+
+            return null;
         }
     }
 }

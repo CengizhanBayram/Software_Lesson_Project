@@ -274,12 +274,8 @@ namespace RealEstateApp.Forms
                 int adID = reader.GetInt32("AdID");
                 string title = reader.GetString("Title");
                 int price = reader.GetInt32("Price");
-                int squareMeters = reader.IsDBNull(reader.GetOrdinal("SquareMeters"))
-                                   ? 0
-                                   : reader.GetInt32("SquareMeters");
-                string photoPath = reader.IsDBNull(reader.GetOrdinal("PhotoPath"))
-                                   ? null
-                                   : reader.GetString("PhotoPath");
+                int squareMeters = reader.IsDBNull(reader.GetOrdinal("SquareMeters")) ? 0 : reader.GetInt32("SquareMeters");
+                string photoPath = reader.IsDBNull(reader.GetOrdinal("PhotoPath")) ? null : reader.GetString("PhotoPath");
 
                 Panel adPanel = new Panel
                 {
